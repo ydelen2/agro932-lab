@@ -71,3 +71,10 @@ sim1 <- wright_fisher(N=50, t=100, A1=20)
 plot(sim1[1:100], type="o", pch=19, xlab="Generations", ylab="A1 allele count")
 
 ```
+
+
+```{r}
+set.seed(123456)
+sim1 <- wright_fisher(N=50000, t=100, A1=20000)
+plot(sim1[1:100], type="o", pch=19, xlab="Generations", ylab="A1 allele count")
+```
