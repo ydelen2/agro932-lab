@@ -63,11 +63,11 @@ wright_fisher <- function(N=1000, t=100, A1=100){
 ---
 
 ```{r}
-set.seed(12345)
-sim1 <- wright_fisher(N=50, t=100, A1=20)
+set.seed(12345879)
+sim1 <- wright_fisher(N=50, t=10000, A1=20)
 plot(sim1[1:100], type="o", pch=19, xlab="Generations", ylab="A1 allele count")
 
-sim1 <- wright_fisher(N=50, t=100, A1=20)
+sim1 <- wright_fisher(N=50, t=1000, A1=20)
 plot(sim1[1:100], type="o", pch=19, xlab="Generations", ylab="A1 allele count")
 
 ```
