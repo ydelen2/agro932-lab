@@ -2,7 +2,8 @@
 title: "Simulation for genetic drift"
 author: "Jinliang Yang"
 date: "01-20-2020"
-output: html_notebook
+output:
+  html_notebook: default
 ---
 
 # Wright-Fisher simulation
@@ -86,7 +87,7 @@ plot(sim1[1:100], type="o", pch=19, xlab="Generations", ylab="A1 allele count")
 
 To make your life a little easier, you can add the following to `~/.ssh/config`:
 
-```{bash}
+```{bash, eval=FALSE}
 Host crane
     HostName crane.unl.edu
     User username
@@ -96,7 +97,7 @@ Host crane
 
 [Slurm](https://slurm.schedmd.com/overview.html) is job managing system: you submit jobs via batch scripts. These batch scripts have common headers; we will see one below.
 
-```{bash}
+```{bash, eval=FALSE}
 sinfo # view information about Slurm nodes and partitions.
 sinfo --help
 ```
@@ -105,7 +106,7 @@ Here we see our `PARTITION` and `TIME LIMIT`, and all of their inferior but stil
 
 Note that there is a column of `STATE`, which indicates the state of the machine. A better way of looking at what’s going on on each machine is with `squeue`, which is the job queue.
 
-```{bash}
+```{bash, eval=FALSE}
 squeue --help
 # view information about jobs located in the Slurm scheduling queue.
 squeue 
@@ -117,7 +118,7 @@ This shows each job ID (very important), partition the job is running on, name o
 
 This queue is very important: it can tell us who is running what where, and how long it’s been running. Also, if we realize that we’re accidentally doing something silly like mapping maize reads to the human genome, we can use `squeue` to find the job ID, allowing us to cancel a job with `scancel`. Let’s kill jyang21’s job:
 
-```{bash}
+```{bash, eval=FALSE}
 scancel JOBID
 ```
 
@@ -133,11 +134,11 @@ __Monitor your disk space__, as it can fill up quickly.
 Often, we need to work with `R` interactively on a server. To do this, we use `srun` with the following options:
 
 
-```{bash}
+```{bash, eval=FALSE}
 srun --nodes=1 --mem 4G --ntasks=4 --licenses=common --time=8:00:00 --pty bash
 ```
 
-```{bash}
+```{bash, eval=FALSE}
 R # it wouldn't work
 module load R/3.5
 module avail
@@ -146,7 +147,7 @@ module avail
 
 Run simulation on the remote cluster.
 
-```{r}
+```{r, eval=FALSE}
 set.seed(12345879)
 sim1 <- wright_fisher(N=50, t=10000, A1=20)
 write.table(sim1, "cache/sim1_n50_t10000.txt", sep="\t", row.names=FALSE, quote=FALSE)
@@ -154,7 +155,7 @@ write.table(sim1, "cache/sim1_n50_t10000.txt", sep="\t", row.names=FALSE, quote=
 
 Now back to the local computer
 
-```{r}
+```{r, eval=FALSE}
 sim1 <- read.table("../../cache/sim1_n50_t10000.txt", header=TRUE)
 
 plot(sim1$x, type="o", pch=19, xlab="Generations", ylab="A1 allele count")
@@ -191,7 +192,7 @@ In each project directory, I make a directory called `slurm-log` for Slurm’s l
 
 Let’s look at an example batch script header for a job called `steve` (which is run with script `steve.sh`) that’s in a project directory.
 
-```{bash}
+```{bash, eval=FALSE}
 #!/bin/bash -l
 #SBATCH -D ~projects/your-cool-project/
 #SBATCH -o ~/your-cool-project/slurm-log/steve-stdout-%j.txt
@@ -205,7 +206,6 @@ set -u
 ```
 
 
-## Request a 
 
 - `D` sets your project directory.
 - `o` sets where standard output (of your batch script) goes.
@@ -225,7 +225,7 @@ The time limit for the job should be greater than the estimated time to complete
 
 Try running this test script:
 
-```{bash}
+```{bash, eval=FALSE}
 #!/bin/bash -l
 #SBATCH -D /home/USERNAME
 #SBATCH -J bob
