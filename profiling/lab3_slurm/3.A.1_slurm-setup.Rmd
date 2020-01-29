@@ -1,7 +1,35 @@
 ---
-title: "R Notebook"
+title: "Commond line, slurm job submission, and diversity calculation"
+author: "Jinliang Yang"
+date: "01-29-2020"
 output: html_notebook
 ---
+
+## Syncing your fork to the original repository via the browser
+
+- [Stack Overflow with pictures](https://stackoverflow.com/questions/20984802/how-can-i-keep-my-fork-in-sync-without-adding-a-separate-remote/21131381#21131381)
+
+
+
+
+----------
+
+## Unix Commands
+
+- `cd`: change the working directory
+- `mkdir`: make directories
+- `pwd`: print name of current working directory
+- `ls`: list directory contents
+- `chmod`: change the access permissions to files and directories
+- `head`: output the first part of files
+- `tail`: output the last part of files
+- `more` and `less`: display contents of large files page by page or scroll line by line up and down
+- `cat`: concatenate files
+- `paste`: merge lines of files
+- `wc`: print line, word, and byte counts for each each file
+- `grep`: print lines matching a pattern
+- `|`: pipe, i.e., `ls -la | head >> new_file`
+
 
 ---------
 
@@ -83,24 +111,6 @@ sim1 <- read.table("../../cache/sim1_n50_t10000.txt", header=TRUE)
 plot(sim1$x, type="o", pch=19, xlab="Generations", ylab="A1 allele count")
 ```
 
-
-
-
-## Unix Commands
-
-- `cd`: change the working directory
-- `mkdir`: make directories
-- `pwd`: print name of current working directory
-- `ls`: list directory contents
-- `chmod`: change the access permissions to files and directories
-- `head`: output the first part of files
-- `tail`: output the last part of files
-- `more` and `less`: display contents of large files page by page or scroll line by line up and down
-- `cat`: concatenate files
-- `paste`: merge lines of files
-- `wc`: print line, word, and byte counts for each each file
-- `grep`: print lines matching a pattern
-- `|`: pipe, i.e., `ls -la | head >> new_file`
 
 
 

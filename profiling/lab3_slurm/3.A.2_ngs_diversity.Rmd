@@ -1,0 +1,158 @@
+---
+title: "NGS simulation and diversity calculation"
+author: "Jinliang Yang"
+date: "01-29-2020"
+output: html_notebook
+---
+
+
+## Procedure for NGS data simulation using `wgsim`
+
+
+```
+Usage:   wgsim [options] <in.ref.fa> <out.read1.fq> <out.read2.fq>
+
+Options: -e FLOAT      base error rate [0.020]
+         -d INT        outer distance between the two ends [500]
+         -s INT        standard deviation [50]
+         -N INT        number of read pairs [1000000]
+         -1 INT        length of the first read [70]
+         -2 INT        length of the second read [70]
+         -r FLOAT      rate of mutations [0.0010]
+         -R FLOAT      fraction of indels [0.15]
+         -X FLOAT      probability an indel is extended [0.30]
+         -S INT        seed for random generator [-1]
+         -A FLOAT      disgard if the fraction of ambiguous bases higher than FLOAT [0.05]
+         -h            haplotype mode
+```
+
+
+## NGS data simulation
+
+
+Download a reference genome from [NCBI](https://www.ncbi.nlm.nih.gov/nuccore/215104#feature_J02459.1)
+
+
+The reference genome size is 50k bps
+
+- 20x coverage
+- mutation rate is high `-r 0.01`
+- no indel `-R 0 -X 0`
+
+```{bash}
+## simulate 1000 PE reads with 100 
+wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 -S 1234567 l1.read1.fq l1.read2.fq
+```
+
+
+```{bash}
+for i in {1..5}
+do
+   wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 l$i.read1.fq l$i.read2.fq
+done
+
+# check how many reads
+wc -l l1.read1.fq
+```
+
+
+------------------------------------
+
+
+# Align the reads to the reference genome 
+
+```
+Program: bwa (alignment via Burrows-Wheeler transformation)
+Version: 0.7.17-r1188
+Contact: Heng Li <lh3@sanger.ac.uk>
+
+Usage:   bwa <command> [options]
+
+Command: index         index sequences in the FASTA format
+         mem           BWA-MEM algorithm
+         fastmap       identify super-maximal exact matches
+         pemerge       merge overlapping paired ends (EXPERIMENTAL)
+         aln           gapped/ungapped alignment
+         samse         generate alignment (single ended)
+         sampe         generate alignment (paired ended)
+         bwasw         BWA-SW for long queries
+
+         shm           manage indices in shared memory
+         fa2pac        convert FASTA to PAC format
+         pac2bwt       generate BWT from PAC
+         pac2bwtgen    alternative algorithm for generating BWT
+         bwtupdate     update .bwt to the new format
+         bwt2sa        generate SA from BWT and Occ
+
+Note: To use BWA, you need to first index the genome with `bwa index'.
+      There are three alignment algorithms in BWA: `mem', `bwasw', and
+      `aln/samse/sampe'. If you are not sure which to use, try `bwa mem'
+      first. Please `man ./bwa.1' for the manual.
+```
+
+
+```{bash, eval=FALSE}
+module load bwa samtools
+bwa index lambda.fa
+bwa mem
+# t number of threads
+samtools faidx lambda.fa
+
+bwa mem lambda.fa l1.read1.fq l1.read2.fq | samtools view -bSh - > l1.bam
+```
+
+Do alignment for 5 individuals
+
+```{bash, eval=FALSE}
+# alignment
+for i in {1..5}; do bwa mem lambda.fa l$i.read1.fq l$i.read2.fq | samtools view -bSh - > l$i.bam; done
+# sort
+for i in *.bam; do samtools sort $i -o sorted_$i; done
+# index them
+for i in sorted*.bam; do samtools index $i; done
+```
+
+Install ANGSD:
+
+```{bash, eval=FALSE}
+git clone https://github.com/samtools/htslib.git
+git clone https://github.com/ANGSD/angsd.git 
+cd htslib;make;cd ../angsd ;make HTSSRC=../htslib
+```
+
+
+```{bash}
+ls sorted*.bam > bam.list
+
+angsd -bam bam.list -doSaf 1  -anc ../lambda.fa -GL 1  -out out 
+
+realSFS out.saf.idx > out.sfs
+
+## cp sfs to the cache/ folder
+cp out.sfs ../../../cache/
+```
+
+
+
+## Step 2: Calculate the thetas for each site
+
+The output from the above command are two files out.thetas.gz and out.thetas.idx. A formal description of these files can be found in the doc/formats.pdf in the angsd package. It is possible to extract the logscale persite thetas using the ./thetaStat print program.
+
+```{bash, eval=FALSE}
+angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
+angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
+
+
+thetaStat print out.thetas.idx | head
+```
+
+
+## Plot the results
+
+```{r}
+s<-scan('../../cache/out.sfs')
+s<-s[-c(1,length(s))]
+s<-s/sum(s)
+barplot(s,names=1:length(s),main='SFS')
+ 
+```
