@@ -314,7 +314,7 @@ head(t)
 ```
 
 ```{r, eval=FALSE}
-hist(t$Pairwise)
+hist(t$Pairwise, xlab="theta", main="Histogram of theta")
 ```
 
 
