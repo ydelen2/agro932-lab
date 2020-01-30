@@ -1752,44 +1752,269 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<div id="procedure-for-ngs-data-simulation-using-wgsim" class="section level2">
-<h2>Procedure for NGS data simulation using <code>wgsim</code></h2>
-<pre><code>Usage:   wgsim [options] &lt;in.ref.fa&gt; &lt;out.read1.fq&gt; &lt;out.read2.fq&gt;
-
-Options: -e FLOAT      base error rate [0.020]
-         -d INT        outer distance between the two ends [500]
-         -s INT        standard deviation [50]
-         -N INT        number of read pairs [1000000]
-         -1 INT        length of the first read [70]
-         -2 INT        length of the second read [70]
-         -r FLOAT      rate of mutations [0.0010]
-         -R FLOAT      fraction of indels [0.15]
-         -X FLOAT      probability an indel is extended [0.30]
-         -S INT        seed for random generator [-1]
-         -A FLOAT      disgard if the fraction of ambiguous bases higher than FLOAT [0.05]
-         -h            haplotype mode</code></pre>
-</div>
-<div id="ngs-data-simulation" class="section level2">
-<h2>NGS data simulation</h2>
-<p>Download a reference genome from <a href="https://www.ncbi.nlm.nih.gov/nuccore/215104#feature_J02459.1">NCBI</a></p>
-<p>The reference genome size is 50k bps</p>
+<div id="syncing-your-fork-to-the-original-repo" class="section level1">
+<h1>Syncing your fork to the original repo</h1>
+<ol style="list-style-type: decimal">
+<li>Open your <strong>fork</strong> of the repository on Github</li>
+<li>Click the <strong>Compare</strong> button right next to the <strong>Pull request</strong></li>
+<li>Change the <strong>base repo</strong> to your repository</li>
+</ol>
 <ul>
-<li>20x coverage</li>
-<li>mutation rate is high <code>-r 0.01</code></li>
-<li>no indel <code>-R 0 -X 0</code></li>
+<li>You’re now back to your fork but you’ve also asked to compare two identical repositories so GitHub thinks you care about branches not forks.</li>
+<li>Click on <strong>compare across forks</strong> to get back your base fork option.</li>
 </ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Change the <strong>head repo</strong> to the upstream (original) repository <strong>jyanglab/agro932-lab</strong></li>
+<li>You will see a list of commits</li>
+</ol>
+<ul>
+<li>These are the commits made by <code>yangjl</code></li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Click <strong>Create pull request</strong></li>
+</ol>
+<ul>
+<li>Note that this pull request is to you!</li>
+</ul>
+<hr />
+</div>
+<div id="unix-commands" class="section level1">
+<h1>Unix Commands</h1>
+<ul>
+<li><code>cd</code>: change the working directory</li>
+<li><code>mkdir</code>: make directories</li>
+<li><code>pwd</code>: print name of current working directory</li>
+<li><code>ls</code>: list directory contents</li>
+<li><code>chmod</code>: change the access permissions to files and directories</li>
+<li><code>head</code>: output the first part of files</li>
+<li><code>tail</code>: output the last part of files</li>
+<li><code>more</code> and <code>less</code>: display contents of large files page by page or scroll line by line up and down</li>
+<li><code>wc</code>: print line, word, and byte counts for each each file</li>
+<li><code>grep</code>: print lines matching a pattern</li>
+<li><code>|</code>: pipe, i.e., <code>ls -la | head -n 100 &gt;&gt; new_file</code></li>
+</ul>
+<hr />
+</div>
+<div id="unix-commands-how-to-get-help" class="section level1">
+<h1>Unix Commands: how to get help</h1>
+<p>If you don’t know how to use a command i.e. you don’t know about its parameters and return type etc, then you can make use of <code>–-help</code> command.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgYmFzaFxuIyMgc2ltdWxhdGUgMTAwMCBQRSByZWFkcyB3aXRoIDEwMCBcbndnc2ltIGxhbWJkYS5mYSAtTiA1MDAwIC0xIDEwMCAtMiAxMDAgLXIgMC4wMSAtUiAwIC1YIDAgLVMgMTIzNDU2NyBsMS5yZWFkMS5mcSBsMS5yZWFkMi5mcVxuYGBgIn0= -->
-<pre class="bash"><code>## simulate 1000 PE reads with 100 
-wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 -S 1234567 l1.read1.fq l1.read2.fq</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoibGVzcyAtLWhlbHAifQ== -->
+<pre class="r"><code>less --help</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>–</p>
+<div id="how-to-use-help-command" class="section level3">
+<h3>How to use help command</h3>
+<p>Simply type <code>help</code>, which is used for listing all possible commands that are pre-installed.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgYmFzaFxuZm9yIGkgaW4gezEuLjV9XG5kb1xuICAgd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIC1SIDAgLVggMCBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxXG5kb25lXG5cbiMgY2hlY2sgaG93IG1hbnkgcmVhZHNcbndjIC1sIGwxLnJlYWQxLmZxXG5gYGAifQ== -->
-<pre class="bash"><code>for i in {1..5}
+<!-- rnb-source-begin eyJkYXRhIjpbImhlbHAiLCJoZWxwIGNkIl19 -->
+<pre class="r"><code>help
+help cd</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="unix-commands-how-to-get-help-1" class="section level1">
+<h1>Unix Commands: how to get help</h1>
+<div id="the-man-command-or-man-pages" class="section level3">
+<h3>The <code>man</code> command or man pages</h3>
+<p>Man is used when you want to get a detailed manual of a command.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIm1hbiBta2RpciIsIm1hbiBiYXNoIl19 -->
+<pre class="r"><code>man mkdir
+man bash</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="slurm-commands" class="section level1">
+<h1>Slurm Commands</h1>
+<div id="getting-to-know-slurm" class="section level2">
+<h2>Getting to know slurm</h2>
+<p><a href="https://slurm.schedmd.com/overview.html">Slurm</a> is job managing system: you submit jobs via batch scripts. These batch scripts have common headers; we will see one below.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInNpbmZvICMgdmlldyBpbmZvcm1hdGlvbiBhYm91dCBTbHVybSBub2RlcyBhbmQgcGFydGl0aW9ucy4iLCJzaW5mbyAtLWhlbHAiLCJzaW5mbyB8IGhlYWQgLW4gMTAiXX0= -->
+<pre class="r"><code>sinfo # view information about Slurm nodes and partitions.
+sinfo --help
+sinfo | head -n 10</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li><p>Here we see our <code>PARTITION</code> and <code>TIME LIMIT</code>, and all of their inferior but still useful friends.</p></li>
+<li><p>Note that there is a column of <code>STATE</code>, which indicates the state of the machine.</p></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="slurm-commands-1" class="section level1">
+<h1>Slurm Commands</h1>
+<div id="getting-to-know-slurm-1" class="section level2">
+<h2>Getting to know slurm</h2>
+<p>A better way of looking at what’s going on on each machine is with <code>squeue</code>, which is the job queue.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInNxdWV1ZSAtLWhlbHAiLCIjIHZpZXcgaW5mb3JtYXRpb24gYWJvdXQgam9icyBsb2NhdGVkIGluIHRoZSBTbHVybSBzY2hlZHVsaW5nIHF1ZXVlLiIsInNxdWV1ZSAiLCJzcXVldWUgfCB3YyAtbCAjIGhvdyBtYW55IGpvYnMgYXJlIHJ1bm5pbmciLCJzcXVldWUgfCBncmVwIFwianlhbmdsYWJcIiJdfQ== -->
+<pre class="r"><code>squeue --help
+# view information about jobs located in the Slurm scheduling queue.
+squeue 
+squeue | wc -l # how many jobs are running
+squeue | grep &quot;jyanglab&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>This shows each <strong>job ID</strong> (very important), partition the job is running on, name of person running the job.</li>
+<li>Also note <code>TIME</code> which is how long a job has been running.</li>
+</ul>
+<p>–</p>
+<p>We can use <code>squeue</code> to find the job ID, allowing us to cancel a job with <code>scancel</code>. Let’s kill jyang21’s job:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2NhbmNlbCBKT0JJRCJ9 -->
+<pre class="r"><code>scancel JOBID</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="warnings" class="section level1">
+<h1>Warnings!!!</h1>
+<p><strong>Do not run anything on the headnode</strong> except cluster management tools (squeue, sbatch, etc), compilation tasks (but usually ask CSE help for big apps), or downloading files. - If you run anything on the headnode, you will disgrace your lab.</p>
+<p>Instead, you can get a <code>bash</code> terminal using <code>srun</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic3J1biAtLW5vZGVzPTEgLS1tZW0gNEcgLS1udGFza3M9NCAtLWxpY2Vuc2VzPWNvbW1vbiAtLXRpbWU9ODowMDowMCAtLXB0eSBiYXNoIn0= -->
+<pre class="r"><code>srun --nodes=1 --mem 4G --ntasks=4 --licenses=common --time=8:00:00 --pty bash</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>–</p>
+<p><strong>Monitor your disk space</strong>, as it can fill up quickly.</p>
+<ul>
+<li>You will see the disk usage every time you login</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiaGNjLWR1In0= -->
+<pre class="r"><code>hcc-du</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="simulate-ngs-data" class="section level1">
+<h1>Simulate NGS data</h1>
+<div id="install-a-software-on-crane" class="section level3">
+<h3>Install a software on crane</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgaHR0cHM6Ly9naXRodWIuY29tL2xoMy93Z3NpbSIsImdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltLmdpdCIsIiIsIiMgY29tcGlsYXRpb24iLCJnY2MgLWcgLU8yIC1XYWxsIC1vIHdnc2ltIHdnc2ltLmMgLWx6IC1sbSJdfQ== -->
+<pre class="r"><code># https://github.com/lh3/wgsim
+git clone https://github.com/lh3/wgsim.git
+
+# compilation
+gcc -g -O2 -Wall -o wgsim wgsim.c -lz -lm</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="put-the-software-in-your-searching-path" class="section level3">
+<h3>Put the software in your searching path</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImNkIH4iLCJ2aSAuYmFzaF9wcm9maWxlIl19 -->
+<pre class="r"><code>cd ~
+vi .bash_profile</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then copy the following to your <code>.bash_profile</code></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiUEFUSD0kUEFUSDp+L2Jpbi93Z3NpbS8ifQ== -->
+<pre class="r"><code>PATH=$PATH:~/bin/wgsim/</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="reference-genome" class="section level1">
+<h1>Reference genome</h1>
+<div id="ensemblplants" class="section level2">
+<h2>EnsemblPlants</h2>
+<ul>
+<li>Bread Wheat: <a href="https://plants.ensembl.org/Triticum_aestivum/Info/Index">Triticum aestivum</a></li>
+<li>Common bean: <a href="https://plants.ensembl.org/Phaseolus_vulgaris/Info/Index">Phaseolus vulgaris</a></li>
+<li>Domesticated sunflower: <a href="https://plants.ensembl.org/Helianthus_annuus/Info/Index">Helianthus annuus</a></li>
+<li>Maize: <a href="https://plants.ensembl.org/Zea_mays/Info/Index?db=core">Zea mays</a></li>
+<li>Soybean: <a href="http://plants.ensembl.org/Glycine_max/Info/Index">Glycine max</a></li>
+</ul>
+<p>–</p>
+</div>
+<div id="important-info" class="section level2">
+<h2>Important info</h2>
+<ul>
+<li>Version</li>
+<li>Gene annotation: GFF3</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="ngs-data-simulation-using-wgsim" class="section level1">
+<h1>NGS data simulation using <code>wgsim</code></h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIndnc2ltIGxhbWJkYS5mYSAtTiA1MDAwIC0xIDEwMCAtMiAxMDAgLXIgMC4wMSBcXFxcIiwiLVIgMCAtWCAwIC1TIDEyMzQ1NjcgbDEucmVhZDEuZnEgbDEucmVhZDIuZnEiXX0= -->
+<pre class="r"><code>wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 \\
+-R 0 -X 0 -S 1234567 l1.read1.fq l1.read2.fq</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>Reference: 50k lambda genome downloaded from <a href="https://www.ncbi.nlm.nih.gov/nuccore/215104#feature_J02459.1">NCBI</a>
+<ul>
+<li><code>lambda.fa</code></li>
+</ul></li>
+<li>20x coverage
+<ul>
+<li><code>N 5000</code></li>
+</ul></li>
+<li>PE 100bp
+<ul>
+<li><code>-1 100 -2 100</code></li>
+</ul></li>
+<li>Only SNP no Indel
+<ul>
+<li><code>-R 0 -X 0</code></li>
+</ul></li>
+<li>Mutation rate is low
+<ul>
+<li><code>-r 0.01</code></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="ngs-data-simulation-using-wgsim-1" class="section level1">
+<h1>NGS data simulation using <code>wgsim</code></h1>
+<div id="simulate-5-individals" class="section level2">
+<h2>simulate 5 individals</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImZvciBpIGluIHsxLi41fSIsImRvIiwiICAgd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIC1SIDAgLVggMCBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxIiwiZG9uZSIsIiIsIiMgY2hlY2sgaG93IG1hbnkgcmVhZHMiLCJ3YyAtbCBsMS5yZWFkMS5mcSJdfQ== -->
+<pre class="r"><code>for i in {1..5}
 do
    wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 l$i.read1.fq l$i.read2.fq
 done
@@ -1801,48 +2026,26 @@ wc -l l1.read1.fq</code></pre>
 <!-- rnb-text-begin -->
 <hr />
 </div>
-<div id="align-the-reads-to-the-reference-genome" class="section level1">
-<h1>Align the reads to the reference genome</h1>
-<pre><code>Program: bwa (alignment via Burrows-Wheeler transformation)
-Version: 0.7.17-r1188
-Contact: Heng Li &lt;lh3@sanger.ac.uk&gt;
-
-Usage:   bwa &lt;command&gt; [options]
-
-Command: index         index sequences in the FASTA format
-         mem           BWA-MEM algorithm
-         fastmap       identify super-maximal exact matches
-         pemerge       merge overlapping paired ends (EXPERIMENTAL)
-         aln           gapped/ungapped alignment
-         samse         generate alignment (single ended)
-         sampe         generate alignment (paired ended)
-         bwasw         BWA-SW for long queries
-
-         shm           manage indices in shared memory
-         fa2pac        convert FASTA to PAC format
-         pac2bwt       generate BWT from PAC
-         pac2bwtgen    alternative algorithm for generating BWT
-         bwtupdate     update .bwt to the new format
-         bwt2sa        generate SA from BWT and Occ
-
-Note: To use BWA, you need to first index the genome with `bwa index'.
-      There are three alignment algorithms in BWA: `mem', `bwasw', and
-      `aln/samse/sampe'. If you are not sure which to use, try `bwa mem'
-      first. Please `man ./bwa.1' for the manual.</code></pre>
+</div>
+<div id="a-procedure-to-calculate-theta-values" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="align-the-ngs-reads-to-the-reference-genome" class="section level3">
+<h3>1. Align the NGS reads to the reference genome</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIm1vZHVsZSBsb2FkIGJ3YSBzYW10b29scyIsImJ3YSBpbmRleCBsYW1iZGEuZmEiLCJid2EgbWVtIiwiIyB0IG51bWJlciBvZiB0aHJlYWRzIiwic2FtdG9vbHMgZmFpZHggbGFtYmRhLmZhIiwiIiwiYndhIG1lbSBsYW1iZGEuZmEgbDEucmVhZDEuZnEgbDEucmVhZDIuZnEgfCBzYW10b29scyB2aWV3IC1iU2ggLSA+IGwxLmJhbSJdfQ== -->
+<!-- rnb-source-begin eyJkYXRhIjpbIm1vZHVsZSBsb2FkIGJ3YSBzYW10b29scyIsIiMgaW5kZXggdGhlIHJlZmVyZW5jZSBnZW5vbWUiLCJid2EgaW5kZXggbGFtYmRhLmZhIiwiIyB1c2luZyBid2EgbWVtIHRvIGFsaWduIHRoZSByZWFkcyB0byB0aGUgcmVmZXJlbmNlIGdlbm9tZSAiLCIjID0+IHNhbXRvb2xzIHRvIGNvbnZlcnQgaW50byBiYW0gZmlsZSIsImJ3YSBtZW0gbGFtYmRhLmZhIGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsMS5iYW0iXX0= -->
 <pre class="r"><code>module load bwa samtools
+# index the reference genome
 bwa index lambda.fa
-bwa mem
-# t number of threads
-samtools faidx lambda.fa
-
+# using bwa mem to align the reads to the reference genome 
+# =&gt; samtools to convert into bam file
 bwa mem lambda.fa l1.read1.fq l1.read2.fq | samtools view -bSh - &gt; l1.bam</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Do alignment for 5 individuals</p>
+</div>
+<div id="do-alignment-for-5-individuals-using-bash-loop" class="section level3">
+<h3>Do alignment for 5 individuals using bash loop:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjpbIiMgYWxpZ25tZW50IiwiZm9yIGkgaW4gezEuLjV9OyBkbyBid2EgbWVtIGxhbWJkYS5mYSBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsJGkuYmFtOyBkb25lIiwiIyBzb3J0IiwiZm9yIGkgaW4gKi5iYW07IGRvIHNhbXRvb2xzIHNvcnQgJGkgLW8gc29ydGVkXyRpOyBkb25lIiwiIyBpbmRleCB0aGVtIiwiZm9yIGkgaW4gc29ydGVkKi5iYW07IGRvIHNhbXRvb2xzIGluZGV4ICRpOyBkb25lIl19 -->
@@ -1855,61 +2058,101 @@ for i in sorted*.bam; do samtools index $i; done</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Install ANGSD:</p>
+<hr />
+</div>
+</div>
+<div id="a-procedure-to-calculate-theta-values-1" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="calculate-sfs-using-angsd" class="section level3">
+<h3>2. Calculate SFS using <code>ANGSD</code></h3>
+<div id="install-angsd-first" class="section level4">
+<h4>Install ANGSD first</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbImdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vc2FtdG9vbHMvaHRzbGliLmdpdCIsImdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vQU5HU0QvYW5nc2QuZ2l0ICIsImNkIGh0c2xpYjttYWtlO2NkIC4uL2FuZ3NkIDttYWtlIEhUU1NSQz0uLi9odHNsaWIiXX0= -->
-<pre class="r"><code>git clone https://github.com/samtools/htslib.git
+<!-- rnb-source-begin eyJkYXRhIjpbImNkIH4vYmluLyAjIGlmIHlvdSBkb24ndCBoYXZlIG9uZSwgZG8gYG1rZGlyIGJpbmAiLCJnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL3NhbXRvb2xzL2h0c2xpYi5naXQiLCJnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL0FOR1NEL2FuZ3NkLmdpdCAiLCJjZCBodHNsaWI7IG1ha2U7ICIsImNkIC4uL2FuZ3NkOyIsIm1ha2UgSFRTU1JDPS4uL2h0c2xpYiJdfQ== -->
+<pre class="r"><code>cd ~/bin/ # if you don't have one, do `mkdir bin`
+git clone https://github.com/samtools/htslib.git
 git clone https://github.com/ANGSD/angsd.git 
-cd htslib;make;cd ../angsd ;make HTSSRC=../htslib</code></pre>
+cd htslib; make; 
+cd ../angsd;
+make HTSSRC=../htslib</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="run-angsd" class="section level4">
+<h4>run angsd</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgYmFzaFxubHMgc29ydGVkKi5iYW0gPiBiYW0ubGlzdFxuXG5hbmdzZCAtYmFtIGJhbS5saXN0IC1kb1NhZiAxICAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSAgLW91dCBvdXQgXG5cbnJlYWxTRlMgb3V0LnNhZi5pZHggPiBvdXQuc2ZzXG5cbiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlclxuY3Agb3V0LnNmcyAuLi8uLi8uLi9jYWNoZS9cbmBgYCJ9 -->
-<pre class="bash"><code>ls sorted*.bam &gt; bam.list
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgd3JpdGUgdGhlIGJhbSBmaWxlcyB0byBhIHR4dCBmaWxlIiwibWtkaXIgYmFtX2ZpbGVzIiwibXYgc29ydGVkKi5iYW0gYmFtX2ZpbGVzIiwiY2QgYmFtX2ZpbGVzIiwibHMgc29ydGVkKi5iYW0gPiBiYW0udHh0IiwiIiwiYW5nc2QgLWJhbSBiYW0udHh0IC1kb1NhZiAxIC1hbmMgLi4vbGFtYmRhLmZhIC1HTCAxICAtb3V0IG91dCAiLCJyZWFsU0ZTIG91dC5zYWYuaWR4ID4gb3V0LnNmcyIsIiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlciIsImNwIG91dC5zZnMgLi4vLi4vLi4vY2FjaGUvIl19 -->
+<pre class="r"><code># write the bam files to a txt file
+mkdir bam_files
+mv sorted*.bam bam_files
+cd bam_files
+ls sorted*.bam &gt; bam.txt
 
-angsd -bam bam.list -doSaf 1  -anc ../lambda.fa -GL 1  -out out 
-
+angsd -bam bam.txt -doSaf 1 -anc ../lambda.fa -GL 1  -out out 
 realSFS out.saf.idx &gt; out.sfs
-
 ## cp sfs to the cache/ folder
 cp out.sfs ../../../cache/</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<div id="step-2-calculate-the-thetas-for-each-site" class="section level2">
-<h2>Step 2: Calculate the thetas for each site</h2>
+<hr />
+</div>
+</div>
+</div>
+<div id="a-procedure-to-calculate-theta-values-2" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="calculate-the-thetas-for-each-site" class="section level3">
+<h3>3. Calculate the thetas for each site</h3>
 <p>The output from the above command are two files out.thetas.gz and out.thetas.idx. A formal description of these files can be found in the doc/formats.pdf in the angsd package. It is possible to extract the logscale persite thetas using the ./thetaStat print program.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbImFuZ3NkIC1iYW0gYmFtLmxpc3QgLW91dCBvdXQgLWRvVGhldGFzIDEgLWRvU2FmIDEgLXBlc3Qgb3V0LnNmcyAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSIsImFuZ3NkIC1iYW0gYmFtLmxpc3QgLW91dCBvdXQgLWRvVGhldGFzIDEgLWRvU2FmIDEgLXBlc3Qgb3V0LnNmcyAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSIsIiIsIiIsInRoZXRhU3RhdCBwcmludCBvdXQudGhldGFzLmlkeCB8IGhlYWQiXX0= -->
+<!-- rnb-source-begin eyJkYXRhIjpbImFuZ3NkIC1iYW0gYmFtLmxpc3QgLW91dCBvdXQgLWRvVGhldGFzIDEgLWRvU2FmIDEgLXBlc3Qgb3V0LnNmcyAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSIsInRoZXRhU3RhdCBwcmludCBvdXQudGhldGFzLmlkeCA+IHRoZXRhLnR4dCIsIiMjIGNwIHRoZXRhIHRvIHRoZSBjYWNoZS8gZm9sZGVyIiwiY3AgdGhldGEudHh0IC4uLy4uLy4uL2NhY2hlLyJdfQ== -->
 <pre class="r"><code>angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
-angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
-
-
-thetaStat print out.thetas.idx | head</code></pre>
+thetaStat print out.thetas.idx &gt; theta.txt
+## cp theta to the cache/ folder
+cp theta.txt ../../../cache/</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<hr />
 </div>
-<div id="plot-the-results" class="section level2">
-<h2>Plot the results</h2>
+</div>
+<div id="visualize-the-results" class="section level1">
+<h1>Visualize the results</h1>
+<p>In local computer, using <code>R</code>:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuczwtc2NhbignLi4vLi4vY2FjaGUvb3V0LnNmcycpXG5zPC1zWy1jKDEsbGVuZ3RoKHMpKV1cbnM8LXMvc3VtKHMpXG5iYXJwbG90KHMsbmFtZXM9MTpsZW5ndGgocyksbWFpbj0nU0ZTJylcbiBcbmBgYCJ9 -->
-<pre class="r"><code>s&lt;-scan('../../cache/out.sfs')
-s&lt;-s[-c(1,length(s))]
-s&lt;-s/sum(s)
-barplot(s,names=1:length(s),main='SFS')
- </code></pre>
+<!-- rnb-source-begin eyJkYXRhIjpbInMgPC0gc2NhbignLi4vLi4vY2FjaGUvb3V0LnNmcycpIiwicyA8LSBzWy1jKDEsbGVuZ3RoKHMpKV0iLCJzIDwtIHMvc3VtKHMpIiwiYmFycGxvdChzLG5hbWVzPTE6bGVuZ3RoKHMpLCBtYWluPSdTRlMnKSJdfQ== -->
+<pre class="r"><code>s &lt;- scan('../../cache/out.sfs')
+s &lt;- s[-c(1,length(s))]
+s &lt;- s/sum(s)
+barplot(s,names=1:length(s), main='SFS')</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
-</div>
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInQgPC0gcmVhZC5jc3YoJy4uLy4uL2NhY2hlL3RoZXRhLnR4dCcsIHNlcD1cIlxcdFwiLCBoZWFkZXI9VFJVRSkiLCJkaW0odCkgIyIsImhlYWQodCkiXX0= -->
+<pre class="r"><code>t &lt;- read.csv('../../cache/theta.txt', sep=&quot;\t&quot;, header=TRUE)
+dim(t) #
+head(t)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiaGlzdCh0JFBhaXJ3aXNlKSJ9 -->
+<pre class="r"><code>hist(t$Pairwise)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTkdTIHNpbXVsYXRpb24gYW5kIGRpdmVyc2l0eSBjYWxjdWxhdGlvbiIKYXV0aG9yOiAiSmlubGlhbmcgWWFuZyIKZGF0ZTogIjAxLTI5LTIwMjAiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgojIyBQcm9jZWR1cmUgZm9yIE5HUyBkYXRhIHNpbXVsYXRpb24gdXNpbmcgYHdnc2ltYAoKCmBgYApVc2FnZTogICB3Z3NpbSBbb3B0aW9uc10gPGluLnJlZi5mYT4gPG91dC5yZWFkMS5mcT4gPG91dC5yZWFkMi5mcT4KCk9wdGlvbnM6IC1lIEZMT0FUICAgICAgYmFzZSBlcnJvciByYXRlIFswLjAyMF0KICAgICAgICAgLWQgSU5UICAgICAgICBvdXRlciBkaXN0YW5jZSBiZXR3ZWVuIHRoZSB0d28gZW5kcyBbNTAwXQogICAgICAgICAtcyBJTlQgICAgICAgIHN0YW5kYXJkIGRldmlhdGlvbiBbNTBdCiAgICAgICAgIC1OIElOVCAgICAgICAgbnVtYmVyIG9mIHJlYWQgcGFpcnMgWzEwMDAwMDBdCiAgICAgICAgIC0xIElOVCAgICAgICAgbGVuZ3RoIG9mIHRoZSBmaXJzdCByZWFkIFs3MF0KICAgICAgICAgLTIgSU5UICAgICAgICBsZW5ndGggb2YgdGhlIHNlY29uZCByZWFkIFs3MF0KICAgICAgICAgLXIgRkxPQVQgICAgICByYXRlIG9mIG11dGF0aW9ucyBbMC4wMDEwXQogICAgICAgICAtUiBGTE9BVCAgICAgIGZyYWN0aW9uIG9mIGluZGVscyBbMC4xNV0KICAgICAgICAgLVggRkxPQVQgICAgICBwcm9iYWJpbGl0eSBhbiBpbmRlbCBpcyBleHRlbmRlZCBbMC4zMF0KICAgICAgICAgLVMgSU5UICAgICAgICBzZWVkIGZvciByYW5kb20gZ2VuZXJhdG9yIFstMV0KICAgICAgICAgLUEgRkxPQVQgICAgICBkaXNnYXJkIGlmIHRoZSBmcmFjdGlvbiBvZiBhbWJpZ3VvdXMgYmFzZXMgaGlnaGVyIHRoYW4gRkxPQVQgWzAuMDVdCiAgICAgICAgIC1oICAgICAgICAgICAgaGFwbG90eXBlIG1vZGUKYGBgCgoKIyMgTkdTIGRhdGEgc2ltdWxhdGlvbgoKCkRvd25sb2FkIGEgcmVmZXJlbmNlIGdlbm9tZSBmcm9tIFtOQ0JJXShodHRwczovL3d3dy5uY2JpLm5sbS5uaWguZ292L251Y2NvcmUvMjE1MTA0I2ZlYXR1cmVfSjAyNDU5LjEpCgoKVGhlIHJlZmVyZW5jZSBnZW5vbWUgc2l6ZSBpcyA1MGsgYnBzCgotIDIweCBjb3ZlcmFnZQotIG11dGF0aW9uIHJhdGUgaXMgaGlnaCBgLXIgMC4wMWAKLSBubyBpbmRlbCBgLVIgMCAtWCAwYAoKYGBge2Jhc2h9CiMjIHNpbXVsYXRlIDEwMDAgUEUgcmVhZHMgd2l0aCAxMDAgCndnc2ltIGxhbWJkYS5mYSAtTiA1MDAwIC0xIDEwMCAtMiAxMDAgLXIgMC4wMSAtUiAwIC1YIDAgLVMgMTIzNDU2NyBsMS5yZWFkMS5mcSBsMS5yZWFkMi5mcQpgYGAKCgpgYGB7YmFzaH0KZm9yIGkgaW4gezEuLjV9CmRvCiAgIHdnc2ltIGxhbWJkYS5mYSAtTiA1MDAwIC0xIDEwMCAtMiAxMDAgLXIgMC4wMSAtUiAwIC1YIDAgbCRpLnJlYWQxLmZxIGwkaS5yZWFkMi5mcQpkb25lCgojIGNoZWNrIGhvdyBtYW55IHJlYWRzCndjIC1sIGwxLnJlYWQxLmZxCmBgYAoKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKCiMgQWxpZ24gdGhlIHJlYWRzIHRvIHRoZSByZWZlcmVuY2UgZ2Vub21lIAoKYGBgClByb2dyYW06IGJ3YSAoYWxpZ25tZW50IHZpYSBCdXJyb3dzLVdoZWVsZXIgdHJhbnNmb3JtYXRpb24pClZlcnNpb246IDAuNy4xNy1yMTE4OApDb250YWN0OiBIZW5nIExpIDxsaDNAc2FuZ2VyLmFjLnVrPgoKVXNhZ2U6ICAgYndhIDxjb21tYW5kPiBbb3B0aW9uc10KCkNvbW1hbmQ6IGluZGV4ICAgICAgICAgaW5kZXggc2VxdWVuY2VzIGluIHRoZSBGQVNUQSBmb3JtYXQKICAgICAgICAgbWVtICAgICAgICAgICBCV0EtTUVNIGFsZ29yaXRobQogICAgICAgICBmYXN0bWFwICAgICAgIGlkZW50aWZ5IHN1cGVyLW1heGltYWwgZXhhY3QgbWF0Y2hlcwogICAgICAgICBwZW1lcmdlICAgICAgIG1lcmdlIG92ZXJsYXBwaW5nIHBhaXJlZCBlbmRzIChFWFBFUklNRU5UQUwpCiAgICAgICAgIGFsbiAgICAgICAgICAgZ2FwcGVkL3VuZ2FwcGVkIGFsaWdubWVudAogICAgICAgICBzYW1zZSAgICAgICAgIGdlbmVyYXRlIGFsaWdubWVudCAoc2luZ2xlIGVuZGVkKQogICAgICAgICBzYW1wZSAgICAgICAgIGdlbmVyYXRlIGFsaWdubWVudCAocGFpcmVkIGVuZGVkKQogICAgICAgICBid2FzdyAgICAgICAgIEJXQS1TVyBmb3IgbG9uZyBxdWVyaWVzCgogICAgICAgICBzaG0gICAgICAgICAgIG1hbmFnZSBpbmRpY2VzIGluIHNoYXJlZCBtZW1vcnkKICAgICAgICAgZmEycGFjICAgICAgICBjb252ZXJ0IEZBU1RBIHRvIFBBQyBmb3JtYXQKICAgICAgICAgcGFjMmJ3dCAgICAgICBnZW5lcmF0ZSBCV1QgZnJvbSBQQUMKICAgICAgICAgcGFjMmJ3dGdlbiAgICBhbHRlcm5hdGl2ZSBhbGdvcml0aG0gZm9yIGdlbmVyYXRpbmcgQldUCiAgICAgICAgIGJ3dHVwZGF0ZSAgICAgdXBkYXRlIC5id3QgdG8gdGhlIG5ldyBmb3JtYXQKICAgICAgICAgYnd0MnNhICAgICAgICBnZW5lcmF0ZSBTQSBmcm9tIEJXVCBhbmQgT2NjCgpOb3RlOiBUbyB1c2UgQldBLCB5b3UgbmVlZCB0byBmaXJzdCBpbmRleCB0aGUgZ2Vub21lIHdpdGggYGJ3YSBpbmRleCcuCiAgICAgIFRoZXJlIGFyZSB0aHJlZSBhbGlnbm1lbnQgYWxnb3JpdGhtcyBpbiBCV0E6IGBtZW0nLCBgYndhc3cnLCBhbmQKICAgICAgYGFsbi9zYW1zZS9zYW1wZScuIElmIHlvdSBhcmUgbm90IHN1cmUgd2hpY2ggdG8gdXNlLCB0cnkgYGJ3YSBtZW0nCiAgICAgIGZpcnN0LiBQbGVhc2UgYG1hbiAuL2J3YS4xJyBmb3IgdGhlIG1hbnVhbC4KYGBgCgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9Cm1vZHVsZSBsb2FkIGJ3YSBzYW10b29scwpid2EgaW5kZXggbGFtYmRhLmZhCmJ3YSBtZW0KIyB0IG51bWJlciBvZiB0aHJlYWRzCnNhbXRvb2xzIGZhaWR4IGxhbWJkYS5mYQoKYndhIG1lbSBsYW1iZGEuZmEgbDEucmVhZDEuZnEgbDEucmVhZDIuZnEgfCBzYW10b29scyB2aWV3IC1iU2ggLSA+IGwxLmJhbQpgYGAKCkRvIGFsaWdubWVudCBmb3IgNSBpbmRpdmlkdWFscwoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CiMgYWxpZ25tZW50CmZvciBpIGluIHsxLi41fTsgZG8gYndhIG1lbSBsYW1iZGEuZmEgbCRpLnJlYWQxLmZxIGwkaS5yZWFkMi5mcSB8IHNhbXRvb2xzIHZpZXcgLWJTaCAtID4gbCRpLmJhbTsgZG9uZQojIHNvcnQKZm9yIGkgaW4gKi5iYW07IGRvIHNhbXRvb2xzIHNvcnQgJGkgLW8gc29ydGVkXyRpOyBkb25lCiMgaW5kZXggdGhlbQpmb3IgaSBpbiBzb3J0ZWQqLmJhbTsgZG8gc2FtdG9vbHMgaW5kZXggJGk7IGRvbmUKYGBgCgpJbnN0YWxsIEFOR1NEOgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vc2FtdG9vbHMvaHRzbGliLmdpdApnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL0FOR1NEL2FuZ3NkLmdpdCAKY2QgaHRzbGliO21ha2U7Y2QgLi4vYW5nc2QgO21ha2UgSFRTU1JDPS4uL2h0c2xpYgpgYGAKCgpgYGB7YmFzaH0KbHMgc29ydGVkKi5iYW0gPiBiYW0ubGlzdAoKYW5nc2QgLWJhbSBiYW0ubGlzdCAtZG9TYWYgMSAgLWFuYyAuLi9sYW1iZGEuZmEgLUdMIDEgIC1vdXQgb3V0IAoKcmVhbFNGUyBvdXQuc2FmLmlkeCA+IG91dC5zZnMKCiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlcgpjcCBvdXQuc2ZzIC4uLy4uLy4uL2NhY2hlLwpgYGAKCgoKIyMgU3RlcCAyOiBDYWxjdWxhdGUgdGhlIHRoZXRhcyBmb3IgZWFjaCBzaXRlCgpUaGUgb3V0cHV0IGZyb20gdGhlIGFib3ZlIGNvbW1hbmQgYXJlIHR3byBmaWxlcyBvdXQudGhldGFzLmd6IGFuZCBvdXQudGhldGFzLmlkeC4gQSBmb3JtYWwgZGVzY3JpcHRpb24gb2YgdGhlc2UgZmlsZXMgY2FuIGJlIGZvdW5kIGluIHRoZSBkb2MvZm9ybWF0cy5wZGYgaW4gdGhlIGFuZ3NkIHBhY2thZ2UuIEl0IGlzIHBvc3NpYmxlIHRvIGV4dHJhY3QgdGhlIGxvZ3NjYWxlIHBlcnNpdGUgdGhldGFzIHVzaW5nIHRoZSAuL3RoZXRhU3RhdCBwcmludCBwcm9ncmFtLgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmFuZ3NkIC1iYW0gYmFtLmxpc3QgLW91dCBvdXQgLWRvVGhldGFzIDEgLWRvU2FmIDEgLXBlc3Qgb3V0LnNmcyAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMQphbmdzZCAtYmFtIGJhbS5saXN0IC1vdXQgb3V0IC1kb1RoZXRhcyAxIC1kb1NhZiAxIC1wZXN0IG91dC5zZnMgLWFuYyAuLi9sYW1iZGEuZmEgLUdMIDEKCgp0aGV0YVN0YXQgcHJpbnQgb3V0LnRoZXRhcy5pZHggfCBoZWFkCmBgYAoKCiMjIFBsb3QgdGhlIHJlc3VsdHMKCmBgYHtyfQpzPC1zY2FuKCcuLi8uLi9jYWNoZS9vdXQuc2ZzJykKczwtc1stYygxLGxlbmd0aChzKSldCnM8LXMvc3VtKHMpCmJhcnBsb3QocyxuYW1lcz0xOmxlbmd0aChzKSxtYWluPSdTRlMnKQogCmBgYAo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTkdTIHNpbXVsYXRpb24gYW5kIGRpdmVyc2l0eSBjYWxjdWxhdGlvbiIKYXV0aG9yOiAiSmlubGlhbmcgWWFuZyIKZGF0ZTogIjAxLTI5LTIwMjAiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgojIFN5bmNpbmcgeW91ciBmb3JrIHRvIHRoZSBvcmlnaW5hbCByZXBvIAoKMS4gT3BlbiB5b3VyIF9fZm9ya19fIG9mIHRoZSByZXBvc2l0b3J5IG9uIEdpdGh1YgoyLiBDbGljayB0aGUgX19Db21wYXJlX18gYnV0dG9uIHJpZ2h0IG5leHQgdG8gdGhlIF9fUHVsbCByZXF1ZXN0X18KMy4gQ2hhbmdlIHRoZSBfX2Jhc2UgcmVwb19fIHRvIHlvdXIgcmVwb3NpdG9yeQogIC0gWW91J3JlIG5vdyBiYWNrIHRvIHlvdXIgZm9yayBidXQgeW91J3ZlIGFsc28gYXNrZWQgdG8gY29tcGFyZSB0d28gaWRlbnRpY2FsIHJlcG9zaXRvcmllcyBzbyBHaXRIdWIgdGhpbmtzIHlvdSBjYXJlIGFib3V0IGJyYW5jaGVzIG5vdCBmb3Jrcy4gCiAgLSBDbGljayBvbiBfX2NvbXBhcmUgYWNyb3NzIGZvcmtzX18gdG8gZ2V0IGJhY2sgeW91ciBiYXNlIGZvcmsgb3B0aW9uLgo0LiBDaGFuZ2UgdGhlIF9faGVhZCByZXBvX18gdG8gdGhlIHVwc3RyZWFtIChvcmlnaW5hbCkgcmVwb3NpdG9yeSBfX2p5YW5nbGFiL2Fncm85MzItbGFiX18KNS4gWW91IHdpbGwgc2VlIGEgbGlzdCBvZiBjb21taXRzCiAgLSBUaGVzZSBhcmUgdGhlIGNvbW1pdHMgbWFkZSBieSBgeWFuZ2psYAo2LiBDbGljayBfX0NyZWF0ZSBwdWxsIHJlcXVlc3RfXwogIC0gTm90ZSB0aGF0IHRoaXMgcHVsbCByZXF1ZXN0IGlzIHRvIHlvdSEKICAKCi0tLQoKIyBVbml4IENvbW1hbmRzCgotIGBjZGA6IGNoYW5nZSB0aGUgd29ya2luZyBkaXJlY3RvcnkKLSBgbWtkaXJgOiBtYWtlIGRpcmVjdG9yaWVzCi0gYHB3ZGA6IHByaW50IG5hbWUgb2YgY3VycmVudCB3b3JraW5nIGRpcmVjdG9yeQotIGBsc2A6IGxpc3QgZGlyZWN0b3J5IGNvbnRlbnRzCi0gYGNobW9kYDogY2hhbmdlIHRoZSBhY2Nlc3MgcGVybWlzc2lvbnMgdG8gZmlsZXMgYW5kIGRpcmVjdG9yaWVzCi0gYGhlYWRgOiBvdXRwdXQgdGhlIGZpcnN0IHBhcnQgb2YgZmlsZXMKLSBgdGFpbGA6IG91dHB1dCB0aGUgbGFzdCBwYXJ0IG9mIGZpbGVzCi0gYG1vcmVgIGFuZCBgbGVzc2A6IGRpc3BsYXkgY29udGVudHMgb2YgbGFyZ2UgZmlsZXMgcGFnZSBieSBwYWdlIG9yIHNjcm9sbCBsaW5lIGJ5IGxpbmUgdXAgYW5kIGRvd24KLSBgd2NgOiBwcmludCBsaW5lLCB3b3JkLCBhbmQgYnl0ZSBjb3VudHMgZm9yIGVhY2ggZWFjaCBmaWxlCi0gYGdyZXBgOiBwcmludCBsaW5lcyBtYXRjaGluZyBhIHBhdHRlcm4KLSBgfGA6IHBpcGUsIGkuZS4sIGBscyAtbGEgfCBoZWFkIC1uIDEwMCA+PiBuZXdfZmlsZWAKCi0tLQoKIyBVbml4IENvbW1hbmRzOiBob3cgdG8gZ2V0IGhlbHAKCklmIHlvdSBkb27igJl0IGtub3cgaG93IHRvIHVzZSBhIGNvbW1hbmQgaS5lLiB5b3UgZG9u4oCZdCBrbm93IGFib3V0IGl0cyBwYXJhbWV0ZXJzIGFuZCByZXR1cm4gdHlwZSBldGMsIHRoZW4geW91IGNhbiBtYWtlIHVzZSBvZiBg4oCTLWhlbHBgIGNvbW1hbmQuCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0KbGVzcyAtLWhlbHAKYGBgCgotLQoKIyMjIEhvdyB0byB1c2UgaGVscCBjb21tYW5kCgpTaW1wbHkgdHlwZSBgaGVscGAsIHdoaWNoIGlzIHVzZWQgZm9yIGxpc3RpbmcgYWxsIHBvc3NpYmxlIGNvbW1hbmRzIHRoYXQgYXJlIHByZS1pbnN0YWxsZWQuCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0KaGVscApoZWxwIGNkCmBgYAoKLS0tCgojIFVuaXggQ29tbWFuZHM6IGhvdyB0byBnZXQgaGVscAoKIyMjIFRoZSBgbWFuYCBjb21tYW5kIG9yIG1hbiBwYWdlcwoKTWFuIGlzIHVzZWQgd2hlbiB5b3Ugd2FudCB0byBnZXQgYSBkZXRhaWxlZCBtYW51YWwgb2YgYSBjb21tYW5kLgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9Cm1hbiBta2RpcgptYW4gYmFzaApgYGAKCi0tLQoKIyBTbHVybSBDb21tYW5kcwoKIyMgR2V0dGluZyB0byBrbm93IHNsdXJtCgpbU2x1cm1dKGh0dHBzOi8vc2x1cm0uc2NoZWRtZC5jb20vb3ZlcnZpZXcuaHRtbCkgaXMgam9iIG1hbmFnaW5nIHN5c3RlbTogeW91IHN1Ym1pdCBqb2JzIHZpYSBiYXRjaCBzY3JpcHRzLiBUaGVzZSBiYXRjaCBzY3JpcHRzIGhhdmUgY29tbW9uIGhlYWRlcnM7IHdlIHdpbGwgc2VlIG9uZSBiZWxvdy4KCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpzaW5mbyAjIHZpZXcgaW5mb3JtYXRpb24gYWJvdXQgU2x1cm0gbm9kZXMgYW5kIHBhcnRpdGlvbnMuCnNpbmZvIC0taGVscApzaW5mbyB8IGhlYWQgLW4gMTAKYGBgCgotIEhlcmUgd2Ugc2VlIG91ciBgUEFSVElUSU9OYCBhbmQgYFRJTUUgTElNSVRgLCBhbmQgYWxsIG9mIHRoZWlyIGluZmVyaW9yIGJ1dCBzdGlsbCB1c2VmdWwgZnJpZW5kcy4KCi0gTm90ZSB0aGF0IHRoZXJlIGlzIGEgY29sdW1uIG9mIGBTVEFURWAsIHdoaWNoIGluZGljYXRlcyB0aGUgc3RhdGUgb2YgdGhlIG1hY2hpbmUuIAoKLS0tCgojIFNsdXJtIENvbW1hbmRzCgojIyBHZXR0aW5nIHRvIGtub3cgc2x1cm0KCkEgYmV0dGVyIHdheSBvZiBsb29raW5nIGF0IHdoYXTigJlzIGdvaW5nIG9uIG9uIGVhY2ggbWFjaGluZSBpcyB3aXRoIGBzcXVldWVgLCB3aGljaCBpcyB0aGUgam9iIHF1ZXVlLgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNxdWV1ZSAtLWhlbHAKIyB2aWV3IGluZm9ybWF0aW9uIGFib3V0IGpvYnMgbG9jYXRlZCBpbiB0aGUgU2x1cm0gc2NoZWR1bGluZyBxdWV1ZS4Kc3F1ZXVlIApzcXVldWUgfCB3YyAtbCAjIGhvdyBtYW55IGpvYnMgYXJlIHJ1bm5pbmcKc3F1ZXVlIHwgZ3JlcCAianlhbmdsYWIiCmBgYAoKLSBUaGlzIHNob3dzIGVhY2ggX19qb2IgSURfXyAodmVyeSBpbXBvcnRhbnQpLCBwYXJ0aXRpb24gdGhlIGpvYiBpcyBydW5uaW5nIG9uLCBuYW1lIG9mIHBlcnNvbiBydW5uaW5nIHRoZSBqb2IuIAotIEFsc28gbm90ZSBgVElNRWAgd2hpY2ggaXMgaG93IGxvbmcgYSBqb2IgaGFzIGJlZW4gcnVubmluZy4KCi0tCgpXZSBjYW4gdXNlIGBzcXVldWVgIHRvIGZpbmQgdGhlIGpvYiBJRCwgYWxsb3dpbmcgdXMgdG8gY2FuY2VsIGEgam9iIHdpdGggYHNjYW5jZWxgLiBMZXTigJlzIGtpbGwganlhbmcyMeKAmXMgam9iOgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNjYW5jZWwgSk9CSUQKYGBgCgotLS0KCiMgV2FybmluZ3MhISEKCl9fRG8gbm90IHJ1biBhbnl0aGluZyBvbiB0aGUgaGVhZG5vZGVfXyBleGNlcHQgY2x1c3RlciBtYW5hZ2VtZW50IHRvb2xzIChzcXVldWUsIHNiYXRjaCwgZXRjKSwgY29tcGlsYXRpb24gdGFza3MgKGJ1dCB1c3VhbGx5IGFzayBDU0UgaGVscCBmb3IgYmlnIGFwcHMpLCBvciBkb3dubG9hZGluZyBmaWxlcy4gCi0gSWYgeW91IHJ1biBhbnl0aGluZyBvbiB0aGUgaGVhZG5vZGUsIHlvdSB3aWxsIGRpc2dyYWNlIHlvdXIgbGFiLgoKSW5zdGVhZCwgeW91IGNhbiBnZXQgYSBgYmFzaGAgdGVybWluYWwgdXNpbmcgYHNydW5gOgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNydW4gLS1ub2Rlcz0xIC0tbWVtIDRHIC0tbnRhc2tzPTQgLS1saWNlbnNlcz1jb21tb24gLS10aW1lPTg6MDA6MDAgLS1wdHkgYmFzaApgYGAKCi0tCgpfX01vbml0b3IgeW91ciBkaXNrIHNwYWNlX18sIGFzIGl0IGNhbiBmaWxsIHVwIHF1aWNrbHkuCgotIFlvdSB3aWxsIHNlZSB0aGUgZGlzayB1c2FnZSBldmVyeSB0aW1lIHlvdSBsb2dpbgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmhjYy1kdQpgYGAKCi0tLQoKIyBTaW11bGF0ZSBOR1MgZGF0YQoKIyMjIEluc3RhbGwgYSBzb2Z0d2FyZSBvbiBjcmFuZQoKYGBge2Jhc2ggZXZhbD1GQUxTRX0KIyBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltLmdpdAoKIyBjb21waWxhdGlvbgpnY2MgLWcgLU8yIC1XYWxsIC1vIHdnc2ltIHdnc2ltLmMgLWx6IC1sbQpgYGAKCiMjIyBQdXQgdGhlIHNvZnR3YXJlIGluIHlvdXIgc2VhcmNoaW5nIHBhdGgKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpjZCB+CnZpIC5iYXNoX3Byb2ZpbGUKYGBgCgpUaGVuIGNvcHkgdGhlIGZvbGxvd2luZyB0byB5b3VyIGAuYmFzaF9wcm9maWxlYAoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9ClBBVEg9JFBBVEg6fi9iaW4vd2dzaW0vCmBgYAoKLS0tCgojIFJlZmVyZW5jZSBnZW5vbWUKCiMjIEVuc2VtYmxQbGFudHMKCi0gQnJlYWQgV2hlYXQ6IFtUcml0aWN1bSBhZXN0aXZ1bV0oaHR0cHM6Ly9wbGFudHMuZW5zZW1ibC5vcmcvVHJpdGljdW1fYWVzdGl2dW0vSW5mby9JbmRleCkKLSBDb21tb24gYmVhbjogW1BoYXNlb2x1cyB2dWxnYXJpc10oaHR0cHM6Ly9wbGFudHMuZW5zZW1ibC5vcmcvUGhhc2VvbHVzX3Z1bGdhcmlzL0luZm8vSW5kZXgpCi0gRG9tZXN0aWNhdGVkIHN1bmZsb3dlcjogW0hlbGlhbnRodXMgYW5udXVzXShodHRwczovL3BsYW50cy5lbnNlbWJsLm9yZy9IZWxpYW50aHVzX2FubnV1cy9JbmZvL0luZGV4KQotIE1haXplOiBbWmVhIG1heXNdKGh0dHBzOi8vcGxhbnRzLmVuc2VtYmwub3JnL1plYV9tYXlzL0luZm8vSW5kZXg/ZGI9Y29yZSkKLSBTb3liZWFuOiBbR2x5Y2luZSBtYXhdKGh0dHA6Ly9wbGFudHMuZW5zZW1ibC5vcmcvR2x5Y2luZV9tYXgvSW5mby9JbmRleCkKCi0tCgojIyBJbXBvcnRhbnQgaW5mbwotIFZlcnNpb24KLSBHZW5lIGFubm90YXRpb246IEdGRjMKCi0tLQoKIyBOR1MgZGF0YSBzaW11bGF0aW9uIHVzaW5nIGB3Z3NpbWAKCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0Kd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIFxcCi1SIDAgLVggMCAtUyAxMjM0NTY3IGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxCmBgYAoKLSBSZWZlcmVuY2U6IDUwayBsYW1iZGEgZ2Vub21lIGRvd25sb2FkZWQgZnJvbSBbTkNCSV0oaHR0cHM6Ly93d3cubmNiaS5ubG0ubmloLmdvdi9udWNjb3JlLzIxNTEwNCNmZWF0dXJlX0owMjQ1OS4xKQogIC0gYGxhbWJkYS5mYWAKLSAyMHggY292ZXJhZ2UKICAtIGBOIDUwMDBgCi0gUEUgMTAwYnAKICAtIGAtMSAxMDAgLTIgMTAwYAotIE9ubHkgU05QIG5vIEluZGVsCiAgLSBgLVIgMCAtWCAwYAotIE11dGF0aW9uIHJhdGUgaXMgbG93IAogIC0gYC1yIDAuMDFgCgotLS0KCiMgTkdTIGRhdGEgc2ltdWxhdGlvbiB1c2luZyBgd2dzaW1gCgojIyBzaW11bGF0ZSA1IGluZGl2aWRhbHMKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpmb3IgaSBpbiB7MS4uNX0KZG8KICAgd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIC1SIDAgLVggMCBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxCmRvbmUKCiMgY2hlY2sgaG93IG1hbnkgcmVhZHMKd2MgLWwgbDEucmVhZDEuZnEKYGBgCgotLS0KCiMgQSBwcm9jZWR1cmUgdG8gY2FsY3VsYXRlICRcdGhldGEkIHZhbHVlcwoKIyMjIDEuIEFsaWduIHRoZSBOR1MgcmVhZHMgdG8gdGhlIHJlZmVyZW5jZSBnZW5vbWUKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQptb2R1bGUgbG9hZCBid2Egc2FtdG9vbHMKIyBpbmRleCB0aGUgcmVmZXJlbmNlIGdlbm9tZQpid2EgaW5kZXggbGFtYmRhLmZhCiMgdXNpbmcgYndhIG1lbSB0byBhbGlnbiB0aGUgcmVhZHMgdG8gdGhlIHJlZmVyZW5jZSBnZW5vbWUgCiMgPT4gc2FtdG9vbHMgdG8gY29udmVydCBpbnRvIGJhbSBmaWxlCmJ3YSBtZW0gbGFtYmRhLmZhIGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsMS5iYW0KYGBgCgojIyMgRG8gYWxpZ25tZW50IGZvciA1IGluZGl2aWR1YWxzIHVzaW5nIGJhc2ggbG9vcDoKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQojIGFsaWdubWVudApmb3IgaSBpbiB7MS4uNX07IGRvIGJ3YSBtZW0gbGFtYmRhLmZhIGwkaS5yZWFkMS5mcSBsJGkucmVhZDIuZnEgfCBzYW10b29scyB2aWV3IC1iU2ggLSA+IGwkaS5iYW07IGRvbmUKIyBzb3J0CmZvciBpIGluICouYmFtOyBkbyBzYW10b29scyBzb3J0ICRpIC1vIHNvcnRlZF8kaTsgZG9uZQojIGluZGV4IHRoZW0KZm9yIGkgaW4gc29ydGVkKi5iYW07IGRvIHNhbXRvb2xzIGluZGV4ICRpOyBkb25lCmBgYAoKLS0tCgojIEEgcHJvY2VkdXJlIHRvIGNhbGN1bGF0ZSAkXHRoZXRhJCB2YWx1ZXMKCiMjIyAyLiBDYWxjdWxhdGUgU0ZTIHVzaW5nIGBBTkdTRGAKCiMjIyMgSW5zdGFsbCBBTkdTRCBmaXJzdAoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmNkIH4vYmluLyAjIGlmIHlvdSBkb24ndCBoYXZlIG9uZSwgZG8gYG1rZGlyIGJpbmAKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9zYW10b29scy9odHNsaWIuZ2l0CmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vQU5HU0QvYW5nc2QuZ2l0IApjZCBodHNsaWI7IG1ha2U7IApjZCAuLi9hbmdzZDsKbWFrZSBIVFNTUkM9Li4vaHRzbGliCmBgYAoKIyMjIyBydW4gYW5nc2QKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQojIHdyaXRlIHRoZSBiYW0gZmlsZXMgdG8gYSB0eHQgZmlsZQpta2RpciBiYW1fZmlsZXMKbXYgc29ydGVkKi5iYW0gYmFtX2ZpbGVzCmNkIGJhbV9maWxlcwpscyBzb3J0ZWQqLmJhbSA+IGJhbS50eHQKCmFuZ3NkIC1iYW0gYmFtLnR4dCAtZG9TYWYgMSAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSAgLW91dCBvdXQgCnJlYWxTRlMgb3V0LnNhZi5pZHggPiBvdXQuc2ZzCiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlcgpjcCBvdXQuc2ZzIC4uLy4uLy4uL2NhY2hlLwpgYGAKCi0tLQoKIyBBIHByb2NlZHVyZSB0byBjYWxjdWxhdGUgJFx0aGV0YSQgdmFsdWVzCgojIyMgMy4gQ2FsY3VsYXRlIHRoZSB0aGV0YXMgZm9yIGVhY2ggc2l0ZQoKVGhlIG91dHB1dCBmcm9tIHRoZSBhYm92ZSBjb21tYW5kIGFyZSB0d28gZmlsZXMgb3V0LnRoZXRhcy5neiBhbmQgb3V0LnRoZXRhcy5pZHguIEEgZm9ybWFsIGRlc2NyaXB0aW9uIG9mIHRoZXNlIGZpbGVzIGNhbiBiZSBmb3VuZCBpbiB0aGUgZG9jL2Zvcm1hdHMucGRmIGluIHRoZSBhbmdzZCBwYWNrYWdlLiBJdCBpcyBwb3NzaWJsZSB0byBleHRyYWN0IHRoZSBsb2dzY2FsZSBwZXJzaXRlIHRoZXRhcyB1c2luZyB0aGUgLi90aGV0YVN0YXQgcHJpbnQgcHJvZ3JhbS4KCmBgYHtiYXNoLCBldmFsPUZBTFNFfQphbmdzZCAtYmFtIGJhbS5saXN0IC1vdXQgb3V0IC1kb1RoZXRhcyAxIC1kb1NhZiAxIC1wZXN0IG91dC5zZnMgLWFuYyAuLi9sYW1iZGEuZmEgLUdMIDEKdGhldGFTdGF0IHByaW50IG91dC50aGV0YXMuaWR4ID4gdGhldGEudHh0CiMjIGNwIHRoZXRhIHRvIHRoZSBjYWNoZS8gZm9sZGVyCmNwIHRoZXRhLnR4dCAuLi8uLi8uLi9jYWNoZS8KYGBgCgotLS0KCiMgVmlzdWFsaXplIHRoZSByZXN1bHRzCgpJbiBsb2NhbCBjb21wdXRlciwgdXNpbmcgYFJgOgoKYGBge3IsIGV2YWw9RkFMU0V9CnMgPC0gc2NhbignLi4vLi4vY2FjaGUvb3V0LnNmcycpCnMgPC0gc1stYygxLGxlbmd0aChzKSldCnMgPC0gcy9zdW0ocykKYmFycGxvdChzLG5hbWVzPTE6bGVuZ3RoKHMpLCBtYWluPSdTRlMnKQpgYGAKCgpgYGB7ciwgZXZhbD1GQUxTRX0KdCA8LSByZWFkLmNzdignLi4vLi4vY2FjaGUvdGhldGEudHh0Jywgc2VwPSJcdCIsIGhlYWRlcj1UUlVFKQpkaW0odCkgIwpoZWFkKHQpCmBgYAoKYGBge3IsIGV2YWw9RkFMU0V9Cmhpc3QodCRQYWlyd2lzZSkKYGBgCgoKCg==</div>
 
 
 
