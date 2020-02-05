@@ -1,0 +1,321 @@
+---
+title: "NGS simulation and diversity calculation"
+author: "Jinliang Yang"
+date: "01-29-2020"
+output: html_notebook
+---
+
+
+# Syncing your fork to the original repo 
+
+1. Open your __fork__ of the repository on Github
+2. Click the __Compare__ button right next to the __Pull request__
+3. Change the __base repo__ to your repository
+  - You're now back to your fork but you've also asked to compare two identical repositories so GitHub thinks you care about branches not forks. 
+  - Click on __compare across forks__ to get back your base fork option.
+4. Change the __head repo__ to the upstream (original) repository __jyanglab/agro932-lab__
+5. You will see a list of commits
+  - These are the commits made by `yangjl`
+6. Click __Create pull request__
+  - Note that this pull request is to you!
+  
+
+---
+
+# Unix Commands
+
+- `cd`: change the working directory
+- `mkdir`: make directories
+- `pwd`: print name of current working directory
+- `ls`: list directory contents
+- `chmod`: change the access permissions to files and directories
+- `head`: output the first part of files
+- `tail`: output the last part of files
+- `more` and `less`: display contents of large files page by page or scroll line by line up and down
+- `wc`: print line, word, and byte counts for each each file
+- `grep`: print lines matching a pattern
+- `|`: pipe, i.e., `ls -la | head -n 100 >> new_file`
+
+---
+
+# Unix Commands: how to get help
+
+If you don’t know how to use a command i.e. you don’t know about its parameters and return type etc, then you can make use of `–-help` command.
+
+```{bash, eval=FALSE}
+less --help
+```
+
+--
+
+### How to use help command
+
+Simply type `help`, which is used for listing all possible commands that are pre-installed.
+
+```{bash, eval=FALSE}
+help
+help cd
+```
+
+---
+
+# Unix Commands: how to get help
+
+### The `man` command or man pages
+
+Man is used when you want to get a detailed manual of a command.
+
+```{bash, eval=FALSE}
+man mkdir
+man bash
+```
+
+---
+
+# Slurm Commands
+
+## Getting to know slurm
+
+[Slurm](https://slurm.schedmd.com/overview.html) is job managing system: you submit jobs via batch scripts. These batch scripts have common headers; we will see one below.
+
+```{bash, eval=FALSE}
+sinfo # view information about Slurm nodes and partitions.
+sinfo --help
+sinfo | head -n 10
+```
+
+- Here we see our `PARTITION` and `TIME LIMIT`, and all of their inferior but still useful friends.
+
+- Note that there is a column of `STATE`, which indicates the state of the machine. 
+
+---
+
+# Slurm Commands
+
+## Getting to know slurm
+
+A better way of looking at what’s going on on each machine is with `squeue`, which is the job queue.
+
+```{bash, eval=FALSE}
+squeue --help
+# view information about jobs located in the Slurm scheduling queue.
+squeue 
+squeue | wc -l # how many jobs are running
+squeue | grep "jyanglab"
+```
+
+- This shows each __job ID__ (very important), partition the job is running on, name of person running the job. 
+- Also note `TIME` which is how long a job has been running.
+
+--
+
+We can use `squeue` to find the job ID, allowing us to cancel a job with `scancel`. Let’s kill jyang21’s job:
+
+```{bash, eval=FALSE}
+scancel JOBID
+```
+
+---
+
+# Warnings!!!
+
+__Do not run anything on the headnode__ except cluster management tools (squeue, sbatch, etc), compilation tasks (but usually ask CSE help for big apps), or downloading files. 
+- If you run anything on the headnode, you will disgrace your lab.
+
+Instead, you can get a `bash` terminal using `srun`:
+
+```{bash, eval=FALSE}
+srun --nodes=1 --mem 4G --ntasks=4 --licenses=common --time=8:00:00 --pty bash
+```
+
+--
+
+__Monitor your disk space__, as it can fill up quickly.
+
+- You will see the disk usage every time you login
+
+```{bash, eval=FALSE}
+hcc-du
+```
+
+---
+
+# Simulate NGS data
+
+### Install a software on crane
+
+```{bash eval=FALSE}
+# https://github.com/lh3/wgsim
+git clone https://github.com/lh3/wgsim.git
+
+# compilation
+gcc -g -O2 -Wall -o wgsim wgsim.c -lz -lm
+```
+
+### Put the software in your searching path
+
+```{bash, eval=FALSE}
+cd ~
+vi .bash_profile
+```
+
+Then copy the following to your `.bash_profile`
+
+```{bash, eval=FALSE}
+PATH=$PATH:~/bin/wgsim/
+```
+
+---
+
+# Reference genome
+
+## EnsemblPlants
+
+- Bread Wheat: [Triticum aestivum](https://plants.ensembl.org/Triticum_aestivum/Info/Index)
+- Common bean: [Phaseolus vulgaris](https://plants.ensembl.org/Phaseolus_vulgaris/Info/Index)
+- Domesticated sunflower: [Helianthus annuus](https://plants.ensembl.org/Helianthus_annuus/Info/Index)
+- Maize: [Zea mays](https://plants.ensembl.org/Zea_mays/Info/Index?db=core)
+- Soybean: [Glycine max](http://plants.ensembl.org/Glycine_max/Info/Index)
+
+--
+
+## Important info
+- Version
+- Gene annotation: GFF3
+
+---
+
+# NGS data simulation using `wgsim`
+
+
+```{bash, eval=FALSE}
+wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 \\
+-R 0 -X 0 -S 1234567 l1.read1.fq l1.read2.fq
+```
+
+- Reference: 50k lambda genome downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/nuccore/215104#feature_J02459.1)
+  - `lambda.fa`
+- 20x coverage
+  - `N 5000`
+- PE 100bp
+  - `-1 100 -2 100`
+- Only SNP no Indel
+  - `-R 0 -X 0`
+- Mutation rate is low 
+  - `-r 0.01`
+
+---
+
+# NGS data simulation using `wgsim`
+
+## simulate 5 individals
+
+```{bash, eval=FALSE}
+for i in {1..5}
+do
+   wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 l$i.read1.fq l$i.read2.fq
+done
+
+# check how many reads
+wc -l l1.read1.fq
+```
+
+---
+
+# A procedure to calculate $\theta$ values
+
+### 1. Align the NGS reads to the reference genome
+
+```{bash, eval=FALSE}
+module load bwa samtools
+# index the reference genome
+bwa index lambda.fa
+# using bwa mem to align the reads to the reference genome 
+# => samtools to convert into bam file
+bwa mem lambda.fa l1.read1.fq l1.read2.fq | samtools view -bSh - > l1.bam
+```
+
+### Do alignment for 5 individuals using bash loop:
+
+```{bash, eval=FALSE}
+# alignment
+for i in {1..5}; do bwa mem lambda.fa l$i.read1.fq l$i.read2.fq | samtools view -bSh - > l$i.bam; done
+# sort
+for i in *.bam; do samtools sort $i -o sorted_$i; done
+# index them
+for i in sorted*.bam; do samtools index $i; done
+```
+
+---
+
+# A procedure to calculate $\theta$ values
+
+### 2. Calculate SFS using `ANGSD`
+
+#### Install ANGSD first
+
+```{bash, eval=FALSE}
+cd ~/bin/ # if you don't have one, do `mkdir bin`
+git clone https://github.com/samtools/htslib.git
+git clone https://github.com/ANGSD/angsd.git 
+cd htslib; make; 
+cd ../angsd;
+make HTSSRC=../htslib
+```
+
+#### run angsd
+
+```{bash, eval=FALSE}
+# write the bam files to a txt file
+mkdir bam_files
+mv sorted*.bam bam_files
+cd bam_files
+ls sorted*.bam > bam.txt
+
+angsd -bam bam.txt -doSaf 1 -anc ../lambda.fa -GL 1  -out out 
+realSFS out.saf.idx > out.sfs
+## cp sfs to the cache/ folder
+cp out.sfs ../../../cache/
+```
+
+---
+
+# A procedure to calculate $\theta$ values
+
+### 3. Calculate the thetas for each site
+
+The output from the above command are two files out.thetas.gz and out.thetas.idx. A formal description of these files can be found in the doc/formats.pdf in the angsd package. It is possible to extract the logscale persite thetas using the ./thetaStat print program.
+
+```{bash, eval=FALSE}
+angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
+thetaStat print out.thetas.idx > theta.txt
+## cp theta to the cache/ folder
+cp theta.txt ../../../cache/
+```
+
+---
+
+# Visualize the results
+
+In local computer, using `R`:
+
+```{r, eval=FALSE}
+s <- scan('../../cache/out.sfs')
+s <- s[-c(1,length(s))]
+s <- s/sum(s)
+barplot(s,names=1:length(s), main='SFS')
+```
+
+
+```{r, eval=FALSE}
+t <- read.csv('../../cache/theta.txt', sep="\t", header=TRUE)
+dim(t) #
+head(t)
+```
+
+```{r, eval=FALSE}
+hist(t$Pairwise, xlab="theta", main="Histogram of theta")
+```
+
+
+
