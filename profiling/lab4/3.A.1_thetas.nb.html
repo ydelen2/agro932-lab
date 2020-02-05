@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
 <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -12,7 +13,7 @@
 <meta name="author" content="Jinliang Yang" />
 
 
-<title>Simulation for genetic drift</title>
+<title>NGS simulation and diversity calculation</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1699,7 +1700,6 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
-  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1744,96 +1744,415 @@ summary {
 
 
 
-<h1 class="title toc-ignore">Simulation for genetic drift</h1>
+<h1 class="title toc-ignore">NGS simulation and diversity calculation</h1>
 <h4 class="author">Jinliang Yang</h4>
-<h4 class="date">01-20-2020</h4>
+<h4 class="date">01-29-2020</h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<div id="wright-fisher-simulation" class="section level1">
-<h1>Wright-Fisher simulation</h1>
-<p>Consider a single nucleotide position with two alleles, <span class="math inline">\(A_1\)</span> and <span class="math inline">\(A_2\)</span></p>
-<p>In generation <span class="math inline">\(t\)</span> there are <span class="math inline">\(x\)</span> individuals carrying allele <span class="math inline">\(A_1\)</span>, which is at frequency <span class="math inline">\(p_t = x/2N\)</span>.</p>
-<p>This implies that there are <span class="math inline">\(2N - x\)</span> individuals carrying allele <span class="math inline">\(A_2\)</span>, which is at frequency <span class="math inline">\(q_t = 1- p_t= 1- x/2N\)</span>.</p>
-<p>The sampling of alleles for the next generations is equivalent to sampling from a binomial distribution with parameters size = <span class="math inline">\(2N\)</span> and prob= <span class="math inline">\(x/2N\)</span>.</p>
-<p>Therefore, the mean and variance of <span class="math inline">\(p\)</span> in the next generation for the Wright-Fisher model are:</p>
-<p><span class="math display">\[\begin{align*}
-E(p_t) &amp;= p_t \\
-Var(p_{t+1}) &amp;= p_tq_t/2N 
-\end{align*}\]</span></p>
+<div id="syncing-your-fork-to-the-original-repo" class="section level1">
+<h1>Syncing your fork to the original repo</h1>
+<ol style="list-style-type: decimal">
+<li>Open your <strong>fork</strong> of the repository on Github</li>
+<li>Click the <strong>Compare</strong> button right next to the <strong>Pull request</strong></li>
+<li>Change the <strong>base repo</strong> to your repository</li>
+</ol>
+<ul>
+<li>You’re now back to your fork but you’ve also asked to compare two identical repositories so GitHub thinks you care about branches not forks.</li>
+<li>Click on <strong>compare across forks</strong> to get back your base fork option.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Change the <strong>head repo</strong> to the upstream (original) repository <strong>jyanglab/agro932-lab</strong></li>
+<li>You will see a list of commits</li>
+</ol>
+<ul>
+<li>These are the commits made by <code>yangjl</code></li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Click <strong>Create pull request</strong></li>
+</ol>
+<ul>
+<li>Note that this pull request is to you!</li>
+</ul>
 <hr />
 </div>
-<div id="wright-fisher-simulation-1" class="section level1">
-<h1>Wright Fisher simulation</h1>
+<div id="unix-commands" class="section level1">
+<h1>Unix Commands</h1>
+<ul>
+<li><code>cd</code>: change the working directory</li>
+<li><code>mkdir</code>: make directories</li>
+<li><code>pwd</code>: print name of current working directory</li>
+<li><code>ls</code>: list directory contents</li>
+<li><code>chmod</code>: change the access permissions to files and directories</li>
+<li><code>head</code>: output the first part of files</li>
+<li><code>tail</code>: output the last part of files</li>
+<li><code>more</code> and <code>less</code>: display contents of large files page by page or scroll line by line up and down</li>
+<li><code>wc</code>: print line, word, and byte counts for each each file</li>
+<li><code>grep</code>: print lines matching a pattern</li>
+<li><code>|</code>: pipe, i.e., <code>ls -la | head -n 100 &gt;&gt; new_file</code></li>
+</ul>
+<hr />
+</div>
+<div id="unix-commands-how-to-get-help" class="section level1">
+<h1>Unix Commands: how to get help</h1>
+<p>If you don’t know how to use a command i.e. you don’t know about its parameters and return type etc, then you can make use of <code>–-help</code> command.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpZ2h0X2Zpc2hlciA8LSBmdW5jdGlvbihOPTEwMDAsIHQ9MTAwLCBBMT0xMDApe1xuICAjIE46IG51bWJlciBvZiBkaXBsb2lkIGluZGl2aWR1YWxzLiBbTj0xMDAwLCBpbnRlZ2VyXVxuICAjIHQ6IG51bWJlciBvZiBnZW5lcmF0aW9ucy4gW3Q9MTAwLCBudW1lcmljXVxuICAjIEExOiBudW1iZXIgb2YgQTEgKHRoZSBtaW5vciBhbGxlbGUpIGluIHRoZSBmaXJzdCBnZW5lcmF0aW9uLiBbQTE9MTAsIGludGVnZXJdXG5cbiAgIyBjcmVhdGUgYSB2ZWN0b3IgXG4gIHggPC0gMFxuICB4WzFdIDwtIEExXG5cbiAgIyBTdGFydCB0byBsb29wIG92ZXIgbSBnZW5lcmF0aW9uc1xuICAjIGJpbm9taWFsIHNhbXBsaW5nIGF0IGVhY2ggZ2VuZXJhdGlvbiAtIGRldGVybWluZXMgYWxsZWxlIGNvdW50IGluIG5leHQgZ2VuZXJhdGlvbnNcbiAgZm9yIChpIGluIDI6dCl7XG4gICAgIyBjYWxjdWxhdGUgYWxsZWxlIGZyZXEgaW4gdGhlIGN1cnJlbnQgZ2VuZXJhdGlvblxuICAgIGsgPC0gKHhbaS0xXSkvKDIqTilcbiAgICAjIGdlbmVyYXRlIGEgdmVjdG9yIHdpdGggMk4gaW5kaXZpZHVhbHNcbiAgICBuIDwtIHNlcSgwLDIqTiwxKVxuICAgIFxuICAgICMgZGVuc2l0eSBmb3IgdGhlIGJpbm9taWFsIGRpc3RyaWJ1dGlvbiB3aXRoIHBhcmFtdGVycyBzaXplPTJOIGFuZCBwcm9iPWtcbiAgICBwcm9iIDwtIGRiaW5vbShuLCAyKk4sIGspXG4gICAgIyBwbG90KHByb2IpXG4gICAgIyBjaG9vc2Ugb25lIGZyb20gYSB2ZWN0b3IgZWFjaCB3aXRoIGNlcnRhaW4gcHJvYlxuICAgIHhbaV0gPC0gc2FtcGxlKDA6KDIqTiksIDEsIHByb2I9cHJvYilcbiAgfVxuICAjIHJldHVybiBiYWNrIHRoZSByZXN1bHRzXG4gIHJldHVybih4KVxufVxuXG4jIHNpbTEgPC0gd3JpZ2h0X2Zpc2hlcihOPTUwLCB0PTEwMCwgQTE9MjApXG5gYGAifQ== -->
-<pre class="r"><code>wright_fisher &lt;- function(N=1000, t=100, A1=100){
-  # N: number of diploid individuals. [N=1000, integer]
-  # t: number of generations. [t=100, numeric]
-  # A1: number of A1 (the minor allele) in the first generation. [A1=10, integer]
-
-  # create a vector 
-  x &lt;- 0
-  x[1] &lt;- A1
-
-  # Start to loop over m generations
-  # binomial sampling at each generation - determines allele count in next generations
-  for (i in 2:t){
-    # calculate allele freq in the current generation
-    k &lt;- (x[i-1])/(2*N)
-    # generate a vector with 2N individuals
-    n &lt;- seq(0,2*N,1)
-    
-    # density for the binomial distribution with paramters size=2N and prob=k
-    prob &lt;- dbinom(n, 2*N, k)
-    # plot(prob)
-    # choose one from a vector each with certain prob
-    x[i] &lt;- sample(0:(2*N), 1, prob=prob)
-  }
-  # return back the results
-  return(x)
-}
-
-# sim1 &lt;- wright_fisher(N=50, t=100, A1=20)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoibGVzcyAtLWhlbHAifQ== -->
+<pre class="r"><code>less --help</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>–</p>
+<div id="how-to-use-help-command" class="section level3">
+<h3>How to use help command</h3>
+<p>Simply type <code>help</code>, which is used for listing all possible commands that are pre-installed.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImhlbHAiLCJoZWxwIGNkIl19 -->
+<pre class="r"><code>help
+help cd</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
+</div>
+</div>
+<div id="unix-commands-how-to-get-help-1" class="section level1">
+<h1>Unix Commands: how to get help</h1>
+<div id="the-man-command-or-man-pages" class="section level3">
+<h3>The <code>man</code> command or man pages</h3>
+<p>Man is used when you want to get a detailed manual of a command.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTIzNDU4NylcbnNpbTEgPC0gd3JpZ2h0X2Zpc2hlcihOPTUwLCB0PTEwMDAsIEExPTIwKVxucGxvdChzaW0xWzE6MTAwXSwgdHlwZT1cIm9cIiwgcGNoPTE5LCB4bGFiPVwiR2VuZXJhdGlvbnNcIiwgeWxhYj1cIkExIGFsbGVsZSBjb3VudFwiKVxuXG5zaW0xIDwtIHdyaWdodF9maXNoZXIoTj01MCwgdD0xMDAwLCBBMT0yMClcbnBsb3Qoc2ltMVsxOjEwMF0sIHR5cGU9XCJvXCIsIHBjaD0xOSwgeGxhYj1cIkdlbmVyYXRpb25zXCIsIHlsYWI9XCJBMSBhbGxlbGUgY291bnRcIilcblxuYGBgIn0= -->
-<pre class="r"><code>set.seed(1234587)
-sim1 &lt;- wright_fisher(N=50, t=1000, A1=20)
-plot(sim1[1:100], type=&quot;o&quot;, pch=19, xlab=&quot;Generations&quot;, ylab=&quot;A1 allele count&quot;)
+<!-- rnb-source-begin eyJkYXRhIjpbIm1hbiBta2RpciIsIm1hbiBiYXNoIl19 -->
+<pre class="r"><code>man mkdir
+man bash</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="slurm-commands" class="section level1">
+<h1>Slurm Commands</h1>
+<div id="getting-to-know-slurm" class="section level2">
+<h2>Getting to know slurm</h2>
+<p><a href="https://slurm.schedmd.com/overview.html">Slurm</a> is job managing system: you submit jobs via batch scripts. These batch scripts have common headers; we will see one below.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInNpbmZvICMgdmlldyBpbmZvcm1hdGlvbiBhYm91dCBTbHVybSBub2RlcyBhbmQgcGFydGl0aW9ucy4iLCJzaW5mbyAtLWhlbHAiLCJzaW5mbyB8IGhlYWQgLW4gMTAiXX0= -->
+<pre class="r"><code>sinfo # view information about Slurm nodes and partitions.
+sinfo --help
+sinfo | head -n 10</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li><p>Here we see our <code>PARTITION</code> and <code>TIME LIMIT</code>, and all of their inferior but still useful friends.</p></li>
+<li><p>Note that there is a column of <code>STATE</code>, which indicates the state of the machine.</p></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="slurm-commands-1" class="section level1">
+<h1>Slurm Commands</h1>
+<div id="getting-to-know-slurm-1" class="section level2">
+<h2>Getting to know slurm</h2>
+<p>A better way of looking at what’s going on on each machine is with <code>squeue</code>, which is the job queue.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInNxdWV1ZSAtLWhlbHAiLCIjIHZpZXcgaW5mb3JtYXRpb24gYWJvdXQgam9icyBsb2NhdGVkIGluIHRoZSBTbHVybSBzY2hlZHVsaW5nIHF1ZXVlLiIsInNxdWV1ZSAiLCJzcXVldWUgfCB3YyAtbCAjIGhvdyBtYW55IGpvYnMgYXJlIHJ1bm5pbmciLCJzcXVldWUgfCBncmVwIFwianlhbmdsYWJcIiJdfQ== -->
+<pre class="r"><code>squeue --help
+# view information about jobs located in the Slurm scheduling queue.
+squeue 
+squeue | wc -l # how many jobs are running
+squeue | grep &quot;jyanglab&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>This shows each <strong>job ID</strong> (very important), partition the job is running on, name of person running the job.</li>
+<li>Also note <code>TIME</code> which is how long a job has been running.</li>
+</ul>
+<p>–</p>
+<p>We can use <code>squeue</code> to find the job ID, allowing us to cancel a job with <code>scancel</code>. Let’s kill jyang21’s job:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic2NhbmNlbCBKT0JJRCJ9 -->
+<pre class="r"><code>scancel JOBID</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="warnings" class="section level1">
+<h1>Warnings!!!</h1>
+<p><strong>Do not run anything on the headnode</strong> except cluster management tools (squeue, sbatch, etc), compilation tasks (but usually ask CSE help for big apps), or downloading files. - If you run anything on the headnode, you will disgrace your lab.</p>
+<p>Instead, you can get a <code>bash</code> terminal using <code>srun</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoic3J1biAtLW5vZGVzPTEgLS1tZW0gNEcgLS1udGFza3M9NCAtLWxpY2Vuc2VzPWNvbW1vbiAtLXRpbWU9ODowMDowMCAtLXB0eSBiYXNoIn0= -->
+<pre class="r"><code>srun --nodes=1 --mem 4G --ntasks=4 --licenses=common --time=8:00:00 --pty bash</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>–</p>
+<p><strong>Monitor your disk space</strong>, as it can fill up quickly.</p>
+<ul>
+<li>You will see the disk usage every time you login</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiaGNjLWR1In0= -->
+<pre class="r"><code>hcc-du</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="simulate-ngs-data" class="section level1">
+<h1>Simulate NGS data</h1>
+<div id="install-a-software-on-crane" class="section level3">
+<h3>Install a software on crane</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgaHR0cHM6Ly9naXRodWIuY29tL2xoMy93Z3NpbSIsImdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltLmdpdCIsIiIsIiMgY29tcGlsYXRpb24iLCJnY2MgLWcgLU8yIC1XYWxsIC1vIHdnc2ltIHdnc2ltLmMgLWx6IC1sbSJdfQ== -->
+<pre class="r"><code># https://github.com/lh3/wgsim
+git clone https://github.com/lh3/wgsim.git
 
-sim1 &lt;- wright_fisher(N=50, t=1000, A1=20)
-plot(sim1[1:100], type=&quot;o&quot;, pch=19, xlab=&quot;Generations&quot;, ylab=&quot;A1 allele count&quot;)
-</code></pre>
+# compilation
+gcc -g -O2 -Wall -o wgsim wgsim.c -lz -lm</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="put-the-software-in-your-searching-path" class="section level3">
+<h3>Put the software in your searching path</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImNkIH4iLCJ2aSAuYmFzaF9wcm9maWxlIl19 -->
+<pre class="r"><code>cd ~
+vi .bash_profile</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Then copy the following to your <code>.bash_profile</code></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiUEFUSD0kUEFUSDp+L2Jpbi93Z3NpbS8ifQ== -->
+<pre class="r"><code>PATH=$PATH:~/bin/wgsim/</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="reference-genome" class="section level1">
+<h1>Reference genome</h1>
+<div id="ensemblplants" class="section level2">
+<h2>EnsemblPlants</h2>
+<ul>
+<li>Bread Wheat: <a href="https://plants.ensembl.org/Triticum_aestivum/Info/Index">Triticum aestivum</a></li>
+<li>Common bean: <a href="https://plants.ensembl.org/Phaseolus_vulgaris/Info/Index">Phaseolus vulgaris</a></li>
+<li>Domesticated sunflower: <a href="https://plants.ensembl.org/Helianthus_annuus/Info/Index">Helianthus annuus</a></li>
+<li>Maize: <a href="https://plants.ensembl.org/Zea_mays/Info/Index?db=core">Zea mays</a></li>
+<li>Soybean: <a href="http://plants.ensembl.org/Glycine_max/Info/Index">Glycine max</a></li>
+</ul>
+<p>–</p>
+</div>
+<div id="important-info" class="section level2">
+<h2>Important info</h2>
+<ul>
+<li>Version</li>
+<li>Gene annotation: GFF3</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="ngs-data-simulation-using-wgsim" class="section level1">
+<h1>NGS data simulation using <code>wgsim</code></h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIndnc2ltIGxhbWJkYS5mYSAtTiA1MDAwIC0xIDEwMCAtMiAxMDAgLXIgMC4wMSBcXFxcIiwiLVIgMCAtWCAwIC1TIDEyMzQ1NjcgbDEucmVhZDEuZnEgbDEucmVhZDIuZnEiXX0= -->
+<pre class="r"><code>wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 \\
+-R 0 -X 0 -S 1234567 l1.read1.fq l1.read2.fq</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>Reference: 50k lambda genome downloaded from <a href="https://www.ncbi.nlm.nih.gov/nuccore/215104#feature_J02459.1">NCBI</a>
+<ul>
+<li><code>lambda.fa</code></li>
+</ul></li>
+<li>20x coverage
+<ul>
+<li><code>N 5000</code></li>
+</ul></li>
+<li>PE 100bp
+<ul>
+<li><code>-1 100 -2 100</code></li>
+</ul></li>
+<li>Only SNP no Indel
+<ul>
+<li><code>-R 0 -X 0</code></li>
+</ul></li>
+<li>Mutation rate is low
+<ul>
+<li><code>-r 0.01</code></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="ngs-data-simulation-using-wgsim-1" class="section level1">
+<h1>NGS data simulation using <code>wgsim</code></h1>
+<div id="simulate-5-individals" class="section level2">
+<h2>simulate 5 individals</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImZvciBpIGluIHsxLi41fSIsImRvIiwiICAgd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIC1SIDAgLVggMCBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxIiwiZG9uZSIsIiIsIiMgY2hlY2sgaG93IG1hbnkgcmVhZHMiLCJ3YyAtbCBsMS5yZWFkMS5mcSJdfQ== -->
+<pre class="r"><code>for i in {1..5}
+do
+   wgsim lambda.fa -N 5000 -1 100 -2 100 -r 0.01 -R 0 -X 0 l$i.read1.fq l$i.read2.fq
+done
+
+# check how many reads
+wc -l l1.read1.fq</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="a-procedure-to-calculate-theta-values" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="align-the-ngs-reads-to-the-reference-genome" class="section level3">
+<h3>1. Align the NGS reads to the reference genome</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIm1vZHVsZSBsb2FkIGJ3YSBzYW10b29scyIsIiMgaW5kZXggdGhlIHJlZmVyZW5jZSBnZW5vbWUiLCJid2EgaW5kZXggbGFtYmRhLmZhIiwiIyB1c2luZyBid2EgbWVtIHRvIGFsaWduIHRoZSByZWFkcyB0byB0aGUgcmVmZXJlbmNlIGdlbm9tZSAiLCIjID0+IHNhbXRvb2xzIHRvIGNvbnZlcnQgaW50byBiYW0gZmlsZSIsImJ3YSBtZW0gbGFtYmRhLmZhIGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsMS5iYW0iXX0= -->
+<pre class="r"><code>module load bwa samtools
+# index the reference genome
+bwa index lambda.fa
+# using bwa mem to align the reads to the reference genome 
+# =&gt; samtools to convert into bam file
+bwa mem lambda.fa l1.read1.fq l1.read2.fq | samtools view -bSh - &gt; l1.bam</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="do-alignment-for-5-individuals-using-bash-loop" class="section level3">
+<h3>Do alignment for 5 individuals using bash loop:</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgYWxpZ25tZW50IiwiZm9yIGkgaW4gezEuLjV9OyBkbyBid2EgbWVtIGxhbWJkYS5mYSBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsJGkuYmFtOyBkb25lIiwiIyBzb3J0IiwiZm9yIGkgaW4gKi5iYW07IGRvIHNhbXRvb2xzIHNvcnQgJGkgLW8gc29ydGVkXyRpOyBkb25lIiwiIyBpbmRleCB0aGVtIiwiZm9yIGkgaW4gc29ydGVkKi5iYW07IGRvIHNhbXRvb2xzIGluZGV4ICRpOyBkb25lIl19 -->
+<pre class="r"><code># alignment
+for i in {1..5}; do bwa mem lambda.fa l$i.read1.fq l$i.read2.fq | samtools view -bSh - &gt; l$i.bam; done
+# sort
+for i in *.bam; do samtools sort $i -o sorted_$i; done
+# index them
+for i in sorted*.bam; do samtools index $i; done</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="a-procedure-to-calculate-theta-values-1" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="calculate-sfs-using-angsd" class="section level3">
+<h3>2. Calculate SFS using <code>ANGSD</code></h3>
+<div id="install-angsd-first" class="section level4">
+<h4>Install ANGSD first</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImNkIH4vYmluLyAjIGlmIHlvdSBkb24ndCBoYXZlIG9uZSwgZG8gYG1rZGlyIGJpbmAiLCJnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL3NhbXRvb2xzL2h0c2xpYi5naXQiLCJnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL0FOR1NEL2FuZ3NkLmdpdCAiLCJjZCBodHNsaWI7IG1ha2U7ICIsImNkIC4uL2FuZ3NkOyIsIm1ha2UgSFRTU1JDPS4uL2h0c2xpYiJdfQ== -->
+<pre class="r"><code>cd ~/bin/ # if you don't have one, do `mkdir bin`
+git clone https://github.com/samtools/htslib.git
+git clone https://github.com/ANGSD/angsd.git 
+cd htslib; make; 
+cd ../angsd;
+make HTSSRC=../htslib</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="run-angsd" class="section level4">
+<h4>run angsd</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgd3JpdGUgdGhlIGJhbSBmaWxlcyB0byBhIHR4dCBmaWxlIiwibWtkaXIgYmFtX2ZpbGVzIiwibXYgc29ydGVkKi5iYW0gYmFtX2ZpbGVzIiwiY2QgYmFtX2ZpbGVzIiwibHMgc29ydGVkKi5iYW0gPiBiYW0udHh0IiwiIiwiYW5nc2QgLWJhbSBiYW0udHh0IC1kb1NhZiAxIC1hbmMgLi4vbGFtYmRhLmZhIC1HTCAxICAtb3V0IG91dCAiLCJyZWFsU0ZTIG91dC5zYWYuaWR4ID4gb3V0LnNmcyIsIiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlciIsImNwIG91dC5zZnMgLi4vLi4vLi4vY2FjaGUvIl19 -->
+<pre class="r"><code># write the bam files to a txt file
+mkdir bam_files
+mv sorted*.bam bam_files
+cd bam_files
+ls sorted*.bam &gt; bam.txt
+
+angsd -bam bam.txt -doSaf 1 -anc ../lambda.fa -GL 1  -out out 
+realSFS out.saf.idx &gt; out.sfs
+## cp sfs to the cache/ folder
+cp out.sfs ../../../cache/</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+</div>
+<div id="a-procedure-to-calculate-theta-values-2" class="section level1">
+<h1>A procedure to calculate <span class="math inline">\(\theta\)</span> values</h1>
+<div id="calculate-the-thetas-for-each-site" class="section level3">
+<h3>3. Calculate the thetas for each site</h3>
+<p>The output from the above command are two files out.thetas.gz and out.thetas.idx. A formal description of these files can be found in the doc/formats.pdf in the angsd package. It is possible to extract the logscale persite thetas using the ./thetaStat print program.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbImFuZ3NkIC1iYW0gYmFtLmxpc3QgLW91dCBvdXQgLWRvVGhldGFzIDEgLWRvU2FmIDEgLXBlc3Qgb3V0LnNmcyAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSIsInRoZXRhU3RhdCBwcmludCBvdXQudGhldGFzLmlkeCA+IHRoZXRhLnR4dCIsIiMjIGNwIHRoZXRhIHRvIHRoZSBjYWNoZS8gZm9sZGVyIiwiY3AgdGhldGEudHh0IC4uLy4uLy4uL2NhY2hlLyJdfQ== -->
+<pre class="r"><code>angsd -bam bam.list -out out -doThetas 1 -doSaf 1 -pest out.sfs -anc ../lambda.fa -GL 1
+thetaStat print out.thetas.idx &gt; theta.txt
+## cp theta to the cache/ folder
+cp theta.txt ../../../cache/</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="visualize-the-results" class="section level1">
+<h1>Visualize the results</h1>
+<p>In local computer, using <code>R</code>:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjpbInMgPC0gc2NhbignLi4vLi4vY2FjaGUvb3V0LnNmcycpIiwicyA8LSBzWy1jKDEsbGVuZ3RoKHMpKV0iLCJzIDwtIHMvc3VtKHMpIiwiYmFycGxvdChzLG5hbWVzPTE6bGVuZ3RoKHMpLCBtYWluPSdTRlMnKSJdfQ== -->
+<pre class="r"><code>s &lt;- scan('../../cache/out.sfs')
+s &lt;- s[-c(1,length(s))]
+s &lt;- s/sum(s)
+barplot(s,names=1:length(s), main='SFS')</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTIzNDU2KVxuc2ltMSA8LSB3cmlnaHRfZmlzaGVyKE49NTAwMDAsIHQ9MTAwLCBBMT0yMDAwMClcbiNwbG90KHNpbTFbMToxMDBdLCB0eXBlPVwib1wiLCBwY2g9MTksIHhsYWI9XCJHZW5lcmF0aW9uc1wiLCB5bGFiPVwiQTEgYWxsZWxlIGNvdW50XCIpXG53cml0ZS50YWJsZShzaW0xLCBcImNhY2hlL3NpbTFfaGNjLnR4dFwiLCBzZXA9XCJcXHRcIiwgcm93Lm5hbWVzPUZBTFNFLCBxdW90ZT1GQUxTRSlcblxuXG4jXG5zaW0xIDwtIHJlYWQudGFibGUoXCIuLi8uLi9jYWNoZS9zaW0xX2hjYy50eHRcIiwgaGVhZGVyPVQpXG5wbG90KHNpbTEkeCwgdHlwZT1cIm9cIiwgcGNoPTE5LCB4bGFiPVwiR2VuZXJhdGlvbnNcIiwgeWxhYj1cIkExIGFsbGVsZSBjb3VudFwiKVxuYGBgIn0= -->
-<pre class="r"><code>set.seed(123456)
-sim1 &lt;- wright_fisher(N=50000, t=100, A1=20000)
-#plot(sim1[1:100], type=&quot;o&quot;, pch=19, xlab=&quot;Generations&quot;, ylab=&quot;A1 allele count&quot;)
-write.table(sim1, &quot;cache/sim1_hcc.txt&quot;, sep=&quot;\t&quot;, row.names=FALSE, quote=FALSE)
-
-
-#
-sim1 &lt;- read.table(&quot;../../cache/sim1_hcc.txt&quot;, header=T)
-plot(sim1$x, type=&quot;o&quot;, pch=19, xlab=&quot;Generations&quot;, ylab=&quot;A1 allele count&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjpbInQgPC0gcmVhZC5jc3YoJy4uLy4uL2NhY2hlL3RoZXRhLnR4dCcsIHNlcD1cIlxcdFwiLCBoZWFkZXI9VFJVRSkiLCJkaW0odCkgIyIsImhlYWQodCkiXX0= -->
+<pre class="r"><code>t &lt;- read.csv('../../cache/theta.txt', sep=&quot;\t&quot;, header=TRUE)
+dim(t) #
+head(t)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiaGlzdCh0JFBhaXJ3aXNlLCB4bGFiPVwidGhldGFcIiwgbWFpbj1cIkhpc3RvZ3JhbSBvZiB0aGV0YVwiKSJ9 -->
+<pre class="r"><code>hist(t$Pairwise, xlab=&quot;theta&quot;, main=&quot;Histogram of theta&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiU2ltdWxhdGlvbiBmb3IgZ2VuZXRpYyBkcmlmdCIKYXV0aG9yOiAiSmlubGlhbmcgWWFuZyIKZGF0ZTogIjAxLTIwLTIwMjAiCm91dHB1dDoKICBodG1sX25vdGVib29rOiBkZWZhdWx0Ci0tLQoKIyBXcmlnaHQtRmlzaGVyIHNpbXVsYXRpb24KCkNvbnNpZGVyIGEgc2luZ2xlIG51Y2xlb3RpZGUgcG9zaXRpb24gd2l0aCB0d28gYWxsZWxlcywgJEFfMSQgYW5kICRBXzIkCgpJbiBnZW5lcmF0aW9uICR0JCB0aGVyZSBhcmUgJHgkIGluZGl2aWR1YWxzIGNhcnJ5aW5nIGFsbGVsZSAkQV8xJCwgd2hpY2ggaXMgYXQgZnJlcXVlbmN5ICRwX3QgPSB4LzJOJC4KClRoaXMgaW1wbGllcyB0aGF0IHRoZXJlIGFyZSAkMk4gLSB4JCBpbmRpdmlkdWFscyBjYXJyeWluZyBhbGxlbGUgJEFfMiQsIHdoaWNoIGlzIGF0IGZyZXF1ZW5jeSAkcV90ID0gMS0gcF90PSAxLSB4LzJOJC4KClRoZSBzYW1wbGluZyBvZiBhbGxlbGVzIGZvciB0aGUgbmV4dCBnZW5lcmF0aW9ucyBpcyBlcXVpdmFsZW50IHRvIHNhbXBsaW5nIGZyb20gYSBiaW5vbWlhbCBkaXN0cmlidXRpb24gd2l0aCBwYXJhbWV0ZXJzIHNpemUgPSAkMk4kIGFuZCBwcm9iPSAkeC8yTiQuCgpUaGVyZWZvcmUsIHRoZSBtZWFuIGFuZCB2YXJpYW5jZSBvZiAkcCQgaW4gdGhlIG5leHQgZ2VuZXJhdGlvbiBmb3IgdGhlIFdyaWdodC1GaXNoZXIgbW9kZWwgYXJlOgoKClxiZWdpbnthbGlnbip9CkUocF90KSAmPSBwX3QgXFwKVmFyKHBfe3QrMX0pICY9IHBfdHFfdC8yTiAKXGVuZHthbGlnbip9CgoKLS0tCgojIFdyaWdodCBGaXNoZXIgc2ltdWxhdGlvbgoKCmBgYHtyfQp3cmlnaHRfZmlzaGVyIDwtIGZ1bmN0aW9uKE49MTAwMCwgdD0xMDAsIEExPTEwMCl7CiAgIyBOOiBudW1iZXIgb2YgZGlwbG9pZCBpbmRpdmlkdWFscy4gW049MTAwMCwgaW50ZWdlcl0KICAjIHQ6IG51bWJlciBvZiBnZW5lcmF0aW9ucy4gW3Q9MTAwLCBudW1lcmljXQogICMgQTE6IG51bWJlciBvZiBBMSAodGhlIG1pbm9yIGFsbGVsZSkgaW4gdGhlIGZpcnN0IGdlbmVyYXRpb24uIFtBMT0xMCwgaW50ZWdlcl0KCiAgIyBjcmVhdGUgYSB2ZWN0b3IgCiAgeCA8LSAwCiAgeFsxXSA8LSBBMQoKICAjIFN0YXJ0IHRvIGxvb3Agb3ZlciBtIGdlbmVyYXRpb25zCiAgIyBiaW5vbWlhbCBzYW1wbGluZyBhdCBlYWNoIGdlbmVyYXRpb24gLSBkZXRlcm1pbmVzIGFsbGVsZSBjb3VudCBpbiBuZXh0IGdlbmVyYXRpb25zCiAgZm9yIChpIGluIDI6dCl7CiAgICAjIGNhbGN1bGF0ZSBhbGxlbGUgZnJlcSBpbiB0aGUgY3VycmVudCBnZW5lcmF0aW9uCiAgICBrIDwtICh4W2ktMV0pLygyKk4pCiAgICAjIGdlbmVyYXRlIGEgdmVjdG9yIHdpdGggMk4gaW5kaXZpZHVhbHMKICAgIG4gPC0gc2VxKDAsMipOLDEpCiAgICAKICAgICMgZGVuc2l0eSBmb3IgdGhlIGJpbm9taWFsIGRpc3RyaWJ1dGlvbiB3aXRoIHBhcmFtdGVycyBzaXplPTJOIGFuZCBwcm9iPWsKICAgIHByb2IgPC0gZGJpbm9tKG4sIDIqTiwgaykKICAgICMgcGxvdChwcm9iKQogICAgIyBjaG9vc2Ugb25lIGZyb20gYSB2ZWN0b3IgZWFjaCB3aXRoIGNlcnRhaW4gcHJvYgogICAgeFtpXSA8LSBzYW1wbGUoMDooMipOKSwgMSwgcHJvYj1wcm9iKQogIH0KICAjIHJldHVybiBiYWNrIHRoZSByZXN1bHRzCiAgcmV0dXJuKHgpCn0KCiMgc2ltMSA8LSB3cmlnaHRfZmlzaGVyKE49NTAsIHQ9MTAwLCBBMT0yMCkKYGBgCgotLS0KCmBgYHtyfQpzZXQuc2VlZCgxMjM0NTg3KQpzaW0xIDwtIHdyaWdodF9maXNoZXIoTj01MCwgdD0xMDAwLCBBMT0yMCkKcGxvdChzaW0xWzE6MTAwXSwgdHlwZT0ibyIsIHBjaD0xOSwgeGxhYj0iR2VuZXJhdGlvbnMiLCB5bGFiPSJBMSBhbGxlbGUgY291bnQiKQoKc2ltMSA8LSB3cmlnaHRfZmlzaGVyKE49NTAsIHQ9MTAwMCwgQTE9MjApCnBsb3Qoc2ltMVsxOjEwMF0sIHR5cGU9Im8iLCBwY2g9MTksIHhsYWI9IkdlbmVyYXRpb25zIiwgeWxhYj0iQTEgYWxsZWxlIGNvdW50IikKCmBgYAoKCmBgYHtyfQpzZXQuc2VlZCgxMjM0NTYpCnNpbTEgPC0gd3JpZ2h0X2Zpc2hlcihOPTUwMDAwLCB0PTEwMCwgQTE9MjAwMDApCiNwbG90KHNpbTFbMToxMDBdLCB0eXBlPSJvIiwgcGNoPTE5LCB4bGFiPSJHZW5lcmF0aW9ucyIsIHlsYWI9IkExIGFsbGVsZSBjb3VudCIpCndyaXRlLnRhYmxlKHNpbTEsICJjYWNoZS9zaW0xX2hjYy50eHQiLCBzZXA9Ilx0Iiwgcm93Lm5hbWVzPUZBTFNFLCBxdW90ZT1GQUxTRSkKCgojCnNpbTEgPC0gcmVhZC50YWJsZSgiLi4vLi4vY2FjaGUvc2ltMV9oY2MudHh0IiwgaGVhZGVyPVQpCnBsb3Qoc2ltMSR4LCB0eXBlPSJvIiwgcGNoPTE5LCB4bGFiPSJHZW5lcmF0aW9ucyIsIHlsYWI9IkExIGFsbGVsZSBjb3VudCIpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTkdTIHNpbXVsYXRpb24gYW5kIGRpdmVyc2l0eSBjYWxjdWxhdGlvbiIKYXV0aG9yOiAiSmlubGlhbmcgWWFuZyIKZGF0ZTogIjAxLTI5LTIwMjAiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCgojIFN5bmNpbmcgeW91ciBmb3JrIHRvIHRoZSBvcmlnaW5hbCByZXBvIAoKMS4gT3BlbiB5b3VyIF9fZm9ya19fIG9mIHRoZSByZXBvc2l0b3J5IG9uIEdpdGh1YgoyLiBDbGljayB0aGUgX19Db21wYXJlX18gYnV0dG9uIHJpZ2h0IG5leHQgdG8gdGhlIF9fUHVsbCByZXF1ZXN0X18KMy4gQ2hhbmdlIHRoZSBfX2Jhc2UgcmVwb19fIHRvIHlvdXIgcmVwb3NpdG9yeQogIC0gWW91J3JlIG5vdyBiYWNrIHRvIHlvdXIgZm9yayBidXQgeW91J3ZlIGFsc28gYXNrZWQgdG8gY29tcGFyZSB0d28gaWRlbnRpY2FsIHJlcG9zaXRvcmllcyBzbyBHaXRIdWIgdGhpbmtzIHlvdSBjYXJlIGFib3V0IGJyYW5jaGVzIG5vdCBmb3Jrcy4gCiAgLSBDbGljayBvbiBfX2NvbXBhcmUgYWNyb3NzIGZvcmtzX18gdG8gZ2V0IGJhY2sgeW91ciBiYXNlIGZvcmsgb3B0aW9uLgo0LiBDaGFuZ2UgdGhlIF9faGVhZCByZXBvX18gdG8gdGhlIHVwc3RyZWFtIChvcmlnaW5hbCkgcmVwb3NpdG9yeSBfX2p5YW5nbGFiL2Fncm85MzItbGFiX18KNS4gWW91IHdpbGwgc2VlIGEgbGlzdCBvZiBjb21taXRzCiAgLSBUaGVzZSBhcmUgdGhlIGNvbW1pdHMgbWFkZSBieSBgeWFuZ2psYAo2LiBDbGljayBfX0NyZWF0ZSBwdWxsIHJlcXVlc3RfXwogIC0gTm90ZSB0aGF0IHRoaXMgcHVsbCByZXF1ZXN0IGlzIHRvIHlvdSEKICAKCi0tLQoKIyBVbml4IENvbW1hbmRzCgotIGBjZGA6IGNoYW5nZSB0aGUgd29ya2luZyBkaXJlY3RvcnkKLSBgbWtkaXJgOiBtYWtlIGRpcmVjdG9yaWVzCi0gYHB3ZGA6IHByaW50IG5hbWUgb2YgY3VycmVudCB3b3JraW5nIGRpcmVjdG9yeQotIGBsc2A6IGxpc3QgZGlyZWN0b3J5IGNvbnRlbnRzCi0gYGNobW9kYDogY2hhbmdlIHRoZSBhY2Nlc3MgcGVybWlzc2lvbnMgdG8gZmlsZXMgYW5kIGRpcmVjdG9yaWVzCi0gYGhlYWRgOiBvdXRwdXQgdGhlIGZpcnN0IHBhcnQgb2YgZmlsZXMKLSBgdGFpbGA6IG91dHB1dCB0aGUgbGFzdCBwYXJ0IG9mIGZpbGVzCi0gYG1vcmVgIGFuZCBgbGVzc2A6IGRpc3BsYXkgY29udGVudHMgb2YgbGFyZ2UgZmlsZXMgcGFnZSBieSBwYWdlIG9yIHNjcm9sbCBsaW5lIGJ5IGxpbmUgdXAgYW5kIGRvd24KLSBgd2NgOiBwcmludCBsaW5lLCB3b3JkLCBhbmQgYnl0ZSBjb3VudHMgZm9yIGVhY2ggZWFjaCBmaWxlCi0gYGdyZXBgOiBwcmludCBsaW5lcyBtYXRjaGluZyBhIHBhdHRlcm4KLSBgfGA6IHBpcGUsIGkuZS4sIGBscyAtbGEgfCBoZWFkIC1uIDEwMCA+PiBuZXdfZmlsZWAKCi0tLQoKIyBVbml4IENvbW1hbmRzOiBob3cgdG8gZ2V0IGhlbHAKCklmIHlvdSBkb27igJl0IGtub3cgaG93IHRvIHVzZSBhIGNvbW1hbmQgaS5lLiB5b3UgZG9u4oCZdCBrbm93IGFib3V0IGl0cyBwYXJhbWV0ZXJzIGFuZCByZXR1cm4gdHlwZSBldGMsIHRoZW4geW91IGNhbiBtYWtlIHVzZSBvZiBg4oCTLWhlbHBgIGNvbW1hbmQuCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0KbGVzcyAtLWhlbHAKYGBgCgotLQoKIyMjIEhvdyB0byB1c2UgaGVscCBjb21tYW5kCgpTaW1wbHkgdHlwZSBgaGVscGAsIHdoaWNoIGlzIHVzZWQgZm9yIGxpc3RpbmcgYWxsIHBvc3NpYmxlIGNvbW1hbmRzIHRoYXQgYXJlIHByZS1pbnN0YWxsZWQuCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0KaGVscApoZWxwIGNkCmBgYAoKLS0tCgojIFVuaXggQ29tbWFuZHM6IGhvdyB0byBnZXQgaGVscAoKIyMjIFRoZSBgbWFuYCBjb21tYW5kIG9yIG1hbiBwYWdlcwoKTWFuIGlzIHVzZWQgd2hlbiB5b3Ugd2FudCB0byBnZXQgYSBkZXRhaWxlZCBtYW51YWwgb2YgYSBjb21tYW5kLgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9Cm1hbiBta2RpcgptYW4gYmFzaApgYGAKCi0tLQoKIyBTbHVybSBDb21tYW5kcwoKIyMgR2V0dGluZyB0byBrbm93IHNsdXJtCgpbU2x1cm1dKGh0dHBzOi8vc2x1cm0uc2NoZWRtZC5jb20vb3ZlcnZpZXcuaHRtbCkgaXMgam9iIG1hbmFnaW5nIHN5c3RlbTogeW91IHN1Ym1pdCBqb2JzIHZpYSBiYXRjaCBzY3JpcHRzLiBUaGVzZSBiYXRjaCBzY3JpcHRzIGhhdmUgY29tbW9uIGhlYWRlcnM7IHdlIHdpbGwgc2VlIG9uZSBiZWxvdy4KCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpzaW5mbyAjIHZpZXcgaW5mb3JtYXRpb24gYWJvdXQgU2x1cm0gbm9kZXMgYW5kIHBhcnRpdGlvbnMuCnNpbmZvIC0taGVscApzaW5mbyB8IGhlYWQgLW4gMTAKYGBgCgotIEhlcmUgd2Ugc2VlIG91ciBgUEFSVElUSU9OYCBhbmQgYFRJTUUgTElNSVRgLCBhbmQgYWxsIG9mIHRoZWlyIGluZmVyaW9yIGJ1dCBzdGlsbCB1c2VmdWwgZnJpZW5kcy4KCi0gTm90ZSB0aGF0IHRoZXJlIGlzIGEgY29sdW1uIG9mIGBTVEFURWAsIHdoaWNoIGluZGljYXRlcyB0aGUgc3RhdGUgb2YgdGhlIG1hY2hpbmUuIAoKLS0tCgojIFNsdXJtIENvbW1hbmRzCgojIyBHZXR0aW5nIHRvIGtub3cgc2x1cm0KCkEgYmV0dGVyIHdheSBvZiBsb29raW5nIGF0IHdoYXTigJlzIGdvaW5nIG9uIG9uIGVhY2ggbWFjaGluZSBpcyB3aXRoIGBzcXVldWVgLCB3aGljaCBpcyB0aGUgam9iIHF1ZXVlLgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNxdWV1ZSAtLWhlbHAKIyB2aWV3IGluZm9ybWF0aW9uIGFib3V0IGpvYnMgbG9jYXRlZCBpbiB0aGUgU2x1cm0gc2NoZWR1bGluZyBxdWV1ZS4Kc3F1ZXVlIApzcXVldWUgfCB3YyAtbCAjIGhvdyBtYW55IGpvYnMgYXJlIHJ1bm5pbmcKc3F1ZXVlIHwgZ3JlcCAianlhbmdsYWIiCmBgYAoKLSBUaGlzIHNob3dzIGVhY2ggX19qb2IgSURfXyAodmVyeSBpbXBvcnRhbnQpLCBwYXJ0aXRpb24gdGhlIGpvYiBpcyBydW5uaW5nIG9uLCBuYW1lIG9mIHBlcnNvbiBydW5uaW5nIHRoZSBqb2IuIAotIEFsc28gbm90ZSBgVElNRWAgd2hpY2ggaXMgaG93IGxvbmcgYSBqb2IgaGFzIGJlZW4gcnVubmluZy4KCi0tCgpXZSBjYW4gdXNlIGBzcXVldWVgIHRvIGZpbmQgdGhlIGpvYiBJRCwgYWxsb3dpbmcgdXMgdG8gY2FuY2VsIGEgam9iIHdpdGggYHNjYW5jZWxgLiBMZXTigJlzIGtpbGwganlhbmcyMeKAmXMgam9iOgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNjYW5jZWwgSk9CSUQKYGBgCgotLS0KCiMgV2FybmluZ3MhISEKCl9fRG8gbm90IHJ1biBhbnl0aGluZyBvbiB0aGUgaGVhZG5vZGVfXyBleGNlcHQgY2x1c3RlciBtYW5hZ2VtZW50IHRvb2xzIChzcXVldWUsIHNiYXRjaCwgZXRjKSwgY29tcGlsYXRpb24gdGFza3MgKGJ1dCB1c3VhbGx5IGFzayBDU0UgaGVscCBmb3IgYmlnIGFwcHMpLCBvciBkb3dubG9hZGluZyBmaWxlcy4gCi0gSWYgeW91IHJ1biBhbnl0aGluZyBvbiB0aGUgaGVhZG5vZGUsIHlvdSB3aWxsIGRpc2dyYWNlIHlvdXIgbGFiLgoKSW5zdGVhZCwgeW91IGNhbiBnZXQgYSBgYmFzaGAgdGVybWluYWwgdXNpbmcgYHNydW5gOgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CnNydW4gLS1ub2Rlcz0xIC0tbWVtIDRHIC0tbnRhc2tzPTQgLS1saWNlbnNlcz1jb21tb24gLS10aW1lPTg6MDA6MDAgLS1wdHkgYmFzaApgYGAKCi0tCgpfX01vbml0b3IgeW91ciBkaXNrIHNwYWNlX18sIGFzIGl0IGNhbiBmaWxsIHVwIHF1aWNrbHkuCgotIFlvdSB3aWxsIHNlZSB0aGUgZGlzayB1c2FnZSBldmVyeSB0aW1lIHlvdSBsb2dpbgoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmhjYy1kdQpgYGAKCi0tLQoKIyBTaW11bGF0ZSBOR1MgZGF0YQoKIyMjIEluc3RhbGwgYSBzb2Z0d2FyZSBvbiBjcmFuZQoKYGBge2Jhc2ggZXZhbD1GQUxTRX0KIyBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vbGgzL3dnc2ltLmdpdAoKIyBjb21waWxhdGlvbgpnY2MgLWcgLU8yIC1XYWxsIC1vIHdnc2ltIHdnc2ltLmMgLWx6IC1sbQpgYGAKCiMjIyBQdXQgdGhlIHNvZnR3YXJlIGluIHlvdXIgc2VhcmNoaW5nIHBhdGgKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpjZCB+CnZpIC5iYXNoX3Byb2ZpbGUKYGBgCgpUaGVuIGNvcHkgdGhlIGZvbGxvd2luZyB0byB5b3VyIGAuYmFzaF9wcm9maWxlYAoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9ClBBVEg9JFBBVEg6fi9iaW4vd2dzaW0vCmBgYAoKLS0tCgojIFJlZmVyZW5jZSBnZW5vbWUKCiMjIEVuc2VtYmxQbGFudHMKCi0gQnJlYWQgV2hlYXQ6IFtUcml0aWN1bSBhZXN0aXZ1bV0oaHR0cHM6Ly9wbGFudHMuZW5zZW1ibC5vcmcvVHJpdGljdW1fYWVzdGl2dW0vSW5mby9JbmRleCkKLSBDb21tb24gYmVhbjogW1BoYXNlb2x1cyB2dWxnYXJpc10oaHR0cHM6Ly9wbGFudHMuZW5zZW1ibC5vcmcvUGhhc2VvbHVzX3Z1bGdhcmlzL0luZm8vSW5kZXgpCi0gRG9tZXN0aWNhdGVkIHN1bmZsb3dlcjogW0hlbGlhbnRodXMgYW5udXVzXShodHRwczovL3BsYW50cy5lbnNlbWJsLm9yZy9IZWxpYW50aHVzX2FubnV1cy9JbmZvL0luZGV4KQotIE1haXplOiBbWmVhIG1heXNdKGh0dHBzOi8vcGxhbnRzLmVuc2VtYmwub3JnL1plYV9tYXlzL0luZm8vSW5kZXg/ZGI9Y29yZSkKLSBTb3liZWFuOiBbR2x5Y2luZSBtYXhdKGh0dHA6Ly9wbGFudHMuZW5zZW1ibC5vcmcvR2x5Y2luZV9tYXgvSW5mby9JbmRleCkKCi0tCgojIyBJbXBvcnRhbnQgaW5mbwotIFZlcnNpb24KLSBHZW5lIGFubm90YXRpb246IEdGRjMKCi0tLQoKIyBOR1MgZGF0YSBzaW11bGF0aW9uIHVzaW5nIGB3Z3NpbWAKCgpgYGB7YmFzaCwgZXZhbD1GQUxTRX0Kd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIFxcCi1SIDAgLVggMCAtUyAxMjM0NTY3IGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxCmBgYAoKLSBSZWZlcmVuY2U6IDUwayBsYW1iZGEgZ2Vub21lIGRvd25sb2FkZWQgZnJvbSBbTkNCSV0oaHR0cHM6Ly93d3cubmNiaS5ubG0ubmloLmdvdi9udWNjb3JlLzIxNTEwNCNmZWF0dXJlX0owMjQ1OS4xKQogIC0gYGxhbWJkYS5mYWAKLSAyMHggY292ZXJhZ2UKICAtIGBOIDUwMDBgCi0gUEUgMTAwYnAKICAtIGAtMSAxMDAgLTIgMTAwYAotIE9ubHkgU05QIG5vIEluZGVsCiAgLSBgLVIgMCAtWCAwYAotIE11dGF0aW9uIHJhdGUgaXMgbG93IAogIC0gYC1yIDAuMDFgCgotLS0KCiMgTkdTIGRhdGEgc2ltdWxhdGlvbiB1c2luZyBgd2dzaW1gCgojIyBzaW11bGF0ZSA1IGluZGl2aWRhbHMKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQpmb3IgaSBpbiB7MS4uNX0KZG8KICAgd2dzaW0gbGFtYmRhLmZhIC1OIDUwMDAgLTEgMTAwIC0yIDEwMCAtciAwLjAxIC1SIDAgLVggMCBsJGkucmVhZDEuZnEgbCRpLnJlYWQyLmZxCmRvbmUKCiMgY2hlY2sgaG93IG1hbnkgcmVhZHMKd2MgLWwgbDEucmVhZDEuZnEKYGBgCgotLS0KCiMgQSBwcm9jZWR1cmUgdG8gY2FsY3VsYXRlICRcdGhldGEkIHZhbHVlcwoKIyMjIDEuIEFsaWduIHRoZSBOR1MgcmVhZHMgdG8gdGhlIHJlZmVyZW5jZSBnZW5vbWUKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQptb2R1bGUgbG9hZCBid2Egc2FtdG9vbHMKIyBpbmRleCB0aGUgcmVmZXJlbmNlIGdlbm9tZQpid2EgaW5kZXggbGFtYmRhLmZhCiMgdXNpbmcgYndhIG1lbSB0byBhbGlnbiB0aGUgcmVhZHMgdG8gdGhlIHJlZmVyZW5jZSBnZW5vbWUgCiMgPT4gc2FtdG9vbHMgdG8gY29udmVydCBpbnRvIGJhbSBmaWxlCmJ3YSBtZW0gbGFtYmRhLmZhIGwxLnJlYWQxLmZxIGwxLnJlYWQyLmZxIHwgc2FtdG9vbHMgdmlldyAtYlNoIC0gPiBsMS5iYW0KYGBgCgojIyMgRG8gYWxpZ25tZW50IGZvciA1IGluZGl2aWR1YWxzIHVzaW5nIGJhc2ggbG9vcDoKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQojIGFsaWdubWVudApmb3IgaSBpbiB7MS4uNX07IGRvIGJ3YSBtZW0gbGFtYmRhLmZhIGwkaS5yZWFkMS5mcSBsJGkucmVhZDIuZnEgfCBzYW10b29scyB2aWV3IC1iU2ggLSA+IGwkaS5iYW07IGRvbmUKIyBzb3J0CmZvciBpIGluICouYmFtOyBkbyBzYW10b29scyBzb3J0ICRpIC1vIHNvcnRlZF8kaTsgZG9uZQojIGluZGV4IHRoZW0KZm9yIGkgaW4gc29ydGVkKi5iYW07IGRvIHNhbXRvb2xzIGluZGV4ICRpOyBkb25lCmBgYAoKLS0tCgojIEEgcHJvY2VkdXJlIHRvIGNhbGN1bGF0ZSAkXHRoZXRhJCB2YWx1ZXMKCiMjIyAyLiBDYWxjdWxhdGUgU0ZTIHVzaW5nIGBBTkdTRGAKCiMjIyMgSW5zdGFsbCBBTkdTRCBmaXJzdAoKYGBge2Jhc2gsIGV2YWw9RkFMU0V9CmNkIH4vYmluLyAjIGlmIHlvdSBkb24ndCBoYXZlIG9uZSwgZG8gYG1rZGlyIGJpbmAKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9zYW10b29scy9odHNsaWIuZ2l0CmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vQU5HU0QvYW5nc2QuZ2l0IApjZCBodHNsaWI7IG1ha2U7IApjZCAuLi9hbmdzZDsKbWFrZSBIVFNTUkM9Li4vaHRzbGliCmBgYAoKIyMjIyBydW4gYW5nc2QKCmBgYHtiYXNoLCBldmFsPUZBTFNFfQojIHdyaXRlIHRoZSBiYW0gZmlsZXMgdG8gYSB0eHQgZmlsZQpta2RpciBiYW1fZmlsZXMKbXYgc29ydGVkKi5iYW0gYmFtX2ZpbGVzCmNkIGJhbV9maWxlcwpscyBzb3J0ZWQqLmJhbSA+IGJhbS50eHQKCmFuZ3NkIC1iYW0gYmFtLnR4dCAtZG9TYWYgMSAtYW5jIC4uL2xhbWJkYS5mYSAtR0wgMSAgLW91dCBvdXQgCnJlYWxTRlMgb3V0LnNhZi5pZHggPiBvdXQuc2ZzCiMjIGNwIHNmcyB0byB0aGUgY2FjaGUvIGZvbGRlcgpjcCBvdXQuc2ZzIC4uLy4uLy4uL2NhY2hlLwpgYGAKCi0tLQoKIyBBIHByb2NlZHVyZSB0byBjYWxjdWxhdGUgJFx0aGV0YSQgdmFsdWVzCgojIyMgMy4gQ2FsY3VsYXRlIHRoZSB0aGV0YXMgZm9yIGVhY2ggc2l0ZQoKVGhlIG91dHB1dCBmcm9tIHRoZSBhYm92ZSBjb21tYW5kIGFyZSB0d28gZmlsZXMgb3V0LnRoZXRhcy5neiBhbmQgb3V0LnRoZXRhcy5pZHguIEEgZm9ybWFsIGRlc2NyaXB0aW9uIG9mIHRoZXNlIGZpbGVzIGNhbiBiZSBmb3VuZCBpbiB0aGUgZG9jL2Zvcm1hdHMucGRmIGluIHRoZSBhbmdzZCBwYWNrYWdlLiBJdCBpcyBwb3NzaWJsZSB0byBleHRyYWN0IHRoZSBsb2dzY2FsZSBwZXJzaXRlIHRoZXRhcyB1c2luZyB0aGUgLi90aGV0YVN0YXQgcHJpbnQgcHJvZ3JhbS4KCmBgYHtiYXNoLCBldmFsPUZBTFNFfQphbmdzZCAtYmFtIGJhbS5saXN0IC1vdXQgb3V0IC1kb1RoZXRhcyAxIC1kb1NhZiAxIC1wZXN0IG91dC5zZnMgLWFuYyAuLi9sYW1iZGEuZmEgLUdMIDEKdGhldGFTdGF0IHByaW50IG91dC50aGV0YXMuaWR4ID4gdGhldGEudHh0CiMjIGNwIHRoZXRhIHRvIHRoZSBjYWNoZS8gZm9sZGVyCmNwIHRoZXRhLnR4dCAuLi8uLi8uLi9jYWNoZS8KYGBgCgotLS0KCiMgVmlzdWFsaXplIHRoZSByZXN1bHRzCgpJbiBsb2NhbCBjb21wdXRlciwgdXNpbmcgYFJgOgoKYGBge3IsIGV2YWw9RkFMU0V9CnMgPC0gc2NhbignLi4vLi4vY2FjaGUvb3V0LnNmcycpCnMgPC0gc1stYygxLGxlbmd0aChzKSldCnMgPC0gcy9zdW0ocykKYmFycGxvdChzLG5hbWVzPTE6bGVuZ3RoKHMpLCBtYWluPSdTRlMnKQpgYGAKCgpgYGB7ciwgZXZhbD1GQUxTRX0KdCA8LSByZWFkLmNzdignLi4vLi4vY2FjaGUvdGhldGEudHh0Jywgc2VwPSJcdCIsIGhlYWRlcj1UUlVFKQpkaW0odCkgIwpoZWFkKHQpCmBgYAoKYGBge3IsIGV2YWw9RkFMU0V9Cmhpc3QodCRQYWlyd2lzZSwgeGxhYj0idGhldGEiLCBtYWluPSJIaXN0b2dyYW0gb2YgdGhldGEiKQpgYGAKCgoK</div>
 
 
 
@@ -1880,7 +2199,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("2.A.1_drift.Rmd");
+  window.initializeSourceEmbed("3.A.1_thetas.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
