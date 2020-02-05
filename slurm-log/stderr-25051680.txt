@@ -1,0 +1,1 @@
+/home/jyanglab/jyang21/.bash_aliases: line 42: ll: command not found
