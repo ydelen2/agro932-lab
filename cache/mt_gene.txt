@@ -1,0 +1,2 @@
+seq	source	feature	start	end	score	strand	phase	att	geneid
+Mt	ena	gene	477	638	.	-	.	ID=gene:HannXRQ_MTg0579061;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579061;logic_name=ena	HannXRQ_MTg0579061
