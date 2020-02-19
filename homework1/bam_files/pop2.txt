@@ -1,0 +1,5 @@
+sorted_l6.bam
+sorted_l7.bam
+sorted_l8.bam
+sorted_l9.bam
+sorted_l10.bam 

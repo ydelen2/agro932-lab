@@ -1,0 +1,410 @@
+##gff-version 3
+##sequence-region   Mt 1 301004
+#!genome-build International Consortium for Sunflower Genomics HanXRQr1.0
+#!genome-version HanXRQr1.0
+#!genome-date 2017-05
+#!genome-build-accession GCA_002127325.1
+#!genebuild-last-updated 2017-09
+Mt	International Consortium for Sunflower Genomics	chromosome	1	301004	.	.	.	ID=chromosome:Mt;Alias=CM007908.1,NC_023337.1;Is_circular=true
+###
+Mt	ena	gene	477	638	.	-	.	ID=gene:HannXRQ_MTg0579061;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579061;logic_name=ena
+Mt	ena	mRNA	477	638	.	-	.	ID=transcript:OTF84696;Parent=gene:HannXRQ_MTg0579061;biotype=protein_coding;transcript_id=OTF84696
+Mt	ena	exon	477	638	.	-	.	Parent=transcript:OTF84696;Name=OTF84696-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84696-1;rank=1
+Mt	ena	CDS	477	638	.	-	0	ID=CDS:OTF84696;Parent=transcript:OTF84696;protein_id=OTF84696
+###
+Mt	Ensembl_Plants	ncRNA_gene	665	761	.	-	.	ID=gene:ENSRNA050004471;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004471;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	665	761	.	-	.	ID=transcript:ENSRNA050004471-T1;Parent=gene:ENSRNA050004471;biotype=sense_intronic;transcript_id=ENSRNA050004471-T1
+Mt	Ensembl_Plants	exon	665	761	.	-	.	Parent=transcript:ENSRNA050004471-T1;Name=ENSRNA050004471-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004471-E1;rank=1
+###
+Mt	ena	gene	2052	5095	.	-	.	ID=gene:HannXRQ_MTg0579071;biotype=protein_coding;description=putative NADH:quinone oxidoreductase/Mrp antiporter%2C membrane subunit;gene_id=HannXRQ_MTg0579071;logic_name=ena
+Mt	ena	mRNA	2052	5095	.	-	.	ID=transcript:OTF84697;Parent=gene:HannXRQ_MTg0579071;biotype=protein_coding;transcript_id=OTF84697
+Mt	ena	exon	2052	2796	.	-	.	Parent=transcript:OTF84697;Name=OTF84697-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=OTF84697-2;rank=2
+Mt	ena	CDS	2052	2796	.	-	1	ID=CDS:OTF84697;Parent=transcript:OTF84697;protein_id=OTF84697
+Mt	ena	exon	5004	5095	.	-	.	Parent=transcript:OTF84697;Name=OTF84697-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=OTF84697-1;rank=1
+Mt	ena	CDS	5004	5095	.	-	0	ID=CDS:OTF84697;Parent=transcript:OTF84697;protein_id=OTF84697
+###
+Mt	Ensembl_Plants	ncRNA_gene	5199	5287	.	-	.	ID=gene:ENSRNA050004474;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004474;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	5199	5287	.	-	.	ID=transcript:ENSRNA050004474-T1;Parent=gene:ENSRNA050004474;biotype=sense_intronic;transcript_id=ENSRNA050004474-T1
+Mt	Ensembl_Plants	exon	5199	5287	.	-	.	Parent=transcript:ENSRNA050004474-T1;Name=ENSRNA050004474-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004474-E1;rank=1
+###
+Mt	ena	ncRNA_gene	5199	5786	.	-	.	ID=gene:HannXRQ_MTg0579081;biotype=ncRNA;gene_id=HannXRQ_MTg0579081;logic_name=ena_rna
+Mt	ena	ncRNA	5199	5786	.	-	.	ID=transcript:HannXRQ_MTg0579081-1;Parent=gene:HannXRQ_MTg0579081;Name=HannXRQ_MTg0579081;biotype=ncRNA;transcript_id=HannXRQ_MTg0579081-1
+Mt	ena	exon	5199	5786	.	-	.	Parent=transcript:HannXRQ_MTg0579081-1;Name=HannXRQ_MTg0579081-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579081-1;rank=1
+###
+Mt	ena	ncRNA_gene	6589	6660	.	-	.	ID=gene:HannXRQ_MTg0579091;biotype=tRNA;gene_id=HannXRQ_MTg0579091;logic_name=ena_rna
+Mt	ena	tRNA	6589	6660	.	-	.	ID=transcript:HannXRQ_MTg0579091-1;Parent=gene:HannXRQ_MTg0579091;Name=HannXRQ_MTg0579091;biotype=tRNA;transcript_id=HannXRQ_MTg0579091-1
+Mt	ena	exon	6589	6660	.	-	.	Parent=transcript:HannXRQ_MTg0579091-1;Name=HannXRQ_MTg0579091-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579091-1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	6589	6660	.	-	.	ID=gene:ENSRNA049761792;Name=tRNA-Asn;biotype=tRNA;description=tRNA-Asn for anticodon GUU;gene_id=ENSRNA049761792;logic_name=trnascan_gene
+Mt	Ensembl_Plants	tRNA	6589	6660	.	-	.	ID=transcript:ENSRNA049761792-T1;Parent=gene:ENSRNA049761792;biotype=tRNA;transcript_id=ENSRNA049761792-T1
+Mt	Ensembl_Plants	exon	6589	6660	.	-	.	Parent=transcript:ENSRNA049761792-T1;Name=ENSRNA049761792-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA049761792-E1;rank=1
+###
+Mt	ena	ncRNA_gene	8691	8761	.	-	.	ID=gene:HannXRQ_MTg0579101;biotype=tRNA;gene_id=HannXRQ_MTg0579101;logic_name=ena_rna
+Mt	ena	tRNA	8691	8761	.	-	.	ID=transcript:HannXRQ_MTg0579101-1;Parent=gene:HannXRQ_MTg0579101;Name=HannXRQ_MTg0579101;biotype=tRNA;transcript_id=HannXRQ_MTg0579101-1
+Mt	ena	exon	8691	8761	.	-	.	Parent=transcript:HannXRQ_MTg0579101-1;Name=HannXRQ_MTg0579101-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579101-1;rank=1
+###
+Mt	ena	gene	15284	16027	.	-	.	ID=gene:HannXRQ_MTg0579111;biotype=protein_coding;description=putative cytochrome c assembly protein%2C Cytochrome c-type biogenesis protein CcmC;gene_id=HannXRQ_MTg0579111;logic_name=ena
+Mt	ena	mRNA	15284	16027	.	-	.	ID=transcript:OTF84698;Parent=gene:HannXRQ_MTg0579111;biotype=protein_coding;transcript_id=OTF84698
+Mt	ena	exon	15284	16027	.	-	.	Parent=transcript:OTF84698;Name=OTF84698-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84698-1;rank=1
+Mt	ena	CDS	15284	16027	.	-	0	ID=CDS:OTF84698;Parent=transcript:OTF84698;protein_id=OTF84698
+###
+Mt	ena	ncRNA_gene	26838	26909	.	-	.	ID=gene:HannXRQ_MTg0579121;biotype=tRNA;gene_id=HannXRQ_MTg0579121;logic_name=ena_rna
+Mt	ena	tRNA	26838	26909	.	-	.	ID=transcript:HannXRQ_MTg0579121-1;Parent=gene:HannXRQ_MTg0579121;Name=HannXRQ_MTg0579121;biotype=tRNA;transcript_id=HannXRQ_MTg0579121-1
+Mt	ena	exon	26838	26909	.	-	.	Parent=transcript:HannXRQ_MTg0579121-1;Name=HannXRQ_MTg0579121-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579121-1;rank=1
+###
+Mt	ena	gene	27923	28498	.	-	.	ID=gene:HannXRQ_MTg0579131;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C B chain/subunit B/MI25;gene_id=HannXRQ_MTg0579131;logic_name=ena
+Mt	ena	mRNA	27923	28498	.	-	.	ID=transcript:OTF84699;Parent=gene:HannXRQ_MTg0579131;biotype=protein_coding;transcript_id=OTF84699
+Mt	ena	exon	27923	28498	.	-	.	Parent=transcript:OTF84699;Name=OTF84699-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84699-1;rank=1
+Mt	ena	CDS	27923	28498	.	-	0	ID=CDS:OTF84699;Parent=transcript:OTF84699;protein_id=OTF84699
+###
+Mt	ena	gene	28678	28950	.	-	.	ID=gene:HannXRQ_MTg0579141;biotype=protein_coding;description=putative NADH-ubiquinone oxidoreductase chain 4L/K;gene_id=HannXRQ_MTg0579141;logic_name=ena
+Mt	ena	mRNA	28678	28950	.	-	.	ID=transcript:OTF84700;Parent=gene:HannXRQ_MTg0579141;biotype=protein_coding;transcript_id=OTF84700
+Mt	ena	exon	28678	28950	.	-	.	Parent=transcript:OTF84700;Name=OTF84700-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84700-1;rank=1
+Mt	ena	CDS	28678	28950	.	-	0	ID=CDS:OTF84700;Parent=transcript:OTF84700;protein_id=OTF84700
+###
+Mt	ena	gene	35609	36388	.	+	.	ID=gene:HannXRQ_MTg0579151;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579151;logic_name=ena
+Mt	ena	mRNA	35609	36388	.	+	.	ID=transcript:OTF84701;Parent=gene:HannXRQ_MTg0579151;biotype=protein_coding;transcript_id=OTF84701
+Mt	ena	exon	35609	36388	.	+	.	Parent=transcript:OTF84701;Name=OTF84701-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84701-1;rank=1
+Mt	ena	CDS	35609	36388	.	+	0	ID=CDS:OTF84701;Parent=transcript:OTF84701;protein_id=OTF84701
+###
+Mt	ena	gene	36772	37251	.	+	.	ID=gene:HannXRQ_MTg0579161;Name=YMF19;biotype=protein_coding;description=putative ATP synthase protein YMF19;gene_id=HannXRQ_MTg0579161;logic_name=ena
+Mt	ena	mRNA	36772	37251	.	+	.	ID=transcript:OTF84702;Parent=gene:HannXRQ_MTg0579161;Name=YMF19-1;biotype=protein_coding;transcript_id=OTF84702
+Mt	ena	exon	36772	37251	.	+	.	Parent=transcript:OTF84702;Name=OTF84702-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84702-1;rank=1
+Mt	ena	CDS	36772	37251	.	+	0	ID=CDS:OTF84702;Parent=transcript:OTF84702;protein_id=OTF84702
+###
+Mt	ena	gene	37821	38618	.	+	.	ID=gene:HannXRQ_MTg0579171;Name=COX3;biotype=protein_coding;description=putative cytochrome c oxidase subunit 3;gene_id=HannXRQ_MTg0579171;logic_name=ena
+Mt	ena	mRNA	37821	38618	.	+	.	ID=transcript:OTF84703;Parent=gene:HannXRQ_MTg0579171;Name=COX3-1;biotype=protein_coding;transcript_id=OTF84703
+Mt	ena	exon	37821	38618	.	+	.	Parent=transcript:OTF84703;Name=OTF84703-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84703-1;rank=1
+Mt	ena	CDS	37821	38618	.	+	0	ID=CDS:OTF84703;Parent=transcript:OTF84703;protein_id=OTF84703
+###
+Mt	ena	ncRNA_gene	39175	39246	.	-	.	ID=gene:HannXRQ_MTg0579181;biotype=tRNA;gene_id=HannXRQ_MTg0579181;logic_name=ena_rna
+Mt	ena	tRNA	39175	39246	.	-	.	ID=transcript:HannXRQ_MTg0579181-1;Parent=gene:HannXRQ_MTg0579181;Name=HannXRQ_MTg0579181;biotype=tRNA;transcript_id=HannXRQ_MTg0579181-1
+Mt	ena	exon	39175	39246	.	-	.	Parent=transcript:HannXRQ_MTg0579181-1;Name=HannXRQ_MTg0579181-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579181-1;rank=1
+###
+Mt	ena	gene	42935	43498	.	-	.	ID=gene:HannXRQ_MTg0579191;biotype=protein_coding;description=putative ribosomal protein L5;gene_id=HannXRQ_MTg0579191;logic_name=ena
+Mt	ena	mRNA	42935	43498	.	-	.	ID=transcript:OTF84704;Parent=gene:HannXRQ_MTg0579191;biotype=protein_coding;transcript_id=OTF84704
+Mt	ena	exon	42935	43498	.	-	.	Parent=transcript:OTF84704;Name=OTF84704-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84704-1;rank=1
+Mt	ena	CDS	42935	43498	.	-	0	ID=CDS:OTF84704;Parent=transcript:OTF84704;protein_id=OTF84704
+###
+Mt	ena	gene	46160	49105	.	-	.	ID=gene:HannXRQ_MTg0579201;Name=NU4M;biotype=protein_coding;description=putative NADH-ubiquinone oxidoreductase chain 4;gene_id=HannXRQ_MTg0579201;logic_name=ena
+Mt	ena	mRNA	46160	49105	.	-	.	ID=transcript:OTF84705;Parent=gene:HannXRQ_MTg0579201;Name=NU4M-1;biotype=protein_coding;transcript_id=OTF84705
+Mt	ena	exon	46160	47255	.	-	.	Parent=transcript:OTF84705;Name=OTF84705-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=OTF84705-2;rank=2
+Mt	ena	CDS	46160	47255	.	-	1	ID=CDS:OTF84705;Parent=transcript:OTF84705;protein_id=OTF84705
+Mt	ena	exon	48645	49105	.	-	.	Parent=transcript:OTF84705;Name=OTF84705-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=OTF84705-1;rank=1
+Mt	ena	CDS	48645	49105	.	-	0	ID=CDS:OTF84705;Parent=transcript:OTF84705;protein_id=OTF84705
+###
+Mt	ena	ncRNA_gene	51553	51626	.	+	.	ID=gene:HannXRQ_MTg0579211;biotype=tRNA;gene_id=HannXRQ_MTg0579211;logic_name=ena_rna
+Mt	ena	tRNA	51553	51626	.	+	.	ID=transcript:HannXRQ_MTg0579211-1;Parent=gene:HannXRQ_MTg0579211;Name=HannXRQ_MTg0579211;biotype=tRNA;transcript_id=HannXRQ_MTg0579211-1
+Mt	ena	exon	51553	51626	.	+	.	Parent=transcript:HannXRQ_MTg0579211-1;Name=HannXRQ_MTg0579211-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579211-1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	57286	57404	.	-	.	ID=gene:ENSRNA050004469;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004469;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	57286	57404	.	-	.	ID=transcript:ENSRNA050004469-T1;Parent=gene:ENSRNA050004469;biotype=sense_intronic;transcript_id=ENSRNA050004469-T1
+Mt	Ensembl_Plants	exon	57286	57404	.	-	.	Parent=transcript:ENSRNA050004469-T1;Name=ENSRNA050004469-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004469-E1;rank=1
+###
+Mt	ena	gene	59543	59932	.	+	.	ID=gene:HannXRQ_MTg0579221;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579221;logic_name=ena
+Mt	ena	mRNA	59543	59932	.	+	.	ID=transcript:OTF84706;Parent=gene:HannXRQ_MTg0579221;biotype=protein_coding;transcript_id=OTF84706
+Mt	ena	exon	59543	59932	.	+	.	Parent=transcript:OTF84706;Name=OTF84706-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84706-1;rank=1
+Mt	ena	CDS	59543	59932	.	+	0	ID=CDS:OTF84706;Parent=transcript:OTF84706;protein_id=OTF84706
+###
+Mt	ena	gene	62380	62631	.	+	.	ID=gene:HannXRQ_MTg0579231;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579231;logic_name=ena
+Mt	ena	mRNA	62380	62631	.	+	.	ID=transcript:OTF84707;Parent=gene:HannXRQ_MTg0579231;biotype=protein_coding;transcript_id=OTF84707
+Mt	ena	exon	62380	62631	.	+	.	Parent=transcript:OTF84707;Name=OTF84707-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84707-1;rank=1
+Mt	ena	CDS	62380	62631	.	+	0	ID=CDS:OTF84707;Parent=transcript:OTF84707;protein_id=OTF84707
+###
+Mt	ena	ncRNA_gene	64488	64560	.	-	.	ID=gene:HannXRQ_MTg0579241;biotype=tRNA;gene_id=HannXRQ_MTg0579241;logic_name=ena_rna
+Mt	ena	tRNA	64488	64560	.	-	.	ID=transcript:HannXRQ_MTg0579241-1;Parent=gene:HannXRQ_MTg0579241;Name=HannXRQ_MTg0579241;biotype=tRNA;transcript_id=HannXRQ_MTg0579241-1
+Mt	ena	exon	64488	64560	.	-	.	Parent=transcript:HannXRQ_MTg0579241-1;Name=HannXRQ_MTg0579241-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579241-1;rank=1
+###
+Mt	ena	gene	66605	67225	.	+	.	ID=gene:HannXRQ_MTg0579251;biotype=protein_coding;description=putative cytochrome C biogenesis 206;gene_id=HannXRQ_MTg0579251;logic_name=ena
+Mt	ena	mRNA	66605	67225	.	+	.	ID=transcript:OTF84708;Parent=gene:HannXRQ_MTg0579251;biotype=protein_coding;transcript_id=OTF84708
+Mt	ena	exon	66605	67225	.	+	.	Parent=transcript:OTF84708;Name=OTF84708-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84708-1;rank=1
+Mt	ena	CDS	66605	67225	.	+	0	ID=CDS:OTF84708;Parent=transcript:OTF84708;protein_id=OTF84708
+###
+Mt	ena	gene	67533	68021	.	-	.	ID=gene:HannXRQ_MTg0579261;Name=YMF01;biotype=protein_coding;description=putative uncharacterized mitochondrial protein ymf1;gene_id=HannXRQ_MTg0579261;logic_name=ena
+Mt	ena	mRNA	67533	68021	.	-	.	ID=transcript:OTF84709;Parent=gene:HannXRQ_MTg0579261;Name=YMF01-1;biotype=protein_coding;transcript_id=OTF84709
+Mt	ena	exon	67533	68021	.	-	.	Parent=transcript:OTF84709;Name=OTF84709-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84709-1;rank=1
+Mt	ena	CDS	67533	68021	.	-	0	ID=CDS:OTF84709;Parent=transcript:OTF84709;protein_id=OTF84709
+###
+Mt	ena	ncRNA_gene	79519	79591	.	+	.	ID=gene:HannXRQ_MTg0579271;biotype=tRNA;gene_id=HannXRQ_MTg0579271;logic_name=ena_rna
+Mt	ena	tRNA	79519	79591	.	+	.	ID=transcript:HannXRQ_MTg0579271-1;Parent=gene:HannXRQ_MTg0579271;Name=HannXRQ_MTg0579271;biotype=tRNA;transcript_id=HannXRQ_MTg0579271-1
+Mt	ena	exon	79519	79591	.	+	.	Parent=transcript:HannXRQ_MTg0579271-1;Name=HannXRQ_MTg0579271-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579271-1;rank=1
+###
+Mt	ena	ncRNA_gene	82784	82855	.	+	.	ID=gene:HannXRQ_MTg0579281;biotype=tRNA;gene_id=HannXRQ_MTg0579281;logic_name=ena_rna
+Mt	ena	tRNA	82784	82855	.	+	.	ID=transcript:HannXRQ_MTg0579281-1;Parent=gene:HannXRQ_MTg0579281;Name=HannXRQ_MTg0579281;biotype=tRNA;transcript_id=HannXRQ_MTg0579281-1
+Mt	ena	exon	82784	82855	.	+	.	Parent=transcript:HannXRQ_MTg0579281-1;Name=HannXRQ_MTg0579281-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579281-1;rank=1
+###
+Mt	ena	ncRNA_gene	87835	87908	.	-	.	ID=gene:HannXRQ_MTg0579291;biotype=tRNA;gene_id=HannXRQ_MTg0579291;logic_name=ena_rna
+Mt	ena	tRNA	87835	87908	.	-	.	ID=transcript:HannXRQ_MTg0579291-1;Parent=gene:HannXRQ_MTg0579291;Name=HannXRQ_MTg0579291;biotype=tRNA;transcript_id=HannXRQ_MTg0579291-1
+Mt	ena	exon	87835	87908	.	-	.	Parent=transcript:HannXRQ_MTg0579291-1;Name=HannXRQ_MTg0579291-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579291-1;rank=1
+###
+Mt	ena	ncRNA_gene	89836	89907	.	+	.	ID=gene:HannXRQ_MTg0579301;biotype=tRNA;gene_id=HannXRQ_MTg0579301;logic_name=ena_rna
+Mt	ena	tRNA	89836	89907	.	+	.	ID=transcript:HannXRQ_MTg0579301-1;Parent=gene:HannXRQ_MTg0579301;Name=HannXRQ_MTg0579301;biotype=tRNA;transcript_id=HannXRQ_MTg0579301-1
+Mt	ena	exon	89836	89907	.	+	.	Parent=transcript:HannXRQ_MTg0579301-1;Name=HannXRQ_MTg0579301-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579301-1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	89836	89907	.	+	.	ID=gene:ENSRNA049761791;Name=tRNA-Glu;biotype=tRNA;description=tRNA-Glu for anticodon UUC;gene_id=ENSRNA049761791;logic_name=trnascan_gene
+Mt	Ensembl_Plants	tRNA	89836	89907	.	+	.	ID=transcript:ENSRNA049761791-T1;Parent=gene:ENSRNA049761791;biotype=tRNA;transcript_id=ENSRNA049761791-T1
+Mt	Ensembl_Plants	exon	89836	89907	.	+	.	Parent=transcript:ENSRNA049761791-T1;Name=ENSRNA049761791-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA049761791-E1;rank=1
+###
+Mt	ena	gene	95906	96295	.	+	.	ID=gene:HannXRQ_MTg0579311;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C subunit 1/F420H2 oxidoreductase subunit H;gene_id=HannXRQ_MTg0579311;logic_name=ena
+Mt	ena	mRNA	95906	96295	.	+	.	ID=transcript:OTF84710;Parent=gene:HannXRQ_MTg0579311;biotype=protein_coding;transcript_id=OTF84710
+Mt	ena	exon	95906	96295	.	+	.	Parent=transcript:OTF84710;Name=OTF84710-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84710-1;rank=1
+Mt	ena	CDS	95906	96295	.	+	0	ID=CDS:OTF84710;Parent=transcript:OTF84710;protein_id=OTF84710
+###
+Mt	ena	gene	97143	98097	.	-	.	ID=gene:HannXRQ_MTg0579321;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579321;logic_name=ena
+Mt	ena	mRNA	97143	98097	.	-	.	ID=transcript:OTF84711;Parent=gene:HannXRQ_MTg0579321;biotype=protein_coding;transcript_id=OTF84711
+Mt	ena	exon	97143	97514	.	-	.	Parent=transcript:OTF84711;Name=OTF84711-3;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84711-3;rank=3
+Mt	ena	CDS	97143	97514	.	-	0	ID=CDS:OTF84711;Parent=transcript:OTF84711;protein_id=OTF84711
+Mt	ena	exon	97600	97655	.	-	.	Parent=transcript:OTF84711;Name=OTF84711-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84711-2;rank=2
+Mt	ena	CDS	97600	97655	.	-	2	ID=CDS:OTF84711;Parent=transcript:OTF84711;protein_id=OTF84711
+Mt	ena	exon	97782	98097	.	-	.	Parent=transcript:OTF84711;Name=OTF84711-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84711-1;rank=1
+Mt	ena	CDS	97782	98097	.	-	0	ID=CDS:OTF84711;Parent=transcript:OTF84711;protein_id=OTF84711
+###
+Mt	ena	gene	98241	98483	.	-	.	ID=gene:HannXRQ_MTg0579331;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C subunit C%2C V-ATPase proteolipid subunit C-like domain protein;gene_id=HannXRQ_MTg0579331;logic_name=ena
+Mt	ena	mRNA	98241	98483	.	-	.	ID=transcript:OTF84712;Parent=gene:HannXRQ_MTg0579331;biotype=protein_coding;transcript_id=OTF84712
+Mt	ena	exon	98241	98311	.	-	.	Parent=transcript:OTF84712;Name=OTF84712-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84712-2;rank=2
+Mt	ena	CDS	98241	98311	.	-	2	ID=CDS:OTF84712;Parent=transcript:OTF84712;protein_id=OTF84712
+Mt	ena	exon	98354	98483	.	-	.	Parent=transcript:OTF84712;Name=OTF84712-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84712-1;rank=1
+Mt	ena	CDS	98354	98483	.	-	0	ID=CDS:OTF84712;Parent=transcript:OTF84712;protein_id=OTF84712
+###
+Mt	ena	gene	106139	107833	.	+	.	ID=gene:HannXRQ_MTg0579341;biotype=protein_coding;description=putative cytochrome c oxidase subunit I;gene_id=HannXRQ_MTg0579341;logic_name=ena
+Mt	ena	mRNA	106139	107833	.	+	.	ID=transcript:OTF84713;Parent=gene:HannXRQ_MTg0579341;biotype=protein_coding;transcript_id=OTF84713
+Mt	ena	exon	106139	107833	.	+	.	Parent=transcript:OTF84713;Name=OTF84713-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84713-1;rank=1
+Mt	ena	CDS	106139	107833	.	+	0	ID=CDS:OTF84713;Parent=transcript:OTF84713;protein_id=OTF84713
+###
+Mt	ena	gene	108245	108664	.	+	.	ID=gene:HannXRQ_MTg0579351;biotype=protein_coding;description=putative ribosomal protein S11;gene_id=HannXRQ_MTg0579351;logic_name=ena
+Mt	ena	mRNA	108245	108664	.	+	.	ID=transcript:OTF84714;Parent=gene:HannXRQ_MTg0579351;biotype=protein_coding;transcript_id=OTF84714
+Mt	ena	exon	108245	108664	.	+	.	Parent=transcript:OTF84714;Name=OTF84714-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84714-1;rank=1
+Mt	ena	CDS	108245	108664	.	+	0	ID=CDS:OTF84714;Parent=transcript:OTF84714;protein_id=OTF84714
+###
+Mt	ena	gene	111746	114651	.	-	.	ID=gene:HannXRQ_MTg0579361;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C subunit C;gene_id=HannXRQ_MTg0579361;logic_name=ena
+Mt	ena	mRNA	111746	114651	.	-	.	ID=transcript:OTF84715;Parent=gene:HannXRQ_MTg0579361;biotype=protein_coding;transcript_id=OTF84715
+Mt	ena	exon	111746	112947	.	-	.	Parent=transcript:OTF84715;Name=OTF84715-3;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84715-3;rank=3
+Mt	ena	CDS	111746	112947	.	-	2	ID=CDS:OTF84715;Parent=transcript:OTF84715;protein_id=OTF84715
+Mt	ena	exon	113808	114318	.	-	.	Parent=transcript:OTF84715;Name=OTF84715-2;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84715-2;rank=2
+Mt	ena	CDS	113808	114318	.	-	0	ID=CDS:OTF84715;Parent=transcript:OTF84715;protein_id=OTF84715
+Mt	ena	exon	114367	114651	.	-	.	Parent=transcript:OTF84715;Name=OTF84715-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84715-1;rank=1
+Mt	ena	CDS	114367	114651	.	-	0	ID=CDS:OTF84715;Parent=transcript:OTF84715;protein_id=OTF84715
+###
+Mt	Ensembl_Plants	ncRNA_gene	112968	113110	.	-	.	ID=gene:ENSRNA050004467;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004467;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	112968	113110	.	-	.	ID=transcript:ENSRNA050004467-T1;Parent=gene:ENSRNA050004467;biotype=sense_intronic;transcript_id=ENSRNA050004467-T1
+Mt	Ensembl_Plants	exon	112968	113110	.	-	.	Parent=transcript:ENSRNA050004467-T1;Name=ENSRNA050004467-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004467-E1;rank=1
+###
+Mt	ena	ncRNA_gene	118566	118638	.	+	.	ID=gene:HannXRQ_MTg0579371;biotype=tRNA;gene_id=HannXRQ_MTg0579371;logic_name=ena_rna
+Mt	ena	tRNA	118566	118638	.	+	.	ID=transcript:HannXRQ_MTg0579371-1;Parent=gene:HannXRQ_MTg0579371;Name=HannXRQ_MTg0579371;biotype=tRNA;transcript_id=HannXRQ_MTg0579371-1
+Mt	ena	exon	118566	118638	.	+	.	Parent=transcript:HannXRQ_MTg0579371-1;Name=HannXRQ_MTg0579371-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579371-1;rank=1
+###
+Mt	ena	gene	122126	123121	.	+	.	ID=gene:HannXRQ_MTg0579381;biotype=protein_coding;description=putative RNA-binding S4 domain%2C Ribosomal protein S4/S9;gene_id=HannXRQ_MTg0579381;logic_name=ena
+Mt	ena	mRNA	122126	123121	.	+	.	ID=transcript:OTF84716;Parent=gene:HannXRQ_MTg0579381;biotype=protein_coding;transcript_id=OTF84716
+Mt	ena	exon	122126	123121	.	+	.	Parent=transcript:OTF84716;Name=OTF84716-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84716-1;rank=1
+Mt	ena	CDS	122126	123121	.	+	0	ID=CDS:OTF84716;Parent=transcript:OTF84716;protein_id=OTF84716
+###
+Mt	ena	ncRNA_gene	128788	132619	.	+	.	ID=gene:HannXRQ_MTg0579391;biotype=ncRNA;gene_id=HannXRQ_MTg0579391;logic_name=ena_rna
+Mt	ena	ncRNA	128788	132619	.	+	.	ID=transcript:HannXRQ_MTg0579391-1;Parent=gene:HannXRQ_MTg0579391;Name=HannXRQ_MTg0579391;biotype=ncRNA;transcript_id=HannXRQ_MTg0579391-1
+Mt	ena	exon	128788	132619	.	+	.	Parent=transcript:HannXRQ_MTg0579391-1;Name=HannXRQ_MTg0579391-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579391-1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	128932	132619	.	+	.	ID=gene:ENSRNA050004466;Name=LSU_rRNA_eukarya;biotype=rRNA;description=Eukaryotic large subunit ribosomal RNA;gene_id=ENSRNA050004466;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	rRNA	128932	132619	.	+	.	ID=transcript:ENSRNA050004466-T1;Parent=gene:ENSRNA050004466;biotype=rRNA;transcript_id=ENSRNA050004466-T1
+Mt	Ensembl_Plants	exon	128932	132619	.	+	.	Parent=transcript:ENSRNA050004466-T1;Name=ENSRNA050004466-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004466-E1;rank=1
+###
+Mt	ena	gene	139115	139471	.	-	.	ID=gene:HannXRQ_MTg0579401;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579401;logic_name=ena
+Mt	ena	mRNA	139115	139471	.	-	.	ID=transcript:OTF84717;Parent=gene:HannXRQ_MTg0579401;biotype=protein_coding;transcript_id=OTF84717
+Mt	ena	exon	139115	139471	.	-	.	Parent=transcript:OTF84717;Name=OTF84717-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84717-1;rank=1
+Mt	ena	CDS	139115	139471	.	-	0	ID=CDS:OTF84717;Parent=transcript:OTF84717;protein_id=OTF84717
+###
+Mt	ena	ncRNA_gene	139943	142161	.	-	.	ID=gene:HannXRQ_MTg0579411;biotype=rRNA;gene_id=HannXRQ_MTg0579411;logic_name=ena_rna
+Mt	ena	rRNA	139943	142161	.	-	.	ID=transcript:HannXRQ_MTg0579411-1;Parent=gene:HannXRQ_MTg0579411;Name=HannXRQ_MTg0579411;biotype=rRNA;transcript_id=HannXRQ_MTg0579411-1
+Mt	ena	exon	139943	142161	.	-	.	Parent=transcript:HannXRQ_MTg0579411-1;Name=HannXRQ_MTg0579411-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579411-1;rank=1
+###
+Mt	ena	gene	147972	148289	.	+	.	ID=gene:HannXRQ_MTg0579421;biotype=protein_coding;description=putative leucine-rich repeat domain%2C L domain-like protein;gene_id=HannXRQ_MTg0579421;logic_name=ena
+Mt	ena	mRNA	147972	148289	.	+	.	ID=transcript:OTF84718;Parent=gene:HannXRQ_MTg0579421;biotype=protein_coding;transcript_id=OTF84718
+Mt	ena	exon	147972	148289	.	+	.	Parent=transcript:OTF84718;Name=OTF84718-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84718-1;rank=1
+Mt	ena	CDS	147972	148289	.	+	0	ID=CDS:OTF84718;Parent=transcript:OTF84718;protein_id=OTF84718
+###
+Mt	ena	gene	149151	149501	.	+	.	ID=gene:HannXRQ_MTg0579431;Name=RT13;biotype=protein_coding;description=putative ribosomal protein S13protein;gene_id=HannXRQ_MTg0579431;logic_name=ena
+Mt	ena	mRNA	149151	149501	.	+	.	ID=transcript:OTF84719;Parent=gene:HannXRQ_MTg0579431;Name=RT13-1;biotype=protein_coding;transcript_id=OTF84719
+Mt	ena	exon	149151	149501	.	+	.	Parent=transcript:OTF84719;Name=OTF84719-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84719-1;rank=1
+Mt	ena	CDS	149151	149501	.	+	0	ID=CDS:OTF84719;Parent=transcript:OTF84719;protein_id=OTF84719
+###
+Mt	Ensembl_Plants	ncRNA_gene	151142	151194	.	+	.	ID=gene:ENSRNA050004476;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004476;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	151142	151194	.	+	.	ID=transcript:ENSRNA050004476-T1;Parent=gene:ENSRNA050004476;biotype=sense_intronic;transcript_id=ENSRNA050004476-T1
+Mt	Ensembl_Plants	exon	151142	151194	.	+	.	Parent=transcript:ENSRNA050004476-T1;Name=ENSRNA050004476-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004476-E1;rank=1
+###
+Mt	ena	gene	151242	151535	.	+	.	ID=gene:HannXRQ_MTg0579441;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C subunit 1/F420H2 oxidoreductase subunit H;gene_id=HannXRQ_MTg0579441;logic_name=ena
+Mt	ena	mRNA	151242	151535	.	+	.	ID=transcript:OTF84720;Parent=gene:HannXRQ_MTg0579441;biotype=protein_coding;transcript_id=OTF84720
+Mt	ena	exon	151242	151535	.	+	.	Parent=transcript:OTF84720;Name=OTF84720-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84720-1;rank=1
+Mt	ena	CDS	151242	151535	.	+	0	ID=CDS:OTF84720;Parent=transcript:OTF84720;protein_id=OTF84720
+###
+Mt	ena	gene	152965	153915	.	+	.	ID=gene:HannXRQ_MTg0579451;biotype=protein_coding;description=putative cupredoxin;gene_id=HannXRQ_MTg0579451;logic_name=ena
+Mt	ena	mRNA	152965	153915	.	+	.	ID=transcript:OTF84721;Parent=gene:HannXRQ_MTg0579451;biotype=protein_coding;transcript_id=OTF84721
+Mt	ena	exon	152965	153915	.	+	.	Parent=transcript:OTF84721;Name=OTF84721-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84721-1;rank=1
+Mt	ena	CDS	152965	153915	.	+	0	ID=CDS:OTF84721;Parent=transcript:OTF84721;protein_id=OTF84721
+###
+Mt	ena	gene	161686	162069	.	+	.	ID=gene:HannXRQ_MTg0579461;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579461;logic_name=ena
+Mt	ena	mRNA	161686	162069	.	+	.	ID=transcript:OTF84722;Parent=gene:HannXRQ_MTg0579461;biotype=protein_coding;transcript_id=OTF84722
+Mt	ena	exon	161686	162069	.	+	.	Parent=transcript:OTF84722;Name=OTF84722-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84722-1;rank=1
+Mt	ena	CDS	161686	162069	.	+	0	ID=CDS:OTF84722;Parent=transcript:OTF84722;protein_id=OTF84722
+###
+Mt	ena	gene	168851	169780	.	-	.	ID=gene:HannXRQ_MTg0579471;biotype=protein_coding;description=putative NADH:ubiquinone/plastoquinone oxidoreductase%2C chain 6;gene_id=HannXRQ_MTg0579471;logic_name=ena
+Mt	ena	mRNA	168851	169780	.	-	.	ID=transcript:OTF84723;Parent=gene:HannXRQ_MTg0579471;biotype=protein_coding;transcript_id=OTF84723
+Mt	ena	exon	168851	169780	.	-	.	Parent=transcript:OTF84723;Name=OTF84723-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84723-1;rank=1
+Mt	ena	CDS	168851	169780	.	-	0	ID=CDS:OTF84723;Parent=transcript:OTF84723;protein_id=OTF84723
+###
+Mt	ena	ncRNA_gene	170059	170982	.	-	.	ID=gene:HannXRQ_MTg0579481;biotype=ncRNA;gene_id=HannXRQ_MTg0579481;logic_name=ena_rna
+Mt	ena	ncRNA	170059	170982	.	-	.	ID=transcript:HannXRQ_MTg0579481-1;Parent=gene:HannXRQ_MTg0579481;Name=HannXRQ_MTg0579481;biotype=ncRNA;transcript_id=HannXRQ_MTg0579481-1
+Mt	ena	exon	170059	170982	.	-	.	Parent=transcript:HannXRQ_MTg0579481-1;Name=HannXRQ_MTg0579481-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579481-1;rank=1
+###
+Mt	ena	ncRNA_gene	172841	172913	.	+	.	ID=gene:HannXRQ_MTg0579491;biotype=tRNA;gene_id=HannXRQ_MTg0579491;logic_name=ena_rna
+Mt	ena	tRNA	172841	172913	.	+	.	ID=transcript:HannXRQ_MTg0579491-1;Parent=gene:HannXRQ_MTg0579491;Name=HannXRQ_MTg0579491;biotype=tRNA;transcript_id=HannXRQ_MTg0579491-1
+Mt	ena	exon	172841	172913	.	+	.	Parent=transcript:HannXRQ_MTg0579491-1;Name=HannXRQ_MTg0579491-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579491-1;rank=1
+###
+Mt	ena	gene	178056	179317	.	+	.	ID=gene:HannXRQ_MTg0579501;biotype=protein_coding;description=putative sec-independent periplasmic protein translocase TatC;gene_id=HannXRQ_MTg0579501;logic_name=ena
+Mt	ena	mRNA	178056	179317	.	+	.	ID=transcript:OTF84724;Parent=gene:HannXRQ_MTg0579501;biotype=protein_coding;transcript_id=OTF84724
+Mt	ena	exon	178056	178092	.	+	.	Parent=transcript:OTF84724;Name=OTF84724-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84724-1;rank=1
+Mt	ena	CDS	178056	178092	.	+	0	ID=CDS:OTF84724;Parent=transcript:OTF84724;protein_id=OTF84724
+Mt	ena	exon	178566	179317	.	+	.	Parent=transcript:OTF84724;Name=OTF84724-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84724-2;rank=2
+Mt	ena	CDS	178566	179317	.	+	2	ID=CDS:OTF84724;Parent=transcript:OTF84724;protein_id=OTF84724
+###
+Mt	ena	gene	188273	189702	.	+	.	ID=gene:HannXRQ_MTg0579511;biotype=protein_coding;description=putative di-hem cytochrome%2C transmembrane%2CCytochrome b/b6;gene_id=HannXRQ_MTg0579511;logic_name=ena
+Mt	ena	mRNA	188273	189702	.	+	.	ID=transcript:OTF84725;Parent=gene:HannXRQ_MTg0579511;biotype=protein_coding;transcript_id=OTF84725
+Mt	ena	exon	188273	188384	.	+	.	Parent=transcript:OTF84725;Name=OTF84725-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84725-1;rank=1
+Mt	ena	CDS	188273	188384	.	+	0	ID=CDS:OTF84725;Parent=transcript:OTF84725;protein_id=OTF84725
+Mt	ena	exon	188510	189702	.	+	.	Parent=transcript:OTF84725;Name=OTF84725-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84725-2;rank=2
+Mt	ena	CDS	188510	189702	.	+	2	ID=CDS:OTF84725;Parent=transcript:OTF84725;protein_id=OTF84725
+###
+Mt	ena	gene	190366	191208	.	+	.	ID=gene:HannXRQ_MTg0579521;biotype=protein_coding;description=putative ATP synthase YMF19-like%2C ATP synthase YMF19;gene_id=HannXRQ_MTg0579521;logic_name=ena
+Mt	ena	mRNA	190366	191208	.	+	.	ID=transcript:OTF84726;Parent=gene:HannXRQ_MTg0579521;biotype=protein_coding;transcript_id=OTF84726
+Mt	ena	exon	190366	191208	.	+	.	Parent=transcript:OTF84726;Name=OTF84726-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84726-1;rank=1
+Mt	ena	CDS	190366	191208	.	+	0	ID=CDS:OTF84726;Parent=transcript:OTF84726;protein_id=OTF84726
+###
+Mt	ena	gene	199440	201704	.	-	.	ID=gene:HannXRQ_MTg0579531;biotype=protein_coding;description=putative cytochrome c-type biogenesis protein CcmF;gene_id=HannXRQ_MTg0579531;logic_name=ena
+Mt	ena	mRNA	199440	201704	.	-	.	ID=transcript:OTF84727;Parent=gene:HannXRQ_MTg0579531;biotype=protein_coding;transcript_id=OTF84727
+Mt	ena	exon	199440	200207	.	-	.	Parent=transcript:OTF84727;Name=OTF84727-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84727-2;rank=2
+Mt	ena	CDS	199440	200207	.	-	0	ID=CDS:OTF84727;Parent=transcript:OTF84727;protein_id=OTF84727
+Mt	ena	exon	200853	201704	.	-	.	Parent=transcript:OTF84727;Name=OTF84727-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84727-1;rank=1
+Mt	ena	CDS	200853	201704	.	-	0	ID=CDS:OTF84727;Parent=transcript:OTF84727;protein_id=OTF84727
+###
+Mt	ena	gene	201849	202724	.	-	.	ID=gene:HannXRQ_MTg0579541;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579541;logic_name=ena
+Mt	ena	mRNA	201849	202724	.	-	.	ID=transcript:OTF84728;Parent=gene:HannXRQ_MTg0579541;biotype=protein_coding;transcript_id=OTF84728
+Mt	ena	exon	201849	202724	.	-	.	Parent=transcript:OTF84728;Name=OTF84728-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84728-1;rank=1
+Mt	ena	CDS	201849	202724	.	-	0	ID=CDS:OTF84728;Parent=transcript:OTF84728;protein_id=OTF84728
+###
+Mt	ena	gene	202889	204421	.	-	.	ID=gene:HannXRQ_MTg0579551;Name=atpA;biotype=protein_coding;description=putative ATPase%2C F1 complex%2C alpha subunit;gene_id=HannXRQ_MTg0579551;logic_name=ena
+Mt	ena	mRNA	202889	204421	.	-	.	ID=transcript:OTF84729;Parent=gene:HannXRQ_MTg0579551;biotype=protein_coding;transcript_id=OTF84729
+Mt	ena	exon	202889	204421	.	-	.	Parent=transcript:OTF84729;Name=OTF84729-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84729-1;rank=1
+Mt	ena	CDS	202889	204421	.	-	0	ID=CDS:OTF84729;Parent=transcript:OTF84729;protein_id=OTF84729
+###
+Mt	ena	gene	211270	212368	.	+	.	ID=gene:HannXRQ_MTg0579561;biotype=protein_coding;description=putative photosystem I PsaA/PsaB;gene_id=HannXRQ_MTg0579561;logic_name=ena
+Mt	ena	mRNA	211270	212368	.	+	.	ID=transcript:OTF84730;Parent=gene:HannXRQ_MTg0579561;biotype=protein_coding;transcript_id=OTF84730
+Mt	ena	exon	211270	212139	.	+	.	Parent=transcript:OTF84730;Name=OTF84730-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84730-1;rank=1
+Mt	ena	CDS	211270	212139	.	+	0	ID=CDS:OTF84730;Parent=transcript:OTF84730;protein_id=OTF84730
+Mt	ena	exon	212189	212368	.	+	.	Parent=transcript:OTF84730;Name=OTF84730-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84730-2;rank=2
+Mt	ena	CDS	212189	212368	.	+	0	ID=CDS:OTF84730;Parent=transcript:OTF84730;protein_id=OTF84730
+###
+Mt	ena	gene	213420	215138	.	-	.	ID=gene:HannXRQ_MTg0579571;biotype=protein_coding;description=putative cytochrome c assembly protein%2C Cytochrome c-type biogenesis protein;gene_id=HannXRQ_MTg0579571;logic_name=ena
+Mt	ena	mRNA	213420	215138	.	-	.	ID=transcript:OTF84731;Parent=gene:HannXRQ_MTg0579571;biotype=protein_coding;transcript_id=OTF84731
+Mt	ena	exon	213420	215138	.	-	.	Parent=transcript:OTF84731;Name=OTF84731-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84731-1;rank=1
+Mt	ena	CDS	213420	215138	.	-	0	ID=CDS:OTF84731;Parent=transcript:OTF84731;protein_id=OTF84731
+###
+Mt	ena	gene	215426	221897	.	-	.	ID=gene:HannXRQ_MTg0579581;biotype=protein_coding;description=putative niFe hydrogenase-like protein;gene_id=HannXRQ_MTg0579581;logic_name=ena
+Mt	ena	mRNA	215426	221897	.	-	.	ID=transcript:OTF84732;Parent=gene:HannXRQ_MTg0579581;biotype=protein_coding;transcript_id=OTF84732
+Mt	ena	exon	215426	215756	.	-	.	Parent=transcript:OTF84732;Name=OTF84732-5;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=OTF84732-5;rank=5
+Mt	ena	CDS	215426	215756	.	-	1	ID=CDS:OTF84732;Parent=transcript:OTF84732;protein_id=OTF84732
+Mt	ena	exon	217476	217725	.	-	.	Parent=transcript:OTF84732;Name=OTF84732-4;constitutive=1;ensembl_end_phase=2;ensembl_phase=1;exon_id=OTF84732-4;rank=4
+Mt	ena	CDS	217476	217725	.	-	2	ID=CDS:OTF84732;Parent=transcript:OTF84732;protein_id=OTF84732
+Mt	ena	exon	218184	218382	.	-	.	Parent=transcript:OTF84732;Name=OTF84732-3;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84732-3;rank=3
+Mt	ena	CDS	218184	218382	.	-	0	ID=CDS:OTF84732;Parent=transcript:OTF84732;protein_id=OTF84732
+Mt	ena	exon	218803	219206	.	-	.	Parent=transcript:OTF84732;Name=OTF84732-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=1;exon_id=OTF84732-2;rank=2
+Mt	ena	CDS	218803	219206	.	-	2	ID=CDS:OTF84732;Parent=transcript:OTF84732;protein_id=OTF84732
+Mt	ena	exon	221654	221897	.	-	.	Parent=transcript:OTF84732;Name=OTF84732-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84732-1;rank=1
+Mt	ena	CDS	221654	221897	.	-	0	ID=CDS:OTF84732;Parent=transcript:OTF84732;protein_id=OTF84732
+###
+Mt	Ensembl_Plants	ncRNA_gene	215688	215821	.	-	.	ID=gene:ENSRNA050004475;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004475;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	215688	215821	.	-	.	ID=transcript:ENSRNA050004475-T1;Parent=gene:ENSRNA050004475;biotype=sense_intronic;transcript_id=ENSRNA050004475-T1
+Mt	Ensembl_Plants	exon	215688	215821	.	-	.	Parent=transcript:ENSRNA050004475-T1;Name=ENSRNA050004475-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004475-E1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	220774	220851	.	-	.	ID=gene:ENSRNA050004472;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004472;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	220774	220851	.	-	.	ID=transcript:ENSRNA050004472-T1;Parent=gene:ENSRNA050004472;biotype=sense_intronic;transcript_id=ENSRNA050004472-T1
+Mt	Ensembl_Plants	exon	220774	220851	.	-	.	Parent=transcript:ENSRNA050004472-T1;Name=ENSRNA050004472-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004472-E1;rank=1
+###
+Mt	ena	gene	222940	223704	.	-	.	ID=gene:HannXRQ_MTg0579591;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579591;logic_name=ena
+Mt	ena	mRNA	222940	223704	.	-	.	ID=transcript:OTF84733;Parent=gene:HannXRQ_MTg0579591;biotype=protein_coding;transcript_id=OTF84733
+Mt	ena	exon	222940	223704	.	-	.	Parent=transcript:OTF84733;Name=OTF84733-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84733-1;rank=1
+Mt	ena	CDS	222940	223704	.	-	0	ID=CDS:OTF84733;Parent=transcript:OTF84733;protein_id=OTF84733
+###
+Mt	ena	gene	228493	230575	.	+	.	ID=gene:HannXRQ_MTg0579601;biotype=protein_coding;description=putative ribosomal protein L16%2C Ribosomal protein S3%2C Ribosomal protein L10e/L16;gene_id=HannXRQ_MTg0579601;logic_name=ena
+Mt	ena	mRNA	228493	230575	.	+	.	ID=transcript:OTF84734;Parent=gene:HannXRQ_MTg0579601;biotype=protein_coding;transcript_id=OTF84734
+Mt	ena	exon	228493	230037	.	+	.	Parent=transcript:OTF84734;Name=OTF84734-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84734-1;rank=1
+Mt	ena	CDS	228493	230037	.	+	0	ID=CDS:OTF84734;Parent=transcript:OTF84734;protein_id=OTF84734
+Mt	ena	exon	230099	230575	.	+	.	Parent=transcript:OTF84734;Name=OTF84734-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84734-2;rank=2
+Mt	ena	CDS	230099	230575	.	+	0	ID=CDS:OTF84734;Parent=transcript:OTF84734;protein_id=OTF84734
+###
+Mt	ena	gene	239403	240029	.	-	.	ID=gene:HannXRQ_MTg0579611;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579611;logic_name=ena
+Mt	ena	mRNA	239403	240029	.	-	.	ID=transcript:OTF84735;Parent=gene:HannXRQ_MTg0579611;biotype=protein_coding;transcript_id=OTF84735
+Mt	ena	exon	239403	240029	.	-	.	Parent=transcript:OTF84735;Name=OTF84735-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84735-1;rank=1
+Mt	ena	CDS	239403	240029	.	-	0	ID=CDS:OTF84735;Parent=transcript:OTF84735;protein_id=OTF84735
+###
+Mt	Ensembl_Plants	ncRNA_gene	243703	243764	.	-	.	ID=gene:ENSRNA050004468;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004468;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	243703	243764	.	-	.	ID=transcript:ENSRNA050004468-T1;Parent=gene:ENSRNA050004468;biotype=sense_intronic;transcript_id=ENSRNA050004468-T1
+Mt	Ensembl_Plants	exon	243703	243764	.	-	.	Parent=transcript:ENSRNA050004468-T1;Name=ENSRNA050004468-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004468-E1;rank=1
+###
+Mt	ena	ncRNA_gene	245018	245788	.	-	.	ID=gene:HannXRQ_MTg0579621;biotype=ncRNA;gene_id=HannXRQ_MTg0579621;logic_name=ena_rna
+Mt	ena	ncRNA	245018	245788	.	-	.	ID=transcript:HannXRQ_MTg0579621-1;Parent=gene:HannXRQ_MTg0579621;Name=HannXRQ_MTg0579621;biotype=ncRNA;transcript_id=HannXRQ_MTg0579621-1
+Mt	ena	exon	245018	245788	.	-	.	Parent=transcript:HannXRQ_MTg0579621-1;Name=HannXRQ_MTg0579621-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579621-1;rank=1
+###
+Mt	ena	gene	249984	251951	.	-	.	ID=gene:HannXRQ_MTg0579631;biotype=protein_coding;description=putative intron maturase%2C type II family protein;gene_id=HannXRQ_MTg0579631;logic_name=ena
+Mt	ena	mRNA	249984	251951	.	-	.	ID=transcript:OTF84736;Parent=gene:HannXRQ_MTg0579631;biotype=protein_coding;transcript_id=OTF84736
+Mt	ena	exon	249984	251951	.	-	.	Parent=transcript:OTF84736;Name=OTF84736-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84736-1;rank=1
+Mt	ena	CDS	249984	251951	.	-	0	ID=CDS:OTF84736;Parent=transcript:OTF84736;protein_id=OTF84736
+###
+Mt	ena	gene	254067	254852	.	+	.	ID=gene:HannXRQ_MTg0579641;biotype=protein_coding;description=putative NADH:ubiquinone/plastoquinone oxidoreductase%2C chain 3%2C Ribosomal protein S12/S23;gene_id=HannXRQ_MTg0579641;logic_name=ena
+Mt	ena	mRNA	254067	254852	.	+	.	ID=transcript:OTF84737;Parent=gene:HannXRQ_MTg0579641;biotype=protein_coding;transcript_id=OTF84737
+Mt	ena	exon	254067	254419	.	+	.	Parent=transcript:OTF84737;Name=OTF84737-1;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=OTF84737-1;rank=1
+Mt	ena	CDS	254067	254419	.	+	0	ID=CDS:OTF84737;Parent=transcript:OTF84737;protein_id=OTF84737
+Mt	ena	exon	254471	254852	.	+	.	Parent=transcript:OTF84737;Name=OTF84737-2;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=OTF84737-2;rank=2
+Mt	ena	CDS	254471	254852	.	+	1	ID=CDS:OTF84737;Parent=transcript:OTF84737;protein_id=OTF84737
+###
+Mt	ena	gene	260261	260833	.	+	.	ID=gene:HannXRQ_MTg0579651;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C 30kDa subunit;gene_id=HannXRQ_MTg0579651;logic_name=ena
+Mt	ena	mRNA	260261	260833	.	+	.	ID=transcript:OTF84738;Parent=gene:HannXRQ_MTg0579651;biotype=protein_coding;transcript_id=OTF84738
+Mt	ena	exon	260261	260833	.	+	.	Parent=transcript:OTF84738;Name=OTF84738-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84738-1;rank=1
+Mt	ena	CDS	260261	260833	.	+	0	ID=CDS:OTF84738;Parent=transcript:OTF84738;protein_id=OTF84738
+###
+Mt	ena	ncRNA_gene	261592	261885	.	+	.	ID=gene:HannXRQ_MTg0579661;biotype=ncRNA;gene_id=HannXRQ_MTg0579661;logic_name=ena_rna
+Mt	ena	ncRNA	261592	261885	.	+	.	ID=transcript:HannXRQ_MTg0579661-1;Parent=gene:HannXRQ_MTg0579661;Name=HannXRQ_MTg0579661;biotype=ncRNA;transcript_id=HannXRQ_MTg0579661-1
+Mt	ena	exon	261592	261885	.	+	.	Parent=transcript:HannXRQ_MTg0579661-1;Name=HannXRQ_MTg0579661-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579661-1;rank=1
+###
+Mt	ena	gene	269095	270039	.	+	.	ID=gene:HannXRQ_MTg0579671;Name=ATP6;biotype=protein_coding;description=putative ATP synthase subunit a;gene_id=HannXRQ_MTg0579671;logic_name=ena
+Mt	ena	mRNA	269095	270039	.	+	.	ID=transcript:OTF84739;Parent=gene:HannXRQ_MTg0579671;Name=ATP6-1;biotype=protein_coding;transcript_id=OTF84739
+Mt	ena	exon	269095	270039	.	+	.	Parent=transcript:OTF84739;Name=OTF84739-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84739-1;rank=1
+Mt	ena	CDS	269095	270039	.	+	0	ID=CDS:OTF84739;Parent=transcript:OTF84739;protein_id=OTF84739
+###
+Mt	ena	gene	281320	284934	.	+	.	ID=gene:HannXRQ_MTg0579681;Name=COX2;biotype=protein_coding;description=putative cytochrome c oxidase subunit 2;gene_id=HannXRQ_MTg0579681;logic_name=ena
+Mt	ena	mRNA	281320	284934	.	+	.	ID=transcript:OTF84740;Parent=gene:HannXRQ_MTg0579681;Name=COX2-1;biotype=protein_coding;transcript_id=OTF84740
+Mt	ena	exon	281320	281797	.	+	.	Parent=transcript:OTF84740;Name=OTF84740-1;constitutive=1;ensembl_end_phase=1;ensembl_phase=0;exon_id=OTF84740-1;rank=1
+Mt	ena	CDS	281320	281797	.	+	0	ID=CDS:OTF84740;Parent=transcript:OTF84740;protein_id=OTF84740
+Mt	ena	exon	282968	283481	.	+	.	Parent=transcript:OTF84740;Name=OTF84740-2;constitutive=1;ensembl_end_phase=2;ensembl_phase=1;exon_id=OTF84740-2;rank=2
+Mt	ena	CDS	282968	283481	.	+	2	ID=CDS:OTF84740;Parent=transcript:OTF84740;protein_id=OTF84740
+Mt	ena	exon	284868	284934	.	+	.	Parent=transcript:OTF84740;Name=OTF84740-3;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=OTF84740-3;rank=3
+Mt	ena	CDS	284868	284934	.	+	1	ID=CDS:OTF84740;Parent=transcript:OTF84740;protein_id=OTF84740
+###
+Mt	Ensembl_Plants	ncRNA_gene	282973	283033	.	+	.	ID=gene:ENSRNA050004473;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004473;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	282973	283033	.	+	.	ID=transcript:ENSRNA050004473-T1;Parent=gene:ENSRNA050004473;biotype=sense_intronic;transcript_id=ENSRNA050004473-T1
+Mt	Ensembl_Plants	exon	282973	283033	.	+	.	Parent=transcript:ENSRNA050004473-T1;Name=ENSRNA050004473-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004473-E1;rank=1
+###
+Mt	Ensembl_Plants	ncRNA_gene	293675	293793	.	-	.	ID=gene:ENSRNA050004470;Name=Intron_gpII;biotype=sense_intronic;description=Group II catalytic intron;gene_id=ENSRNA050004470;logic_name=rfam_12.2_gene
+Mt	Ensembl_Plants	lnc_RNA	293675	293793	.	-	.	ID=transcript:ENSRNA050004470-T1;Parent=gene:ENSRNA050004470;biotype=sense_intronic;transcript_id=ENSRNA050004470-T1
+Mt	Ensembl_Plants	exon	293675	293793	.	-	.	Parent=transcript:ENSRNA050004470-T1;Name=ENSRNA050004470-E1;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSRNA050004470-E1;rank=1
+###
+Mt	ena	gene	295932	296321	.	+	.	ID=gene:HannXRQ_MTg0579691;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579691;logic_name=ena
+Mt	ena	mRNA	295932	296321	.	+	.	ID=transcript:OTF84741;Parent=gene:HannXRQ_MTg0579691;biotype=protein_coding;transcript_id=OTF84741
+Mt	ena	exon	295932	296321	.	+	.	Parent=transcript:OTF84741;Name=OTF84741-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84741-1;rank=1
+Mt	ena	CDS	295932	296321	.	+	0	ID=CDS:OTF84741;Parent=transcript:OTF84741;protein_id=OTF84741
+###
+Mt	ena	gene	298769	299020	.	+	.	ID=gene:HannXRQ_MTg0579701;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579701;logic_name=ena
+Mt	ena	mRNA	298769	299020	.	+	.	ID=transcript:OTF84742;Parent=gene:HannXRQ_MTg0579701;biotype=protein_coding;transcript_id=OTF84742
+Mt	ena	exon	298769	299020	.	+	.	Parent=transcript:OTF84742;Name=OTF84742-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=OTF84742-1;rank=1
+Mt	ena	CDS	298769	299020	.	+	0	ID=CDS:OTF84742;Parent=transcript:OTF84742;protein_id=OTF84742
+###
+Mt	ena	ncRNA_gene	300877	300949	.	-	.	ID=gene:HannXRQ_MTg0579711;biotype=tRNA;gene_id=HannXRQ_MTg0579711;logic_name=ena_rna
+Mt	ena	tRNA	300877	300949	.	-	.	ID=transcript:HannXRQ_MTg0579711-1;Parent=gene:HannXRQ_MTg0579711;Name=HannXRQ_MTg0579711;biotype=tRNA;transcript_id=HannXRQ_MTg0579711-1
+Mt	ena	exon	300877	300949	.	-	.	Parent=transcript:HannXRQ_MTg0579711-1;Name=HannXRQ_MTg0579711-1;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=HannXRQ_MTg0579711-1;rank=1
+###

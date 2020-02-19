@@ -1,0 +1,10 @@
+sorted_l10.bam
+sorted_l1.bam
+sorted_l2.bam
+sorted_l3.bam
+sorted_l4.bam
+sorted_l5.bam
+sorted_l6.bam
+sorted_l7.bam
+sorted_l8.bam
+sorted_l9.bam
