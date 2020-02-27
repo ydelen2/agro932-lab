@@ -217,6 +217,7 @@ get_mean_theta <- function(gf_file="cache/mt_gene_up5k.txt"){
 up5k <- get_mean_theta(gf_file="cache/mt_gene_up5k.txt")
 down5k <- get_mean_theta(gf_file="cache/mt_gene_down5k.txt")
 gene <- get_mean_theta(gf_file = "cache/mt_gene.txt")
+
 ```
 
 plot the results:
