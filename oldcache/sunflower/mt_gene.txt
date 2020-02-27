@@ -1,0 +1,48 @@
+seq	source	feature	start	end	score	strand	phase	att	geneid
+Mt	ena	gene	477	638	.	-	.	ID=gene:HannXRQ_MTg0579061;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579061;logic_name=ena	HannXRQ_MTg0579061
+Mt	ena	gene	2052	5095	.	-	.	ID=gene:HannXRQ_MTg0579071;biotype=protein_coding;description=putative NADH:quinone oxidoreductase/Mrp antiporter%2C membrane subunit;gene_id=HannXRQ_MTg0579071;logic_name=ena	HannXRQ_MTg0579071
+Mt	ena	gene	15284	16027	.	-	.	ID=gene:HannXRQ_MTg0579111;biotype=protein_coding;description=putative cytochrome c assembly protein%2C Cytochrome c-type biogenesis protein CcmC;gene_id=HannXRQ_MTg0579111;logic_name=ena	HannXRQ_MTg0579111
+Mt	ena	gene	27923	28498	.	-	.	ID=gene:HannXRQ_MTg0579131;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C B chain/subunit B/MI25;gene_id=HannXRQ_MTg0579131;logic_name=ena	HannXRQ_MTg0579131
+Mt	ena	gene	28678	28950	.	-	.	ID=gene:HannXRQ_MTg0579141;biotype=protein_coding;description=putative NADH-ubiquinone oxidoreductase chain 4L/K;gene_id=HannXRQ_MTg0579141;logic_name=ena	HannXRQ_MTg0579141
+Mt	ena	gene	35609	36388	.	+	.	ID=gene:HannXRQ_MTg0579151;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579151;logic_name=ena	HannXRQ_MTg0579151
+Mt	ena	gene	36772	37251	.	+	.	ID=gene:HannXRQ_MTg0579161;Name=YMF19;biotype=protein_coding;description=putative ATP synthase protein YMF19;gene_id=HannXRQ_MTg0579161;logic_name=ena	HannXRQ_MTg0579161;Name=YMF19
+Mt	ena	gene	37821	38618	.	+	.	ID=gene:HannXRQ_MTg0579171;Name=COX3;biotype=protein_coding;description=putative cytochrome c oxidase subunit 3;gene_id=HannXRQ_MTg0579171;logic_name=ena	HannXRQ_MTg0579171;Name=COX3
+Mt	ena	gene	42935	43498	.	-	.	ID=gene:HannXRQ_MTg0579191;biotype=protein_coding;description=putative ribosomal protein L5;gene_id=HannXRQ_MTg0579191;logic_name=ena	HannXRQ_MTg0579191
+Mt	ena	gene	46160	49105	.	-	.	ID=gene:HannXRQ_MTg0579201;Name=NU4M;biotype=protein_coding;description=putative NADH-ubiquinone oxidoreductase chain 4;gene_id=HannXRQ_MTg0579201;logic_name=ena	HannXRQ_MTg0579201;Name=NU4M
+Mt	ena	gene	59543	59932	.	+	.	ID=gene:HannXRQ_MTg0579221;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579221;logic_name=ena	HannXRQ_MTg0579221
+Mt	ena	gene	62380	62631	.	+	.	ID=gene:HannXRQ_MTg0579231;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579231;logic_name=ena	HannXRQ_MTg0579231
+Mt	ena	gene	66605	67225	.	+	.	ID=gene:HannXRQ_MTg0579251;biotype=protein_coding;description=putative cytochrome C biogenesis 206;gene_id=HannXRQ_MTg0579251;logic_name=ena	HannXRQ_MTg0579251
+Mt	ena	gene	67533	68021	.	-	.	ID=gene:HannXRQ_MTg0579261;Name=YMF01;biotype=protein_coding;description=putative uncharacterized mitochondrial protein ymf1;gene_id=HannXRQ_MTg0579261;logic_name=ena	HannXRQ_MTg0579261;Name=YMF01
+Mt	ena	gene	95906	96295	.	+	.	ID=gene:HannXRQ_MTg0579311;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C subunit 1/F420H2 oxidoreductase subunit H;gene_id=HannXRQ_MTg0579311;logic_name=ena	HannXRQ_MTg0579311
+Mt	ena	gene	97143	98097	.	-	.	ID=gene:HannXRQ_MTg0579321;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579321;logic_name=ena	HannXRQ_MTg0579321
+Mt	ena	gene	98241	98483	.	-	.	ID=gene:HannXRQ_MTg0579331;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C subunit C%2C V-ATPase proteolipid subunit C-like domain protein;gene_id=HannXRQ_MTg0579331;logic_name=ena	HannXRQ_MTg0579331
+Mt	ena	gene	106139	107833	.	+	.	ID=gene:HannXRQ_MTg0579341;biotype=protein_coding;description=putative cytochrome c oxidase subunit I;gene_id=HannXRQ_MTg0579341;logic_name=ena	HannXRQ_MTg0579341
+Mt	ena	gene	108245	108664	.	+	.	ID=gene:HannXRQ_MTg0579351;biotype=protein_coding;description=putative ribosomal protein S11;gene_id=HannXRQ_MTg0579351;logic_name=ena	HannXRQ_MTg0579351
+Mt	ena	gene	111746	114651	.	-	.	ID=gene:HannXRQ_MTg0579361;biotype=protein_coding;description=putative ATPase%2C F0 complex%2C subunit C;gene_id=HannXRQ_MTg0579361;logic_name=ena	HannXRQ_MTg0579361
+Mt	ena	gene	122126	123121	.	+	.	ID=gene:HannXRQ_MTg0579381;biotype=protein_coding;description=putative RNA-binding S4 domain%2C Ribosomal protein S4/S9;gene_id=HannXRQ_MTg0579381;logic_name=ena	HannXRQ_MTg0579381
+Mt	ena	gene	139115	139471	.	-	.	ID=gene:HannXRQ_MTg0579401;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579401;logic_name=ena	HannXRQ_MTg0579401
+Mt	ena	gene	147972	148289	.	+	.	ID=gene:HannXRQ_MTg0579421;biotype=protein_coding;description=putative leucine-rich repeat domain%2C L domain-like protein;gene_id=HannXRQ_MTg0579421;logic_name=ena	HannXRQ_MTg0579421
+Mt	ena	gene	149151	149501	.	+	.	ID=gene:HannXRQ_MTg0579431;Name=RT13;biotype=protein_coding;description=putative ribosomal protein S13protein;gene_id=HannXRQ_MTg0579431;logic_name=ena	HannXRQ_MTg0579431;Name=RT13
+Mt	ena	gene	151242	151535	.	+	.	ID=gene:HannXRQ_MTg0579441;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C subunit 1/F420H2 oxidoreductase subunit H;gene_id=HannXRQ_MTg0579441;logic_name=ena	HannXRQ_MTg0579441
+Mt	ena	gene	152965	153915	.	+	.	ID=gene:HannXRQ_MTg0579451;biotype=protein_coding;description=putative cupredoxin;gene_id=HannXRQ_MTg0579451;logic_name=ena	HannXRQ_MTg0579451
+Mt	ena	gene	161686	162069	.	+	.	ID=gene:HannXRQ_MTg0579461;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579461;logic_name=ena	HannXRQ_MTg0579461
+Mt	ena	gene	168851	169780	.	-	.	ID=gene:HannXRQ_MTg0579471;biotype=protein_coding;description=putative NADH:ubiquinone/plastoquinone oxidoreductase%2C chain 6;gene_id=HannXRQ_MTg0579471;logic_name=ena	HannXRQ_MTg0579471
+Mt	ena	gene	178056	179317	.	+	.	ID=gene:HannXRQ_MTg0579501;biotype=protein_coding;description=putative sec-independent periplasmic protein translocase TatC;gene_id=HannXRQ_MTg0579501;logic_name=ena	HannXRQ_MTg0579501
+Mt	ena	gene	188273	189702	.	+	.	ID=gene:HannXRQ_MTg0579511;biotype=protein_coding;description=putative di-hem cytochrome%2C transmembrane%2CCytochrome b/b6;gene_id=HannXRQ_MTg0579511;logic_name=ena	HannXRQ_MTg0579511
+Mt	ena	gene	190366	191208	.	+	.	ID=gene:HannXRQ_MTg0579521;biotype=protein_coding;description=putative ATP synthase YMF19-like%2C ATP synthase YMF19;gene_id=HannXRQ_MTg0579521;logic_name=ena	HannXRQ_MTg0579521
+Mt	ena	gene	199440	201704	.	-	.	ID=gene:HannXRQ_MTg0579531;biotype=protein_coding;description=putative cytochrome c-type biogenesis protein CcmF;gene_id=HannXRQ_MTg0579531;logic_name=ena	HannXRQ_MTg0579531
+Mt	ena	gene	201849	202724	.	-	.	ID=gene:HannXRQ_MTg0579541;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579541;logic_name=ena	HannXRQ_MTg0579541
+Mt	ena	gene	202889	204421	.	-	.	ID=gene:HannXRQ_MTg0579551;Name=atpA;biotype=protein_coding;description=putative ATPase%2C F1 complex%2C alpha subunit;gene_id=HannXRQ_MTg0579551;logic_name=ena	HannXRQ_MTg0579551;Name=atpA
+Mt	ena	gene	211270	212368	.	+	.	ID=gene:HannXRQ_MTg0579561;biotype=protein_coding;description=putative photosystem I PsaA/PsaB;gene_id=HannXRQ_MTg0579561;logic_name=ena	HannXRQ_MTg0579561
+Mt	ena	gene	213420	215138	.	-	.	ID=gene:HannXRQ_MTg0579571;biotype=protein_coding;description=putative cytochrome c assembly protein%2C Cytochrome c-type biogenesis protein;gene_id=HannXRQ_MTg0579571;logic_name=ena	HannXRQ_MTg0579571
+Mt	ena	gene	215426	221897	.	-	.	ID=gene:HannXRQ_MTg0579581;biotype=protein_coding;description=putative niFe hydrogenase-like protein;gene_id=HannXRQ_MTg0579581;logic_name=ena	HannXRQ_MTg0579581
+Mt	ena	gene	222940	223704	.	-	.	ID=gene:HannXRQ_MTg0579591;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579591;logic_name=ena	HannXRQ_MTg0579591
+Mt	ena	gene	228493	230575	.	+	.	ID=gene:HannXRQ_MTg0579601;biotype=protein_coding;description=putative ribosomal protein L16%2C Ribosomal protein S3%2C Ribosomal protein L10e/L16;gene_id=HannXRQ_MTg0579601;logic_name=ena	HannXRQ_MTg0579601
+Mt	ena	gene	239403	240029	.	-	.	ID=gene:HannXRQ_MTg0579611;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579611;logic_name=ena	HannXRQ_MTg0579611
+Mt	ena	gene	249984	251951	.	-	.	ID=gene:HannXRQ_MTg0579631;biotype=protein_coding;description=putative intron maturase%2C type II family protein;gene_id=HannXRQ_MTg0579631;logic_name=ena	HannXRQ_MTg0579631
+Mt	ena	gene	254067	254852	.	+	.	ID=gene:HannXRQ_MTg0579641;biotype=protein_coding;description=putative NADH:ubiquinone/plastoquinone oxidoreductase%2C chain 3%2C Ribosomal protein S12/S23;gene_id=HannXRQ_MTg0579641;logic_name=ena	HannXRQ_MTg0579641
+Mt	ena	gene	260261	260833	.	+	.	ID=gene:HannXRQ_MTg0579651;biotype=protein_coding;description=putative NADH:ubiquinone oxidoreductase%2C 30kDa subunit;gene_id=HannXRQ_MTg0579651;logic_name=ena	HannXRQ_MTg0579651
+Mt	ena	gene	269095	270039	.	+	.	ID=gene:HannXRQ_MTg0579671;Name=ATP6;biotype=protein_coding;description=putative ATP synthase subunit a;gene_id=HannXRQ_MTg0579671;logic_name=ena	HannXRQ_MTg0579671;Name=ATP6
+Mt	ena	gene	281320	284934	.	+	.	ID=gene:HannXRQ_MTg0579681;Name=COX2;biotype=protein_coding;description=putative cytochrome c oxidase subunit 2;gene_id=HannXRQ_MTg0579681;logic_name=ena	HannXRQ_MTg0579681;Name=COX2
+Mt	ena	gene	295932	296321	.	+	.	ID=gene:HannXRQ_MTg0579691;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579691;logic_name=ena	HannXRQ_MTg0579691
+Mt	ena	gene	298769	299020	.	+	.	ID=gene:HannXRQ_MTg0579701;biotype=protein_coding;description=hypothetical protein;gene_id=HannXRQ_MTg0579701;logic_name=ena	HannXRQ_MTg0579701
