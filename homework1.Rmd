@@ -536,10 +536,10 @@ mx <- ddply(df, .(geneid), summarise,
 get_mean_theta <- function(gf_file="cache/sunflower/mt_gene_up5k.txt"){
   # gf_file: gene feature file [chr, ="cache/sunflower/mt_gene_up5k.txt"]
  
-  theta <- fread("cache/sunflower/theta.txt", data.table=FALSE)
+  theta <- fread("oldcache/sunflower/theta.txt", data.table=FALSE)
   names(theta)[1] <- "seq"
 
-  up5k <- read.table(gf_file, header=TRUE)
+  up5k <- fread(gf_file, header=TRUE)
 
   ### define the subject file for theta values
   grc <- with(theta, GRanges(seqnames=seq, IRanges(start=Pos, end=Pos)))
@@ -576,9 +576,9 @@ get_mean_theta <- function(gf_file="cache/sunflower/mt_gene_up5k.txt"){
 
 ```{r, eval=FALSE}
 ### apply the function
-up5k <- get_mean_theta(gf_file="cache/sunflower/mt_gene_up5k.txt")
-down5k <- get_mean_theta(gf_file="cache/sunflower/mt_gene_down5k.txt")
-gene <- get_mean_theta(gf_file = "cache/sunflower/mt_gene.txt")
+up5k <- get_mean_theta(gf_file="oldcache/sunflower/mt_gene_up5k.txt")
+down5k <- get_mean_theta(gf_file="oldcache/sunflower/mt_gene_down5k.txt")
+gene <- get_mean_theta(gf_file = "oldcache/sunflower/mt_gene.txt")
 ```
 
 plot the results:
