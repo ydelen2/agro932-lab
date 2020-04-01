@@ -1,0 +1,49 @@
+---
+title: "HW2"
+author: "Yavuz Delen"
+date: "4/1/2020"
+output: html_document
+---
+
+
+
+## Normalize the path:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
+```
+
+
+### Flint-Garcia et al., 2009 data
+
+```{r}
+f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
+# Convert missing data to NA
+f[f=="."] <- NA
+
+# four environments
+table(f$Env)
+
+f$INBRED <- as.factor(f$INBRED)
+f$Env <- as.factor(f$Env)
+# tricky part, be careful:
+f$TotKnlWt_Inbred  <- as.numeric(as.character((f$TotKnlWt_Inbred)))
+fit <- lm(TotKnlWt_Inbred ~ INBRED + Env, data=f)
+anova(fit)
+```
+
+$$
+H^2 = \frac{V_G}{V_G + V_E}
+$$
+With $(V_G =  MS(G) - MS(error)/n$ 
+
+```{r}
+Vg =  (603.8 - 307.5)/4
+Ve = 307.5
+
+H2 = Vg/(Vg + Ve)
+H2
+```
+
+
