@@ -22,15 +22,12 @@ knitr::opts_knit$set(root.dir=normalizePath('../../'))
 f <- read.delim("data/journal.pone.0007433.s001.txt", header=TRUE)
 # Convert missing data to NA
 f[f=="."] <- NA
-
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$TotKnlWt_Inbred  <- as.numeric(as.character((f$TotKnlWt_Inbred)))
-
 fit <- lm(TotKnlWt_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -43,7 +40,6 @@ With $(V_G =  MS(G) - MS(error)/n$
 ```{r}
 Vg =  (603.8 - 307.5)/4
 Ve = 307.5
-
 H2 = Vg/(Vg + Ve)
 H2
 ```
@@ -55,12 +51,10 @@ H2
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$CobDia_Inbred  <- as.numeric(as.character((f$CobDia_Inbred)))
-
 fit <- lm(CobDia_Inbred ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -72,7 +66,6 @@ anova(fit)
 Vg =  (22.108 - 4.063)/4
 Ve = 0
 Vge = 4.063
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.53
 ```
@@ -82,12 +75,10 @@ H2 #0.53
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$CobDia_Hyb  <- as.numeric(as.character((f$CobDia_Hyb)))
-
 fit <- lm(CobDia_Hyb ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -96,7 +87,6 @@ anova(fit)
 Vg =  (9.661 - 1.925)/4
 Ve = 0
 Vge = 1.925
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.50
 ```
@@ -108,12 +98,10 @@ H2 #0.50
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$KnlHgt_Inbred  <- as.numeric(as.character((f$KnlHgt_Inbred)))
-
 fit <- lm(KnlHgt_Inbred ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -125,7 +113,6 @@ anova(fit)
 Vg =  (14.481 - 4.526)/4
 Ve = 0
 Vge = 4.526
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.36
 ```
@@ -137,12 +124,10 @@ H2 #0.36
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$KnlHgt_Hyb  <- as.numeric(as.character((f$KnlHgt_Hyb)))
-
 fit <- lm(KnlHgt_Hyb ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -151,7 +136,6 @@ anova(fit)
 Vg =  (9.61 - 2.41)/4
 Ve = 0
 Vge = 2.41
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.43
 ```
@@ -161,12 +145,10 @@ H2 #0.43
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$X10KWt_Inbred  <- as.numeric(as.character((f$X10KWt_Inbred)))
-
 fit <- lm(X10KWt_Inbred ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -178,7 +160,6 @@ anova(fit)
 Vg =  (0.6178 - 0.3304)/4
 Ve = 0
 Vge = 0.3304
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.18
 ```
@@ -187,12 +168,10 @@ H2 #0.18
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$X10KWt_Hyb  <- as.numeric(as.character((f$X10KWt_Hyb)))
-
 fit <- lm(X10KWt_Hyb ~ INBRED + Env + INBRED*Env, data=f)
 anova(fit)
 ```
@@ -201,7 +180,6 @@ anova(fit)
 Vg =  (0.741 - 0.546)/4
 Ve = 0
 Vge = 0.546
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.082
 ```
@@ -213,12 +191,10 @@ H2 #0.082
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$CobWt_Inbred  <- as.numeric(as.character((f$CobWt_Inbred)))
-
 fit <- lm(CobWt_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -229,7 +205,6 @@ anova(fit)
 Vg =  (48.15 - 14.05)/4
 Ve = 0
 Vge = 14.05
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.38
 ```
@@ -238,12 +213,10 @@ H2 #0.38
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$CobWt_Hyb  <- as.numeric(as.character((f$CobWt_Hyb)))
-
 fit <- lm(CobWt_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -253,7 +226,6 @@ anova(fit)
 Vg =  (78.19 - 19.55)/4
 Ve = 0
 Vge = 19.55
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.43
 ```
@@ -262,12 +234,10 @@ H2 #0.43
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$EarLength_Inbred  <- as.numeric(as.character((f$EarLength_Inbred)))
-
 fit <- lm(EarLength_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -276,7 +246,6 @@ anova(fit)
 Vg =  (846 - 233)/4
 Ve = 0
 Vge = 233
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.40
 ```
@@ -287,12 +256,10 @@ H2 #0.40
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$EarLength_Hyb  <- as.numeric(as.character((f$EarLength_Hyb)))
-
 fit <- lm(EarLength_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -301,7 +268,6 @@ anova(fit)
 Vg =  (776 - 164)/4
 Ve = 0
 Vge = 164
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.48
 ```
@@ -313,12 +279,10 @@ H2 #0.48
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$PLTHT_Inbred  <- as.numeric(as.character((f$PLTHT_Inbred)))
-
 fit <- lm(PLTHT_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -329,7 +293,6 @@ anova(fit)
 Vg =  (1781 - 192)/4
 Ve = 0
 Vge = 192
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.67
 ```
@@ -340,12 +303,10 @@ H2 #0.67
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$PLTHT_Hyb  <- as.numeric(as.character((f$PLTHT_Hyb)))
-
 fit <- lm(PLTHT_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -356,7 +317,6 @@ anova(fit)
 Vg =  (2414 - 168)/4
 Ve = 0
 Vge = 168
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.77
 ```
@@ -368,12 +328,10 @@ H2 #0.77
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$PltYield_Inbred  <- as.numeric(as.character((f$PltYield_Inbred)))
-
 fit <- lm(PltYield_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -384,7 +342,6 @@ anova(fit)
 Vg =  (549.08 - 358.99)/4
 Ve = 0
 Vge = 358.99
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.12
 ```
@@ -395,12 +352,10 @@ H2 #0.12
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$PltYield_Hyb  <- as.numeric(as.character((f$PltYield_Hyb)))
-
 fit <- lm(PltYield_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -411,7 +366,6 @@ anova(fit)
 Vg =  (2332 - 1210)/4
 Ve = 0
 Vge = 1210
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.19
 ```
@@ -421,12 +375,10 @@ H2 #0.19
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$LFLEN_Inbred  <- as.numeric(as.character((f$LFLEN_Inbred)))
-
 fit <- lm(LFLEN_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -437,7 +389,6 @@ anova(fit)
 Vg =  (31302 - 2259)/4
 Ve = 0
 Vge = 2259
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.76
 ```
@@ -448,12 +399,10 @@ H2 #0.76
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$LFLEN_Hyb  <- as.numeric(as.character((f$LFLEN_Hyb)))
-
 fit <- lm(LFLEN_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -464,7 +413,6 @@ anova(fit)
 Vg =  (16367 - 1430)/4
 Ve = 0
 Vge = 168
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.95
 ```
@@ -473,12 +421,10 @@ H2 #0.95
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$LFWDT_Inbred  <- as.numeric(as.character((f$LFWDT_Inbred)))
-
 fit <- lm(LFWDT_Inbred ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -489,7 +435,6 @@ anova(fit)
 Vg =  (508.3 - 42.4)/4
 Ve = 0
 Vge = 42.4
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.73
 ```
@@ -500,12 +445,10 @@ H2 #0.73
 ```{r}
 # four environments
 table(f$Env)
-
 f$INBRED <- as.factor(f$INBRED)
 f$Env <- as.factor(f$Env)
 # tricky part, be careful:
 f$LFWDT_Hyb  <- as.numeric(as.character((f$LFWDT_Hyb)))
-
 fit <- lm(LFWDT_Hyb ~ INBRED + Env, data=f)
 anova(fit)
 ```
@@ -516,7 +459,7 @@ anova(fit)
 Vg =  (181.42 - 42.19)/4
 Ve = 0
 Vge = 42.19
-
 H2 = Vg/(Vg + Ve + Vge)
 H2 #0.45
 ```
+
