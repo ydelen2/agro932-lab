@@ -79,4 +79,16 @@ hist(maf, breaks=100, col="blue", xlab="Minor Allele Freq")
 ```
 
 
+# SNP quality control
+
+Removing SNPs with high missing rate (missingness > 0.2) and low MAF (MAF < 0.05)
+
+```{r, eval=FALSE, echo=TRUE}
+idx1 <- which(missing > 0.2) #154
+idx2 <- which(maf < 0.05) #1647
+idx <- unique(c(idx1, idx2)) #1784
+
+loblolly_geno2 <- loblolly_geno[, -idx]
+dim(loblolly_geno2)  #925 3074
+```
 
