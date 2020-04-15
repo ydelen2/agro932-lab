@@ -6,25 +6,77 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_knit$set(root.dir=normalizePath('../../')) 
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```{r}
+loblolly_pheno <- read.csv("data/DATA_rootnum_age10_rootnum.csv", header = TRUE, stringsAsFactors = FALSE)
+#View(loblolly_pheno)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+geno_data <- "https://jyanglab.com/img/data/Snp_Data.csv"
+
+loblolly_geno <- read.csv(geno_data, header=TRUE, stringsAsFactors = FALSE)
+head(loblolly_geno)
+#View(loblolly_geno)
+
+dim(loblolly_pheno) #926 4
+dim(loblolly_geno) #926 4854
+loblolly_geno[1:5, 1:5]
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+## Remove missing phenotypes
+```{r, eval=FALSE}
+is.na(loblolly_pheno$Derregressed_BV)
+#sum(is.na(loblolly_pheno$Derregressed_BV)) #1
+na.index <-  which(is.na(loblolly_pheno$Derregressed_BV))
+#head(loblolly_pheno[na.index,])
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+# length(na.index) #1
+loblolly_pheno <- loblolly_pheno[-na.index, ]
+
+
+# Keep genotypes for these remaining lines
+loblolly_geno <- loblolly_geno[loblolly_geno$Genotype %in% loblolly_pheno$Genotype, ]
+
+# phenotypes 
+y <- loblolly_pheno$Derregressed_BV
+y <- matrix(y, ncol=1)
+y
+
+# markers 
+loblolly_geno <- loblolly_geno[,-1] 
+loblolly_geno[loblolly_geno == -9] <- NA
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# SNP quality control
+### Missingness and MAF
+
+```{r, eval=FALSE, echo=TRUE}
+# missing rate
+missing <- apply(loblolly_geno, 2, function(x){sum(is.na(x))/length(x)})
+head(missing)
+#hist(missing)
+
+
+# minor allele frequency
+maf <- apply(loblolly_geno, 2, function(x){
+  frq <- mean(x, na.rm=TRUE)/2
+  return(ifelse(frq > 0.5, 1-frq, frq))
+})
+```
+
+#### Plot the results
+```{r, eval=FALSE, echo=TRUE}
+hist(missing, breaks=100, col="blue", xlab="SNP Missing rate")
+hist(maf, breaks=100, col="blue", xlab="Minor Allele Freq")
+```
+
+
+
