@@ -235,10 +235,10 @@ cor(x=sol2[-1], y=fit2$u)
 ```
 
 
-## 10- fold cross validation
+## 10-fold cross validation
 ```{r, eval=FALSE, echo=TRUE}
-n.trn <- 700
-n.tst <- 225
+n.trn <- 833
+n.tst <- 92
 y.trn <- y[1:n.trn]
 y.tst <- y[n.trn+1:n.tst]
 Zs.trn <- Zs[1:n.trn,]
