@@ -11,6 +11,18 @@ knitr::opts_knit$set(root.dir=normalizePath('../../'))
 ```
 
 
+#Answer2
+```{r}
+X <- matrix(c(5,6, 3,-4), nrow = 2, byrow = T)
+Y <- matrix(c(-12/19, 39/38), nrow = 2, byrow = T)
+X %*% Y
+
+```
+
+
+
+
+#Answer3
 ```{r}
 loblolly_pheno <- read.csv("data/DATA_rootnum_age10_rootnum.csv", header = TRUE, stringsAsFactors = FALSE)
 #View(loblolly_pheno)
@@ -220,4 +232,56 @@ fit2$Ve / fit2$Vu
 plot(x=sol2[-1], y=fit2$u)
 cor(x=sol2[-1], y=fit2$u)
 
+```
+
+
+## 10- fold cross validation
+```{r, eval=FALSE, echo=TRUE}
+n.trn <- 700
+n.tst <- 225
+y.trn <- y[1:n.trn]
+y.tst <- y[n.trn+1:n.tst]
+Zs.trn <- Zs[1:n.trn,]
+Zs.tst <- Zs[n.trn+1:n.tst,]
+Gtrn <- tcrossprod(Zs.trn) / ncol(Zs.trn)
+Gtrn <- Gtrn + diag(n.trn)*0.001
+Gtst.trn <- tcrossprod(Zs.tst, Zs.trn) / ncol(Zs.tst)
+#Gtrn <- G[1:n.trn, 1:n.trn]
+#Gtst.trn <- G[n.trn+1:n.tst, 1:n.trn]
+
+
+lambda <- 12566.89 # fit$Ve / fit$Vu
+Ginv.trn <- solve(Gtrn)
+ones <- matrix(1, ncol=1, nrow=n.trn)
+Z <- diag(n.trn)
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Z)) 
+LHS2 <- cbind(crossprod(Z, ones), crossprod(Z) +  Ginv.trn*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y.trn), crossprod(Z,y.trn) )
+sol.trn <- solve(LHS, RHS)
+# prediction
+y.hat <- Gtst.trn %*% Ginv.trn %*% matrix(sol.trn[c(2:(n.trn+1))])
+cor(y.hat, y[(n.trn+1):n])
+plot(y.hat, y[(n.trn+1):n])
+```
+
+
+
+
+
+```{r, eval=FALSE, echo=TRUE}
+Zs.trn <- Zs[1:n.trn, ]
+Zs.tst <- Zs[n.trn+1:n.tst, ]
+lambda <- 4326.212 # fit$Ve / fit$Vu
+ones <- matrix(1, ncol=1, nrow=n.trn)
+I <- diag(m)
+LHS1 <- cbind(crossprod(ones), crossprod(ones, Zs.trn)) 
+LHS2 <- cbind(crossprod(Zs.trn, ones), crossprod(Zs.trn) +  I*lambda)
+LHS <- rbind(LHS1, LHS2)
+RHS <- rbind( crossprod(ones, y.trn), crossprod(Zs.trn, y.trn) )
+sol.trn <- solve(LHS, RHS)
+# prediction
+y.hat2 <- Zs.tst %*% matrix(sol.trn[-1])
+# cor(y.hat2, y[(n.trn+1):n])
+plot(y.hat2, y[(n.trn+1):n])
 ```
