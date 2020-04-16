@@ -259,6 +259,7 @@ LHS2 <- cbind(crossprod(Z, ones), crossprod(Z) +  Ginv.trn*lambda)
 LHS <- rbind(LHS1, LHS2)
 RHS <- rbind( crossprod(ones, y.trn), crossprod(Z,y.trn) )
 sol.trn <- solve(LHS, RHS)
+
 # prediction
 y.hat <- Gtst.trn %*% Ginv.trn %*% matrix(sol.trn[c(2:(n.trn+1))])
 cor(y.hat, y[(n.trn+1):n])
@@ -280,8 +281,24 @@ LHS2 <- cbind(crossprod(Zs.trn, ones), crossprod(Zs.trn) +  I*lambda)
 LHS <- rbind(LHS1, LHS2)
 RHS <- rbind( crossprod(ones, y.trn), crossprod(Zs.trn, y.trn) )
 sol.trn <- solve(LHS, RHS)
+
 # prediction
 y.hat2 <- Zs.tst %*% matrix(sol.trn[-1])
+head(y.hat2)
+dim(y.hat2)
 # cor(y.hat2, y[(n.trn+1):n])
 plot(y.hat2, y[(n.trn+1):n])
 ```
+
+
+
+
+#Answer4
+```{r}
+library(ggplot2)
+
+ggplot(y.hat, aes(x= type, y=size, fill=type)) + geom_violin() +scale_y_log10()
+ggplot(y.hat, aes(x="", y="")) + geom_violin(trim = FALSE)
+```
+
+
