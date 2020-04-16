@@ -294,11 +294,16 @@ plot(y.hat2, y[(n.trn+1):n])
 
 
 #Answer4
+
 ```{r}
-library(ggplot2)
+library("ggplot2")
+prediction <- rbind(y.hat, y.hat2)
+ggplot(prediction, aes(x=feature, y=Pairwise, fill=feature)) + 
+  geom_violin(trim=FALSE)+
+  labs(title="Prediction Accuracy Results", x="", y = "Prediction")+
+  geom_boxplot(width=0.1, fill="white")+
+  scale_fill_brewer(palette="Blues") + 
+  theme_classic()
 
-ggplot(y.hat, aes(x= type, y=size, fill=type)) + geom_violin() +scale_y_log10()
-ggplot(y.hat, aes(x="", y="")) + geom_violin(trim = FALSE)
 ```
-
 
