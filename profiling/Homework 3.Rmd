@@ -297,13 +297,24 @@ plot(y.hat2, y[(n.trn+1):n])
 
 ```{r}
 library("ggplot2")
-prediction <- rbind(y.hat, y.hat2)
-ggplot(prediction, aes(x=feature, y=Pairwise, fill=feature)) + 
-  geom_violin(trim=FALSE)+
-  labs(title="Prediction Accuracy Results", x="", y = "Prediction")+
-  geom_boxplot(width=0.1, fill="white")+
-  scale_fill_brewer(palette="Blues") + 
-  theme_classic()
+boxplot(y.hat, xlab = "GBLUP", ylab = "Prediction", main = "Prediction Accuracy Results")
+
+boxplot(y.hat2, xlab = "RRBLUP", ylab = "Prediction", main = "Prediction Accuracy Results")
+
+
+prediction2 <- cbind(y.hat, y.hat2)
+head(prediction2)
+boxplot(prediction2, xlab = c("1.GBLUP", "2.RRBLUP"), ylab = "Prediction", main = "Prediction Accuracy Results")
+
+
+#library("ggplot2")
+#prediction <- rbind(y.hat, y.hat2)
+#ggplot(prediction, aes(x=feature, y=Pairwise, fill=feature)) + 
+#  geom_violin(trim=FALSE)+
+#  labs(title="Prediction Accuracy Results", x="", y = "Prediction")+
+#  geom_boxplot(width=0.1, fill="white")+
+#  scale_fill_brewer(palette="Blues") + 
+#  theme_classic()
 
 ```
 
